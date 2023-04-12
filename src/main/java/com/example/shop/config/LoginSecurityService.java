@@ -1,3 +1,4 @@
+/*
 package com.example.shop.config;
 
 import com.example.hong.entity.User;
@@ -21,3 +22,4 @@ public class LoginSecurityService implements UserDetailsService {
         return new PrincipalDetail(principal);
     }
 }
+*/

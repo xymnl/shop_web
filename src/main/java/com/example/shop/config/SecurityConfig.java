@@ -1,3 +1,4 @@
+/*
 package com.example.shop.config;
 
 import lombok.RequiredArgsConstructor;
@@ -54,3 +55,4 @@ public class SecurityConfig {
     }
 
 }
+*/

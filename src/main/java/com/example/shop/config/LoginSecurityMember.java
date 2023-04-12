@@ -1,3 +1,4 @@
+/*
 package com.example.shop.config;
 
 import com.example.hong.entity.User;
@@ -53,3 +54,4 @@ public class LoginSecurityMember implements UserDetails {
         return true;
     }
 }
+*/

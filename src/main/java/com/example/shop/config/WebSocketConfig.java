@@ -1,3 +1,4 @@
+/*
 package com.example.shop.config;
 
 import com.example.hong.handler.SocketHandler;
@@ -18,4 +19,4 @@ public class WebSocketConfig implements WebSocketConfigurer {
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(socketHandler, "/chating");
     }
-}
+}*/
