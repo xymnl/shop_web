@@ -16,4 +16,8 @@ public class HomeController {
     public String order() {
         return "order";
     }
+
+    /* === 테스트용 ===*/
+    @GetMapping("/sample")
+    public String sample() { return "sample"; }
 }
