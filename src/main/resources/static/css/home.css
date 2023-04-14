@@ -22,6 +22,11 @@ nav{border-bottom:1px solid #e4e4e4;}
     background:url(/imgs/right.jpg) no-repeat center center;
     background-size:cover;
 }
+/*=== slide ====*/
+.slide{
+	user-select:none;
+}
+
 
 .box {width:100px; height:100px; background:pink;}
 

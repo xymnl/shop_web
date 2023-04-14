@@ -12,26 +12,35 @@
   <link rel="icon" href="/imgs/favicon-logo.svg" sizes="32x32" type="image/png">
 <!--   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
   <script src="/js/jquery-1.12.4.min.js"></script>
+  <script src="/js/slide.js"></script>
   <script src="/js/jquery.flexslider.js"></script>
   <script src="/js/jquery.touchSwipe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  <script>
-    $(function() {
-        $('.flexslider').flexslider({
-        	animation: "slide",
-            slideshowSpeed: 5000,
-            animationSpeed: 600,
-            controlNav: false,
-            directionNav: false,
-            touchSwipe: true
-        });
-        $("#test").swipe( {
-			swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-				$(this).find('img').attr('src', 'path/to/../../resources/imgs/' + direction + '.jpg');
-			}
+	<script>
+	  $(document).ready(function() {
+		  $('.flexslider').flexslider({
+		    animation: 'slide',
+		    controlNav: true,
+		    directionNav: false,
+		    touch: true,
+		    start: function(slider){
+		      $('body').removeClass('loading');
+		    }
+		  });
+
+		  $("#test").swipe({
+		    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+		      if (direction === 'left') {
+		        $('.flexslider').flexslider('next');
+		      } else if (direction === 'right') {
+		        $('.flexslider').flexslider('prev');
+		      }
+		    },
+		    threshold: 50,
+		    fingers: 'all'
+		  });
 		});
-    });
-</script>
+	</script>
 </head>
 <body>
   <div class="py-4 pt-lg-3 pb-lg-0">
@@ -787,19 +796,20 @@
 			</div>
 		</div>
 	</nav>
+
 	<div class="section">
 	  <div class="flexslider">
-	     <ul class="slides" id="test">
-	         <li class="fs-slide">
-	             <div class="fs-item-bg fs-bg-1"></div>
-	             <div class="fs-slideContents"></div>
-	         </li>
-	         <li class="fs-slide">
-	             <div class="fs-item-bg fs-bg-2"></div>
-	             <div class="fs-slideContents"></div>
-	         </li>
-	     </ul>
-	 </div>
+	    <ul class="slides" id="test">
+	      <li class="fs-slide">
+	        <div class="fs-item-bg fs-bg-1"></div>
+	        <div class="fs-slideContents"></div>
+	      </li>
+	      <li class="fs-slide">
+	        <div class="fs-item-bg fs-bg-2"></div>
+	        <div class="fs-slideContents"></div>
+	      </li>
+	    </ul>
+	  </div>
 	</div>
 
 </body>
