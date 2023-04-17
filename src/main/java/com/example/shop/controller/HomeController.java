@@ -20,4 +20,5 @@ public class HomeController {
     /* === 테스트용 ===*/
     @GetMapping("/sample")
     public String sample() { return "sample"; }
+
 }
