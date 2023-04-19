@@ -24,14 +24,33 @@
 	<script src="/resources/js/jquery-1.12.4.min.js"></script>
 	<script src="/resources/js/slick.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-M8S4MT3EYG');
+    </script>
+
 	<!-- slick slide -->
 	<script type="text/javascript">
     $(document).on('ready', function() {
       $(".lazy").slick({
         dots:true,
         lazyLoad: 'ondemand', // ondemand progressive anticipated
-        infinite: true
+        infinite: true,
+        autoplay : true,
+        arrows:false
       });
+      $(".center").slick({
+          infinite: true,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          autoplay : true,
+          arrows:false
+        });
     });
 </script>
 </head>
@@ -66,31 +85,33 @@
                          </span>
                        </a>
                       </div>
-                     <div class="list-inline-item"> <!-- 회원가입 버튼 -->
+                     <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
+                     <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
                        <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
-                       <!-- 회원가입 모달 -->
+                       <!-- 로그인 모달 -->
                        <div class="modal fade" tabindex="-1" role="dialog" id="userModal">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content rounded-4 shadow">
 						      <div class="modal-header p-5 pb-4 border-bottom-0">
-						        <h1 class="fw-bold mb-0 fs-2">회원가입</h1>
+						        <h1 class="fw-bold mb-0 fs-2">로그인</h1>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
 						      <div class="modal-body p-5 pt-0">
 						        <form class="">
 						          <div class="form-floating mb-3">
-						            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
-						            <label for="floatingInput">Email address</label>
+						            <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Id">
+						            <label for="floatingInput">아이디를 입력하세요.</label>
 						          </div>
 						          <div class="form-floating mb-3">
 						            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
-						            <label for="floatingPassword">Password</label>
+						            <label for="floatingPassword">비밀번호를 입력하세요.</label>
 						          </div>
-						          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">회원가입</button>
-						          <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+						          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">로그인</button>
+						          <small class="text-body-secondary">계정이 없으신가요?</small><br>
+						          <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="#">회원가입</a></small>
 						          <hr class="my-4">
 						          <h2 class="fs-5 fw-bold mb-3">소셜 로그인</h2>
-						          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit"><i class="bi bi-google"></i>Sign up with Google</button>
+						          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit"></i>Sign up with Google</button>
 						          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">Sign up with Naver</button>
 						        </form>
 						      </div>

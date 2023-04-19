@@ -64,16 +64,18 @@
 
 .slick-prev
 {
-    left: -25px;
+    /* left: -25px; */
+    right:40px;
+    top:-20px;
 }
 [dir='rtl'] .slick-prev
 {
-    right: -25px;
+	right: -25px;
     left: auto;
 }
 .slick-prev:before
 {
-    content: '←';
+    content: '';
 }
 [dir='rtl'] .slick-prev:before
 {
@@ -82,7 +84,9 @@
 
 .slick-next
 {
-    right: -25px;
+    /* right: -25px; */
+    right:0;
+    top:-20px;
 }
 [dir='rtl'] .slick-next
 {
