@@ -11,6 +11,11 @@ public class HomeController {
     public String test() {
         return "home";
     }
+    
+    @GetMapping("/createUser")
+    public String createUser() {
+    	return "createUser";
+    }
 
     @GetMapping("/order")
     public String order() {
@@ -20,5 +25,6 @@ public class HomeController {
     /* === 테스트용 ===*/
     @GetMapping("/sample")
     public String sample() { return "sample"; }
-
+    
+    
 }

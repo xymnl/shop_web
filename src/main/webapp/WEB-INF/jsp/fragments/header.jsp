@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -99,16 +98,16 @@
 						      <div class="modal-body p-5 pt-0">
 						        <form class="">
 						          <div class="form-floating mb-3">
-						            <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Id">
-						            <label for="floatingInput">아이디를 입력하세요.</label>
+						            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="input@email.com" required>
+						            <label for="floatingInput">이메일을 입력하세요.</label>
 						          </div>
 						          <div class="form-floating mb-3">
-						            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+						            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" required>
 						            <label for="floatingPassword">비밀번호를 입력하세요.</label>
 						          </div>
 						          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">로그인</button>
 						          <small class="text-body-secondary">계정이 없으신가요?</small><br>
-						          <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="#">회원가입</a></small>
+						          <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="/createUser">회원가입</a></small>
 						          <hr class="my-4">
 						          <h2 class="fs-5 fw-bold mb-3">소셜 로그인</h2>
 						          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit"></i>Sign up with Google</button>
