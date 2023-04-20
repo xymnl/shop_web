@@ -116,7 +116,7 @@
 						      </div>
 						    </div>
 						  </div>
-						</div>
+						</div> <!-- END : userModal -->
                      </div>
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative " data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
@@ -139,7 +139,7 @@
                  <span class="me-1"><i class="bi bi-grid"></i></span> 모든 카테고리
                </button>
                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                 <li><a class="dropdown-item" href="#">Dairy, Bread & Eggs</a></li>
+                 <li><a class="dropdown-item" href="shop">Dairy, Bread & Eggs</a></li>
                  <li><a class="dropdown-item" href="#">Snacks & Munchies</a></li>
                  <li><a class="dropdown-item" href="#">Fruits & Vegetables</a></li>
                </ul>

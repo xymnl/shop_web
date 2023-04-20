@@ -4,9 +4,15 @@ package com.example.shop.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import lombok.RequiredArgsConstructor;
+
+
+
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
 
+	
     @GetMapping("/test")
     public String test() {
         return "home";
@@ -16,6 +22,13 @@ public class HomeController {
     public String createUser() {
     	return "createUser";
     }
+    
+    @GetMapping("/shop")
+    public String detailPage() {
+    	return "shop";
+    }
+    
+    
 
     @GetMapping("/order")
     public String order() {
