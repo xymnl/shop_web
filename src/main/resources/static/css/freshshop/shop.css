@@ -1,0 +1,28 @@
+@charset "UTF-8";
+ 
+.navigation {width:300px; height:40px; transform:translate(200px, 15px); line-height:40px;}
+
+.s-container {
+	width:80%;
+	height:1000px;	
+	margin:10px auto;
+	padding:10px;
+}
+
+.leftbar {
+	float:left;
+	width:200px;
+	height:100%;
+	margin:10px 30px;
+}
+
+.shop-body {
+	margin-left:300px;
+	height:100%;
+	}
+
+.shop-title {height:100px; padding:20px; border-radius:10px; background:#efefef;}
+.shop-title > h2 {line-height:50px;}
+
+.shop-filter {margin:20px;}
+.shop-itmes {margin:20px;}

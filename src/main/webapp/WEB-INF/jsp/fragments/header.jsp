@@ -13,15 +13,24 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"> <!-- 부트스트랩 아이콘  -->
 
 	<!-- Freshshop CSS -->
+	<link rel="stylesheet" href="/resources/css/freshshop/theme.min.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/header.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/home.css">
+	<link rel="stylesheet" href="/resources/css/freshshop/footer.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/modals.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/slick.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/slick-theme.css">
+	<link rel="stylesheet" href="/resources/css/freshshop/shop.css">
+	<link rel="stylesheet" href="/resources/css/freshshop/detail.css">
+	<link rel="stylesheet" href="/resources/css/freshshop/tiny.css">
 
 	<!-- js -->
 	<script src="/resources/js/jquery-1.12.4.min.js"></script>
 	<script src="/resources/js/slick.js"></script>
+	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
+	<script src="/resources/js/jquery.tiny-slider.js"></script>
+	<script src="/resources/js/jquery.tiny.js"></script>
+	<script src="/resources/js/jquery.prism.js"></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
@@ -50,6 +59,32 @@
           autoplay : true,
           arrows:false
         });
+      function zoom(f) {
+    	    var t = f.currentTarget;
+    	    offsetX = f.offsetX || f.touches[0].pageX,
+    	    f.offsetY ? offsetY = f.offsetY : offsetX = f.touches[0].pageX,
+    	    x = offsetX / t.offsetWidth * 100,
+    	    y = offsetY / t.offsetHeight * 100,
+    	    t.style.backgroundPosition = x + "% " + y + "%"
+    	}
+      $(".zoom").elevateZoom({
+          zoomType: "inner",
+          lensShape: "round",
+          lensSize: 400
+      });
+      
+      var options= {
+		  'customize': {
+		      container: '',
+		      items: 3,
+		      controlsContainer: '#customize-controls',
+		      navContainer: '#customize-thumbnails',
+		      navAsThumbnails: true,
+		      autoplay: true,
+		      autoplayTimeout: 1000,
+		      autoplayButton: '#customize-toggle',
+		    }
+      }
     });
 </script>
 </head>
@@ -60,17 +95,15 @@
              <div class="container">
                <div class="row w-100 align-items-center gx-lg-2 gx-0">
                  <div class="col-xxl-2 col-lg-3"> <!-- 로고 이미지 / 선택 시 메인 페이지 이동 -->
-                   <a class="navbar-brand d-none d-lg-block logo" href="#"><img src="/resources/imgs/logo.png" alt="로고 이미지">Fresh Shop</a>
+                   <a class="navbar-brand d-none d-lg-block logo" href="test"><img src="/resources/imgs/logo.png" alt="로고 이미지">Fresh Shop</a>
                  </div>
                  <div class="col-xxl-6 col-lg-5 d-none d-lg-block"> <!-- 제품 검색 영역 -->
                    <form action="#">
                      <div class="input-group">
                        <input class="form-control rounded" type="search" placeholder="Search for products">
-                       <span class="input-group-append">
                          <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
                          	<i class="bi bi-search"></i>
                          </button>
-                       </span>
                      </div>
                    </form>
                  </div>
@@ -79,9 +112,7 @@
                      <div class="list-inline-item">
                        <a href="../../pages/shop-wishlist.html" class="text-muted position-relative">
 						<i class="bi bi-heart"></i>
-                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                           5 <span class="visually-hidden">unread messages</span>
-                         </span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> 5 <span class="visually-hidden">unread messages</span></span>
                        </a>
                       </div>
                      <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
@@ -119,12 +150,9 @@
 						</div> <!-- END : userModal -->
                      </div>
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
-                       <a class="text-muted position-relative " data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                         href="#offcanvasExample" role="button" aria-controls="offcanvasRight">
+                       <a class="text-muted position-relative " data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" href="#offcanvasExample" role="button" aria-controls="offcanvasRight">
                          <i class="bi bi-cart3"></i>
-                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                           1<span class="visually-hidden">unread messages</span>
-                         </span>
+                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">1<span class="visually-hidden">unread messages</span></span>
                        </a>
                      </div>
                    </div>
@@ -148,10 +176,7 @@
                <div class="d-none d-lg-block"> <!-- 간단한 네비게이션 영역 -->
                  <ul class="navbar-nav align-items-center ">
                    <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                       Shop
-                     </a>
+                     <a class="nav-link" href="#" role="button">Shop <i class="bi bi-chevron-down"></i></a>
                      <ul class="dropdown-menu">
                        <li><a class="dropdown-item" href="#">Shop Grid - Filter</a></li>
                        <li><a class="dropdown-item" href="#">Shop Grid - 3 column</a></li>
@@ -160,7 +185,7 @@
                      </ul>
                    </li>
                    <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Stores</a>
+                     <a class="nav-link" href="#" role="button">Stores <i class="bi bi-chevron-down"></i></a>
                      <ul class="dropdown-menu">
                        <li><a class="dropdown-item" href="#">Store List</a></li>
                        <li><a class="dropdown-item" href="#">Store Grid</a></li>

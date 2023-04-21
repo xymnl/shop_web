@@ -1,6 +1,6 @@
 <footer class="page-footer font-small cyan darken-3">
         <div class="border-top py-4">
-            <div class="row align-items-center">
+            <div class="row align-items-center footer-title">
                 <div class="text-lg-start text-center">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item text-dark">Payment Partners</li>

@@ -24,10 +24,19 @@ public class HomeController {
     }
     
     @GetMapping("/shop")
-    public String detailPage() {
+    public String shopPage() {
     	return "shop";
     }
     
+    @GetMapping("/detail")
+    public String detailPage() {
+    	return "shop-detail";
+    }
+    
+    @GetMapping("/wish")
+    public String wisthPage() {
+    	return "wish";
+    }
     
 
     @GetMapping("/order")
