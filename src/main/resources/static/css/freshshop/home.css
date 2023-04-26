@@ -3,13 +3,11 @@
 body {overflow-x:hidden; width:100%; height:100vh;}
 .m-container {
 	width:80%;
-	height:100%;	
+    height:1000px;  
 	margin:10px auto;
-	padding:30px;
+	padding:10px;
 }
-.main-banner {
-	padding:20px;
-}
+
 .main-banner-img > img {width:100%; height:400px; background-size:cover;}
 
 /* === slick === */

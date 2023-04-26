@@ -1,24 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="fragments/header.jsp"%>
 
+<!-- Breadcrumb -->
+<nav class="navigation" aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="test">Home</a></li>
+		<li class="breadcrumb-item active"><a href="shop">shop</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Napolitanke Ljesnjak</li>
+	</ol>
+</nav>
+
 <div class="row">
 	<div class="col-md-6">
 		<!-- img slide -->
 		<div id="customize_wrapper">
 			<div class="customize" id="customize">
-				<div><div><img src="/resources/imgs/product-single-img-1.jpg" alt=""></div></div>
-				<div><div><img src="/resources/imgs/product-single-img-2.jpg" alt=""></div></div>
+				<div class="title-img">
+					<img src="/resources/imgs/product-single-img-1.jpg" alt="" class="shop-img">
+				</div>
 			</div>
-			<div class="customize-tools">
-			<ul class="thumbnails" id="customize-thumbnails">
-				<li><img src="resources/imgs/product-single-img-1.jpg" alt=""></li>
-				<li><img src="resources/imgs/product-single-img-2.jpg" alt=""></li>
-			</ul>
-		</div>
 		</div>
 		
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-6 shop-container">
 		<div class="ps-lg-10 mt-6 mt-md-0">
 			<a href="#!" class="mb-4 d-block">Bakery Biscuits</a>
 			<h1 class="mb-1">Napolitanke Ljesnjak</h1>

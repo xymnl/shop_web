@@ -21,8 +21,11 @@
 	height:100%;
 	}
 
-.shop-title {height:100px; padding:20px; border-radius:10px; background:#efefef;}
-.shop-title > h2 {line-height:50px;}
-
+.shop-title > h2 {line-height:65px;}
 .shop-filter {margin:20px;}
 .shop-itmes {margin:20px;}
+
+/* === shop-detail === */
+.item {float:left;}
+/* btn 수평정렬 방법 */
+.wrap {display:flex; justify-content:center; align-items:center;}

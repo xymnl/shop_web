@@ -139,11 +139,13 @@
 						          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">로그인</button>
 						          <small class="text-body-secondary">계정이 없으신가요?</small><br>
 						          <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="/createUser">회원가입</a></small>
+						          </form>
 						          <hr class="my-4">
 						          <h2 class="fs-5 fw-bold mb-3">소셜 로그인</h2>
 						          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit"></i>Sign up with Google</button>
 						          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">Sign up with Naver</button>
-						        </form>
+						          <button class="w-100 py-2 mb-2 btn btn-outline-warning rounded-3" type="submit">Sign up with KaKao</button>
+						        
 						      </div>
 						    </div>
 						  </div>
