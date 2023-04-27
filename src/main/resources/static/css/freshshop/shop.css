@@ -4,7 +4,7 @@
 
 .s-container {
 	width:80%;
-	height:1000px;	
+	height:1300px;	
 	margin:10px auto;
 	padding:10px;
 }
@@ -27,5 +27,6 @@
 
 /* === shop-detail === */
 .item {float:left;}
+
 /* btn 수평정렬 방법 */
 .wrap {display:flex; justify-content:center; align-items:center;}

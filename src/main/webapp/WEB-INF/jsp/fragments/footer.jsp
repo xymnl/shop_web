@@ -1,3 +1,5 @@
+<div class="clear"></div>
+
 <footer class="page-footer font-small cyan darken-3">
         <div class="border-top py-4">
             <div class="row align-items-center footer-title">
