@@ -22,15 +22,11 @@
 	<link rel="stylesheet" href="/resources/css/freshshop/slick-theme.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/shop.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/detail.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/tiny.css">
 
 	<!-- js -->
 	<script src="/resources/js/jquery-1.12.4.min.js"></script>
 	<script src="/resources/js/slick.js"></script>
 	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
-	<script src="/resources/js/jquery.tiny-slider.js"></script>
-	<script src="/resources/js/jquery.tiny.js"></script>
-	<script src="/resources/js/jquery.prism.js"></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
@@ -109,12 +105,12 @@
                  </div>
                  <div class="col-md-4 col-xxl-4 text-end d-none d-lg-block"> <!-- 위시 버튼;하트 -->
                    <div class="list-inline">
-                     <div class="list-inline-item">
+                     <!-- <div class="list-inline-item">
                        <a href="../../pages/shop-wishlist.html" class="text-muted position-relative">
 						<i class="bi bi-heart"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> 5 <span class="visually-hidden">unread messages</span></span>
                        </a>
-                      </div>
+                      </div> -->
                      <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
                      <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
                        <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
@@ -152,7 +148,7 @@
 						</div> <!-- END : userModal -->
                      </div>
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
-                       <a class="text-muted position-relative " data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" href="#offcanvasExample" role="button" aria-controls="offcanvasRight">
+                       <a class="text-muted position-relative" href="/cart" role="button">
                          <i class="bi bi-cart3"></i>
                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">1<span class="visually-hidden">unread messages</span></span>
                        </a>
