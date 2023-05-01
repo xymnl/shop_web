@@ -48,8 +48,6 @@ public class HomeController {
     @GetMapping("/sample")
     public String sample() { return "sample"; }
 
-    @GetMapping("/cart")
-    public String cart() { return "cart"; }
     
     
 }
