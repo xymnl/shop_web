@@ -91,7 +91,7 @@
              <div class="container">
                <div class="row w-100 align-items-center gx-lg-2 gx-0">
                  <div class="col-xxl-2 col-lg-3"> <!-- 로고 이미지 / 선택 시 메인 페이지 이동 -->
-                   <a class="navbar-brand d-none d-lg-block logo" href="test"><img src="/resources/imgs/logo.png" alt="로고 이미지">Fresh Shop</a>
+                   <a class="navbar-brand d-none d-lg-block logo" href="/"><img src="/resources/imgs/logo.png" alt="로고 이미지">Fresh Shop</a>
                  </div>
                  <div class="col-xxl-6 col-lg-5 d-none d-lg-block"> <!-- 제품 검색 영역 -->
                    <form action="#">
