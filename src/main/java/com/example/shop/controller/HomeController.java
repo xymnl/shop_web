@@ -2,10 +2,11 @@ package com.example.shop.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.RequiredArgsConstructor;
-
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -13,14 +14,28 @@ import lombok.RequiredArgsConstructor;
 public class HomeController {
 
 	
-    @GetMapping("/test")
-    public String test() {
+    @GetMapping("/")
+    public String home() {
         return "home";
     }
     
     @GetMapping("/createUser")
     public String createUser() {
     	return "createUser";
+    }
+
+    @PostMapping("/createUser")
+    public String createUser(Model model, String email, String name, String password, String password_check, String address) {
+
+        model.addAttribute("email", email);
+        model.addAttribute("name", name);
+        model.addAttribute("password", password);
+        model.addAttribute("password_check", password_check);
+        model.addAttribute("address", address);
+
+        System.out.println("model = " + model);
+
+        return "createUser";
     }
     
     @GetMapping("/shop_dairy")
@@ -48,8 +63,6 @@ public class HomeController {
     @GetMapping("/sample")
     public String sample() { return "sample"; }
 
-    @GetMapping("/cart")
-    public String cart() { return "cart"; }
     
     
 }

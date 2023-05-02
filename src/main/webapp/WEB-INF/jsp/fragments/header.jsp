@@ -92,7 +92,7 @@
              <div class="container">
                <div class="row w-100 align-items-center gx-lg-2 gx-0">
                  <div class="col-xxl-2 col-lg-3"> <!-- 로고 이미지 / 선택 시 메인 페이지 이동 -->
-                   <a class="navbar-brand d-none d-lg-block logo" href="test"><img src="/resources/imgs/logo.png" alt="로고 이미지">Fresh Shop</a>
+                   <a class="navbar-brand d-none d-lg-block logo" href="/"><img src="/resources/imgs/logo.png" alt="로고 이미지">Fresh Shop</a>
                  </div>
                  <div class="col-xxl-6 col-lg-5 d-none d-lg-block"> <!-- 제품 검색 영역 -->
                    <form action="#">
@@ -120,7 +120,7 @@
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content rounded-4 shadow">
 						      <div class="modal-header p-5 pb-4 border-bottom-0">
-						        <h1 class="fw-bold mb-0 fs-2">로그인</h1>
+						        <h1 class="fw-bold mb-0 fs-2">로그인</h1>인
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
 						      <div class="modal-body p-5 pt-0">
