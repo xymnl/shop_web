@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -84,6 +84,29 @@
       }
     });
 </script>
+<script>
+$("#login-form").submit(function(event) {
+	  event.preventDefault();
+
+	  let data = {
+		  email : $("#email").val(),
+		  password : $("#password").val()
+	  } 
+
+	  $.ajax({
+          type: "POST", 
+          url: "/user/login", 
+          data: JSON.stringify(data), 
+          contentType: "application/json; charset=utf-8", //MIME 타입
+          dataType: "json" //응답 데이터
+      }).done(function(res) {
+          alert("로그인이 완료되었습니다.");
+          location.href = "/";
+      }).fail(function(err) {
+          alert(JSON.stringify(err));
+      });
+
+</script>
 </head>
 <body>
 	<header>
@@ -124,7 +147,7 @@
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
 						      <div class="modal-body p-5 pt-0">
-						        <form class="" method="post" action="">
+						        <form class="" method="post" action="/user/login" id="login-form">
 						          <div class="form-floating mb-3">
 						            <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
 						            <label for="floatingInput">이메일을 입력하세요.</label>
@@ -166,7 +189,7 @@
                  <span class="me-1"><i class="bi bi-grid"></i></span> 모든 카테고리
                </button>
                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                 <li><a class="dropdown-item" href="shop">Dairy, Bread & Eggs</a></li>
+                 <li><a class="dropdown-item" href="shop_dairy">Dairy, Bread & Eggs</a></li>
                  <li><a class="dropdown-item" href="#">Snacks & Munchies</a></li>
                  <li><a class="dropdown-item" href="#">Fruits & Vegetables</a></li>
                </ul>
@@ -201,3 +224,4 @@
          </nav>
        </div>
 	</header>
+

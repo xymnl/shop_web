@@ -128,7 +128,7 @@ $(document).ready(function() {
 	    $('.information').hide();
 	    $('.product-detail-txt').toggleClass('active');
 	    $(this).addClass('active');
-	    $('.information').removeClass('active');
+	    $('.product-information').removeClass('active');
 	    
 	  });
 	  
