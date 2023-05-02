@@ -32,7 +32,6 @@ public class ItemController {
 
         //localhost:8090/user/item 으로 조회
         String url = apiServer + "user/item/";
-
         //외부 url을 요청하는 인터페이스
         ResponseEntity response = new RestTemplate().getForEntity(url, Object.class);
 

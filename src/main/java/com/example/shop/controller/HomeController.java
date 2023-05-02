@@ -23,14 +23,14 @@ public class HomeController {
     	return "createUser";
     }
     
-    @GetMapping("/shop")
+    @GetMapping("/shop_dairy")
     public String shopPage() {
-    	return "shop";
+    	return "products/shop_dairy";
     }
     
     @GetMapping("/detail")
     public String detailPage() {
-    	return "shop-detail";
+    	return "products/shop-detail";
     }
     
     @GetMapping("/wish")

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="fragments/header.jsp"%>
+<%@include file="../fragments/header.jsp"%>
 
 <!-- Breadcrumb -->
 <nav class="navigation" aria-label="breadcrumb">
@@ -19,19 +19,19 @@
 					<li class="nav-item border-bottom w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#categoryFlushOne" aria-expanded="false" aria-controls="categoryFlushOne">
 					<a href="#" class="nav-link">Dairy, Bread & Eggs <i class="feather-icon icon-chevron-right"></i></a> 
 					<!-- accordion collapse -->
-						<div id="categoryFlushOne" class="accordion-collapse collapse" data-bs-parent="#categoryCollapseMenu">
+<!-- 						<div id="categoryFlushOne" class="accordion-collapse collapse" data-bs-parent="#categoryCollapseMenu">
 							<div>
 								<ul class="nav flex-column ms-3">
 									<li class="nav-item"><a href="#!" class="nav-link">Milk</a></li>
 									<li class="nav-item"><a href="#!" class="nav-link">Milk Drinks</a></li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 					</li>
 					<li class="nav-item border-bottom w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
 						<a href="#" class="nav-link"> Snacks & Munchies <i class="feather-icon icon-chevron-right"></i></a> 
 						<!-- collapse -->
-						<div id="flush-collapseTwo" class="accordion-collapse collapse"
+<!-- 						<div id="flush-collapseTwo" class="accordion-collapse collapse"
 							data-bs-parent="#categoryCollapseMenu">
 							<div>
 								<ul class="nav flex-column ms-3">
@@ -39,12 +39,12 @@
 									<li class="nav-item"><a href="#!" class="nav-link">Nachos</a></li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 					</li>
 					<li class="nav-item border-bottom w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
 						<a href="#" class="nav-link">Fruits & Vegetables <i class="feather-icon icon-chevron-right"></i></a> 
 						<!-- collapse -->
-						<div id="flush-collapseThree" class="accordion-collapse collapse"
+<!-- 						<div id="flush-collapseThree" class="accordion-collapse collapse"
 							data-bs-parent="#categoryCollapseMenu">
 							<div>
 								<ul class="nav flex-column ms-3">
@@ -52,7 +52,7 @@
 									<li class="nav-item"><a class="nav-link" href="#!">Herbs & Seasonings</a></li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 					</li>
 				</ul>
 			</div>
@@ -215,4 +215,4 @@
 	</div><!-- END : shop-body -->
 </div><!-- END : s-container -->
 
-<%@include file="fragments/footer.jsp"%>
+<%@include file="../fragments/footer.jsp"%>

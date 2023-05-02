@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -123,13 +124,13 @@
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
 						      <div class="modal-body p-5 pt-0">
-						        <form class="">
+						        <form class="" method="post" action="">
 						          <div class="form-floating mb-3">
-						            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="input@email.com" required>
+						            <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
 						            <label for="floatingInput">이메일을 입력하세요.</label>
 						          </div>
 						          <div class="form-floating mb-3">
-						            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" required>
+						            <input type="password" class="form-control rounded-3" id="password" placeholder="Password" required>
 						            <label for="floatingPassword">비밀번호를 입력하세요.</label>
 						          </div>
 						          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">로그인</button>
