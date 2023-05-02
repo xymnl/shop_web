@@ -3,11 +3,11 @@ package com.example.shop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
-
 
 @Controller
 @RequiredArgsConstructor
@@ -24,19 +24,10 @@ public class HomeController {
     	return "createUser";
     }
 
-    @PostMapping("/createUser")
-    public String createUser(Model model, String email, String name, String password, String password_check, String address) {
-
-        model.addAttribute("email", email);
-        model.addAttribute("name", name);
-        model.addAttribute("password", password);
-        model.addAttribute("password_check", password_check);
-        model.addAttribute("address", address);
-
-        System.out.println("model = " + model);
-
-        return "createUser";
-    }
+//    @PostMapping("/createUser")
+//    public String createUser2() {
+//        return "createUser";
+//    }
     
     @GetMapping("/shop")
     public String shopPage() {

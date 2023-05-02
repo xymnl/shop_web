@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-<script type="text/javascript" src="../resources/static/js/user.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <%@include file="fragments/header.jsp" %>
 <body>
 	<div class="m-container">
@@ -11,9 +13,31 @@
 			    <div class="mb-8 py-3">
 			       <h1 class="h3">회원가입</h1>
 			       <p class="lead mb-0">Fresh Shop의 회원이 되어 혜택을 누리세요!</p>
+
+<script type="text/javascript">
+let api = "http://localhost:8090"
+$(function(){
+$("#btn-save").on("click",function(){ //this를 바인딩하기 위해 화샬표 함수 사용
+    let form1 =$("#form").serialize();
+
+         $.ajax({
+             type: "POST", //Http method
+             url: api+"/user/new", //API 주소
+             data: JSON.stringify(form1), //JSON으로 변환
+             contentType: "application/json; charset=utf-8", //MIME 타입
+             dataType: "text" //응답 데이터
+         }).done(function(res) {
+             alert("회원가입이 완료되었습니다.");
+             location.href = "/";
+         }).error(function(err) {
+             alert(JSON.stringify(err));
+         });
+ })
+});
+</script>
 			    </div>
 			    <!-- form -->
-			    <form action="/createUser" method="post">
+			    <form id="form">
 			       <!-- input -->
 			       <div class="col-md-12 mb-3">
 			          <label class="form-label" for="email">Email<span class="text-danger">*</span></label>
@@ -40,7 +64,7 @@
 			       </div>
 			       <div class="col-md-12">
 			          <!-- btn -->
-			          <button type="submit" class="btn btn-primary" id="btn-save">회원가입 완료</button>
+			          <button type="button" class="btn btn-primary" id="btn-save">회원가입 완료</button>
 			       </div>
 			    </form>
 			  </div>
