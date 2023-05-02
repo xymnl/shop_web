@@ -24,10 +24,6 @@ public class HomeController {
     	return "createUser";
     }
 
-//    @PostMapping("/createUser")
-//    public String createUser2() {
-//        return "createUser";
-//    }
     
     @GetMapping("/shop")
     public String shopPage() {
