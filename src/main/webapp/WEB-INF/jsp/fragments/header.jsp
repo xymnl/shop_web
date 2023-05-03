@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="/resources/css/freshshop/slick-theme.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/shop.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/detail.css">
+	<link rel="stylesheet" href="/resources/css/freshshop/inquiry.css">
 
 	<!-- js -->
 	<script src="/resources/js/jquery-1.12.4.min.js"></script>
@@ -103,6 +104,7 @@ $(function() {
 	    // Ajax를 이용한 로그인 처리
 	    $.ajax({
 	      type: "POST",
+<<<<<<< HEAD
 	      url: api+"/user/login",
 	      async: 'false',
 	      contentType: "application/json; charset=utf-8",
@@ -116,8 +118,27 @@ $(function() {
             				alert(JSON.stringify(err));
             			})
 	  })
+=======
+	      url: api+"/user/login",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+	      contentType: "application/json; charset=utf-8",
+	      data: JSON.stringify({email: email, password: password}),
+	      dataType: "text",
+	      headers: {
+	    	    'Authorization': 'Bearer ' + tokenValue
+	    	  },
+	      success: function(response) {      
+	    	  
+			// 로그인 성공시 홈페이지로 이동
+	        window.location.href = "/";
+	      },
+	      error: function(xhr, status, error) {
+	        // 로그인 실패시 에러 메시지 출력
+	        alert("로그인에 실패하였습니다. 다시 시도해주세요.");
+	      }
+	    });
+	  });
+>>>>>>> sunyoung
 	});
-
 </script>
 </head>
 <body>
@@ -148,8 +169,15 @@ $(function() {
                        </a>
                       </div> -->
                      <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
+<<<<<<< HEAD
                      
 
+=======
+                     <%	
+                     	/* System.out.println("email 값 : "+userEmail);
+                     	if(userEmail==null) { */
+					 %>
+>>>>>>> sunyoung
                      <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
                        <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
                        <!-- 로그인 모달 -->
@@ -183,13 +211,26 @@ $(function() {
 						    </div>
 						  </div>
 						</div> <!-- END : userModal -->
+<<<<<<< HEAD
 
+=======
+						<%	
+					      	/* }else { */
+				      	%>
+				      		<a href="#" class="text-muted"></a>
+				      	<%
+				      	/* } */
+				     	%>
+>>>>>>> sunyoung
                      </div>
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative" href="/cart" role="button">
                          <i class="bi bi-cart3"></i>
                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">1<span class="visually-hidden">unread messages</span></span>
                        </a>
+                     </div>
+                     <div class="list-inline-item">
+                     	<a href="/inquiry" class="inquiry">문의하기</a>
                      </div>
                    </div>
                  </div>

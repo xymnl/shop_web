@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+
+.inquiry_title {
+  text-align: center;
+  padding: 20px 0;
+}
+
+table.dataTable th,
+table.dataTable td {
+  white-space: nowrap;
+}
+
+.paging {
+	width:80%;
+	display:inline-flex;
+	align-items:center;
+	margin-top:20px;
+	justify-content:center;
+}
+
+.page_btn, .pages {
+	margin:0 10px;
+}
+.page_btn, .pages, .pages>span {
+	margin:0 3px;
+	cursor:pointer;
+}
+span.active {
+	color:#0aad0a;
+	font-weight:bold;
+}
