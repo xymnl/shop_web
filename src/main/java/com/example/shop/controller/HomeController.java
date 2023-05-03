@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class HomeController {
 
 
-    @GetMapping("/amin_addItem")
+    @GetMapping("/admin_addItem")
     public String addItem() {
         return "amin_addItem";
     }
