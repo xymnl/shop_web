@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -85,26 +85,39 @@
     });
 </script>
 <script>
-$("#login-form").submit(function(event) {
-	  event.preventDefault();
+let api = "http://localhost:8090";
+$(document).ready(function() {
+	  // 로그인 폼 submit 이벤트 처리
+	  $("#login-form").submit(function(event) {
+	    // 기본 이벤트 제거
+	    event.preventDefault();
 
-	  let data = {
-		  email : $("#email").val(),
-		  password : $("#password").val()
-	  } 
+	    // 이메일과 비밀번호 입력 값 가져오기
+	    var email = $("#email").val();
+	    var password = $("#password").val();
+	    
+	    console.log("이메일"+email+"패스워드"+password);
+	    
+	    // Ajax를 이용한 로그인 처리
+	    $.ajax({
+	      type: "POST",
+	      url: api+"/user/login",
+	      contentType: "application/json; charset=utf-8",
+	      data: JSON.stringify({email: email, password: password}),
+	      dataType: "text",
+	      success: function(response) {      
+	    	  
+			// 로그인 성공시 홈페이지로 이동
+	        window.location.href = "/";
+	      },
+	      error: function(xhr, status, error) {
+	        // 로그인 실패시 에러 메시지 출력
+	        alert("로그인에 실패하였습니다. 다시 시도해주세요.");
 
-	  $.ajax({
-          type: "POST", 
-          url: "/user/login", 
-          data: JSON.stringify(data), 
-          contentType: "application/json; charset=utf-8", //MIME 타입
-          dataType: "json" //응답 데이터
-      }).done(function(res) {
-          alert("로그인이 완료되었습니다.");
-          location.href = "/";
-      }).fail(function(err) {
-          alert(JSON.stringify(err));
-      });
+	      }
+	    });
+	  });
+	});
 
 </script>
 </head>
@@ -136,6 +149,14 @@ $("#login-form").submit(function(event) {
                        </a>
                       </div> -->
                      <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
+                     
+                     <%	
+	                     // 세션에서 이메일 값을 가져옵니다.
+	                     String userEmail = (String) session  .getAttribute("email");
+                     
+                     	System.out.println("email 값 : "+userEmail);
+                     	if(userEmail==null) {
+					 %>
                      <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
                        <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
                        <!-- 로그인 모달 -->
@@ -143,11 +164,11 @@ $("#login-form").submit(function(event) {
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content rounded-4 shadow">
 						      <div class="modal-header p-5 pb-4 border-bottom-0">
-						        <h1 class="fw-bold mb-0 fs-2">로그인</h1>인
+						        <h1 class="fw-bold mb-0 fs-2">로그인</h1>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
 						      <div class="modal-body p-5 pt-0">
-						        <form class="" method="post" action="/user/login" id="login-form">
+						        <form class="" method="post" action="http://localhost:8090/user/login" id="login-form">
 						          <div class="form-floating mb-3">
 						            <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
 						            <label for="floatingInput">이메일을 입력하세요.</label>
@@ -165,11 +186,17 @@ $("#login-form").submit(function(event) {
 						          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit"></i>Sign up with Google</button>
 						          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">Sign up with Naver</button>
 						          <button class="w-100 py-2 mb-2 btn btn-outline-warning rounded-3" type="submit">Sign up with KaKao</button>
-						        
-						      </div>
+						        </div>
 						    </div>
 						  </div>
 						</div> <!-- END : userModal -->
+						<%	
+					      	}else {
+				      	%>
+				      		<a href="#" class="text-muted"><%= email %></a>
+				      	<%
+				      	}
+				     	%>
                      </div>
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative" href="/cart" role="button">
