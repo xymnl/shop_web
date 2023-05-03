@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="fragments/header.jsp"%>
+<%@ include file="../fragments/header.jsp"%>
 
 
 <div class="s-container">
@@ -128,7 +128,7 @@ $(document).ready(function() {
 	    $('.information').hide();
 	    $('.product-detail-txt').toggleClass('active');
 	    $(this).addClass('active');
-	    $('.information').removeClass('active');
+	    $('.product-information').removeClass('active');
 	    
 	  });
 	  
@@ -143,4 +143,4 @@ $(document).ready(function() {
 
 
 
-<%@ include file="fragments/footer.jsp"%>
+<%@ include file="../fragments/footer.jsp"%>
