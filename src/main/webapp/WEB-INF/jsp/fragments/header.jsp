@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="/resources/css/freshshop/slick-theme.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/shop.css">
 	<link rel="stylesheet" href="/resources/css/freshshop/detail.css">
+	<link rel="stylesheet" href="/resources/css/freshshop/inquiry.css">
 
 	<!-- js -->
 	<script src="/resources/js/jquery-1.12.4.min.js"></script>
@@ -101,10 +102,13 @@ $(document).ready(function() {
 	    // Ajax를 이용한 로그인 처리
 	    $.ajax({
 	      type: "POST",
-	      url: api+"/user/login",
+	      url: api+"/user/login",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 	      contentType: "application/json; charset=utf-8",
 	      data: JSON.stringify({email: email, password: password}),
 	      dataType: "text",
+	      headers: {
+	    	    'Authorization': 'Bearer ' + tokenValue
+	    	  },
 	      success: function(response) {      
 	    	  
 			// 로그인 성공시 홈페이지로 이동
@@ -113,12 +117,10 @@ $(document).ready(function() {
 	      error: function(xhr, status, error) {
 	        // 로그인 실패시 에러 메시지 출력
 	        alert("로그인에 실패하였습니다. 다시 시도해주세요.");
-
 	      }
 	    });
 	  });
 	});
-
 </script>
 </head>
 <body>
@@ -149,13 +151,9 @@ $(document).ready(function() {
                        </a>
                       </div> -->
                      <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
-                     
                      <%	
-	                     // 세션에서 이메일 값을 가져옵니다.
-	                     String userEmail = (String) session  .getAttribute("email");
-                     
-                     	System.out.println("email 값 : "+userEmail);
-                     	if(userEmail==null) {
+                     	/* System.out.println("email 값 : "+userEmail);
+                     	if(userEmail==null) { */
 					 %>
                      <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
                        <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
@@ -191,11 +189,11 @@ $(document).ready(function() {
 						  </div>
 						</div> <!-- END : userModal -->
 						<%	
-					      	}else {
+					      	/* }else { */
 				      	%>
-				      		<a href="#" class="text-muted"><%= email %></a>
+				      		<a href="#" class="text-muted"></a>
 				      	<%
-				      	}
+				      	/* } */
 				     	%>
                      </div>
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
@@ -203,6 +201,9 @@ $(document).ready(function() {
                          <i class="bi bi-cart3"></i>
                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">1<span class="visually-hidden">unread messages</span></span>
                        </a>
+                     </div>
+                     <div class="list-inline-item">
+                     	<a href="/inquiry" class="inquiry">문의하기</a>
                      </div>
                    </div>
                  </div>
