@@ -3,32 +3,32 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>FreshCart - eCommerce HTML Template</title>
-	<link rel="icon" href="/resources/imgs/favicon-logo.svg" sizes="32x32" type="image/png">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>FreshCart - eCommerce HTML Template</title>
+   <link rel="icon" href="/resources/imgs/favicon-logo.svg" sizes="32x32" type="image/png">
 
-	<!-- BootStrap -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"> <!-- 부트스트랩 아이콘  -->
+   <!-- BootStrap -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"> <!-- 부트스트랩 아이콘  -->
 
-	<!-- Freshshop CSS -->
-	<link rel="stylesheet" href="/resources/css/freshshop/theme.min.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/header.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/home.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/footer.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/modals.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/slick.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/slick-theme.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/shop.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/detail.css">
-	<link rel="stylesheet" href="/resources/css/freshshop/inquiry.css">
+   <!-- Freshshop CSS -->
+   <link rel="stylesheet" href="/resources/css/freshshop/theme.min.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/header.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/home.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/footer.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/modals.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/slick.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/slick-theme.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/shop.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/detail.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/inquiry.css">
 
-	<!-- js -->
-	<script src="/resources/js/jquery-1.12.4.min.js"></script>
-	<script src="/resources/js/slick.js"></script>
-	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
+   <!-- js -->
+   <script src="/resources/js/jquery-1.12.4.min.js"></script>
+   <script src="/resources/js/slick.js"></script>
+   <script src="/resources/js/jquery.elevatezoom.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
@@ -40,8 +40,8 @@
         gtag('config', 'G-M8S4MT3EYG');
     </script>
 
-	<!-- slick slide -->
-	<script type="text/javascript">
+   <!-- slick slide -->
+   <script type="text/javascript">
     $(document).on('ready', function() {
       $(".lazy").slick({
         dots:true,
@@ -58,13 +58,13 @@
           arrows:false
         });
       function zoom(f) {
-    	    var t = f.currentTarget;
-    	    offsetX = f.offsetX || f.touches[0].pageX,
-    	    f.offsetY ? offsetY = f.offsetY : offsetX = f.touches[0].pageX,
-    	    x = offsetX / t.offsetWidth * 100,
-    	    y = offsetY / t.offsetHeight * 100,
-    	    t.style.backgroundPosition = x + "% " + y + "%"
-    	}
+           var t = f.currentTarget;
+           offsetX = f.offsetX || f.touches[0].pageX,
+           f.offsetY ? offsetY = f.offsetY : offsetX = f.touches[0].pageX,
+           x = offsetX / t.offsetWidth * 100,
+           y = offsetY / t.offsetHeight * 100,
+           t.style.backgroundPosition = x + "% " + y + "%"
+       }
       $(".zoom").elevateZoom({
           zoomType: "inner",
           lensShape: "round",
@@ -72,16 +72,16 @@
       });
       
       var options= {
-		  'customize': {
-		      container: '',
-		      items: 3,
-		      controlsContainer: '#customize-controls',
-		      navContainer: '#customize-thumbnails',
-		      navAsThumbnails: true,
-		      autoplay: true,
-		      autoplayTimeout: 1000,
-		      autoplayButton: '#customize-toggle',
-		    }
+        'customize': {
+            container: '',
+            items: 3,
+            controlsContainer: '#customize-controls',
+            navContainer: '#customize-thumbnails',
+            navAsThumbnails: true,
+            autoplay: true,
+            autoplayTimeout: 1000,
+            autoplayButton: '#customize-toggle',
+          }
       }
     });
 </script>
@@ -89,61 +89,41 @@
 let api = "http://localhost:8090";
 
 $(function() {
-	  // 로그인 폼 submit 이벤트 처리
-	  $("#login-btn").on("click", function (){
-	    // 기본 이벤트 제거
-	    event.preventDefault();
+     // 로그인 폼 submit 이벤트 처리
+     $("#login-btn").on("click", function (){
+       // 기본 이벤트 제거
+       event.preventDefault();
         var token;
-	    // 이메일과 비밀번호 입력 값 가져오기
-	     let data ={
-	        email : $("#email").val(),
-	        password : $("#password").val()
-	    }
-	    console.log("이메일"+email+"패스워드"+password);
-	    
-	    // Ajax를 이용한 로그인 처리
-	    $.ajax({
-	      type: "POST",
-<<<<<<< HEAD
-	      url: api+"/user/login",
-	      async: 'false',
-	      contentType: "application/json; charset=utf-8",
-	      data: JSON.stringify(data),
-	      dataType: "json"
-	    }).done(function (res) {
-            				alert("로그인이 완료되었습니다.");
+       // 이메일과 비밀번호 입력 값 가져오기
+        let data ={
+           email : $("#email").val(),
+           password : $("#password").val()
+       }
+       console.log("이메일"+email+"패스워드"+password);
+       
+       // Ajax를 이용한 로그인 처리
+       $.ajax({
+         type: "POST",
+         url: api+"/user/login",
+         async: 'false',
+         contentType: "application/json; charset=utf-8",
+         data: JSON.stringify(data),
+         dataType: "json"
+       }).done(function (res) {
+	         alert("로그인이 완료되었습니다.");
+	
+	         location.href = "/";
+	      }).fail(function (err) {
+	         alert(JSON.stringify(err));
+	      })
+     })
+   });
 
-            				location.href = "/";
-            			}).fail(function (err) {
-            				alert(JSON.stringify(err));
-            			})
-	  })
-=======
-	      url: api+"/user/login",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-	      contentType: "application/json; charset=utf-8",
-	      data: JSON.stringify({email: email, password: password}),
-	      dataType: "text",
-	      headers: {
-	    	    'Authorization': 'Bearer ' + tokenValue
-	    	  },
-	      success: function(response) {      
-	    	  
-			// 로그인 성공시 홈페이지로 이동
-	        window.location.href = "/";
-	      },
-	      error: function(xhr, status, error) {
-	        // 로그인 실패시 에러 메시지 출력
-	        alert("로그인에 실패하였습니다. 다시 시도해주세요.");
-	      }
-	    });
-	  });
->>>>>>> sunyoung
-	});
 </script>
 </head>
 <body>
-	<header>
-		<div class="border-bottom">
+   <header>
+      <div class="border-bottom">
            <div class="py-4 pt-lg-3 pb-lg-0">
              <div class="container">
                <div class="row w-100 align-items-center gx-lg-2 gx-0">
@@ -155,7 +135,7 @@ $(function() {
                      <div class="input-group">
                        <input class="form-control rounded" type="search" placeholder="Search for products">
                          <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
-                         	<i class="bi bi-search"></i>
+                            <i class="bi bi-search"></i>
                          </button>
                      </div>
                    </form>
@@ -164,73 +144,53 @@ $(function() {
                    <div class="list-inline">
                      <!-- <div class="list-inline-item">
                        <a href="../../pages/shop-wishlist.html" class="text-muted position-relative">
-						<i class="bi bi-heart"></i>
+                  <i class="bi bi-heart"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> 5 <span class="visually-hidden">unread messages</span></span>
                        </a>
                       </div> -->
                      <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
-<<<<<<< HEAD
                      
 
-=======
-                     <%	
-                     	/* System.out.println("email 값 : "+userEmail);
-                     	if(userEmail==null) { */
-					 %>
->>>>>>> sunyoung
                      <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
                        <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
                        <!-- 로그인 모달 -->
                        <div class="modal fade" tabindex="-1" role="dialog" id="userModal">
-						  <div class="modal-dialog" role="document">
-						    <div class="modal-content rounded-4 shadow">
-						      <div class="modal-header p-5 pb-4 border-bottom-0">
-						        <h1 class="fw-bold mb-0 fs-2">로그인</h1>
-						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						      </div>
-						      <div class="modal-body p-5 pt-0">
-						        <form >
-						          <div class="form-floating mb-3">
-						            <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
-						            <label for="floatingInput">이메일을 입력하세요.</label>
-						          </div>
-						          <div class="form-floating mb-3">
-						            <input type="password" class="form-control rounded-3" id="password" placeholder="Password" required>
-						            <label for="floatingPassword">비밀번호를 입력하세요.</label>
-						          </div>
-						          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="button" id="login-btn">로그인</button>
-						          <small class="text-body-secondary">계정이 없으신가요?</small><br>
-						          <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="/createUser">회원가입</a></small>
-						          </form>
-						          <hr class="my-4">
-						          <h2 class="fs-5 fw-bold mb-3">소셜 로그인</h2>
-						          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit"></i>Sign up with Google</button>
-						          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">Sign up with Naver</button>
-						          <button class="w-100 py-2 mb-2 btn btn-outline-warning rounded-3" type="submit">Sign up with KaKao</button>
-						        </div>
-						    </div>
-						  </div>
-						</div> <!-- END : userModal -->
-<<<<<<< HEAD
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content rounded-4 shadow">
+                        <div class="modal-header p-5 pb-4 border-bottom-0">
+                          <h1 class="fw-bold mb-0 fs-2">로그인</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-5 pt-0">
+                          <form >
+                            <div class="form-floating mb-3">
+                              <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
+                              <label for="floatingInput">이메일을 입력하세요.</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <input type="password" class="form-control rounded-3" id="password" placeholder="Password" required>
+                              <label for="floatingPassword">비밀번호를 입력하세요.</label>
+                            </div>
+                            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="button" id="login-btn">로그인</button>
+                            <small class="text-body-secondary">계정이 없으신가요?</small><br>
+                            <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="/createUser">회원가입</a></small>
+                            </form>
+                            <hr class="my-4">
+                            <h2 class="fs-5 fw-bold mb-3">소셜 로그인</h2>
+                            <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit"></i>Sign up with Google</button>
+                            <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">Sign up with Naver</button>
+                            <button class="w-100 py-2 mb-2 btn btn-outline-warning rounded-3" type="submit">Sign up with KaKao</button>
+                          </div>
+                      </div>
+                    </div>
+                  </div> <!-- END : userModal -->
 
-=======
-						<%	
-					      	/* }else { */
-				      	%>
-				      		<a href="#" class="text-muted"></a>
-				      	<%
-				      	/* } */
-				     	%>
->>>>>>> sunyoung
                      </div>
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative" href="/cart" role="button">
                          <i class="bi bi-cart3"></i>
                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">1<span class="visually-hidden">unread messages</span></span>
                        </a>
-                     </div>
-                     <div class="list-inline-item">
-                     	<a href="/inquiry" class="inquiry">문의하기</a>
                      </div>
                    </div>
                  </div>
@@ -278,5 +238,4 @@ $(function() {
            </div>
          </nav>
        </div>
-	</header>
-
+   </header>
