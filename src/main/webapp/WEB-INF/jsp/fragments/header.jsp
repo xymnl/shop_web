@@ -28,7 +28,7 @@
 	<script src="/resources/js/jquery-1.12.4.min.js"></script>
 	<script src="/resources/js/slick.js"></script>
 	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
     <script>
@@ -86,37 +86,36 @@
 </script>
 <script>
 let api = "http://localhost:8090";
-$(document).ready(function() {
+
+$(function() {
 	  // 로그인 폼 submit 이벤트 처리
-	  $("#login-form").submit(function(event) {
+	  $("#login-btn").on("click", function (){
 	    // 기본 이벤트 제거
 	    event.preventDefault();
-
+        var token;
 	    // 이메일과 비밀번호 입력 값 가져오기
-	    var email = $("#email").val();
-	    var password = $("#password").val();
-	    
+	     let data ={
+	        email : $("#email").val(),
+	        password : $("#password").val()
+	    }
 	    console.log("이메일"+email+"패스워드"+password);
 	    
 	    // Ajax를 이용한 로그인 처리
 	    $.ajax({
 	      type: "POST",
 	      url: api+"/user/login",
+	      async: 'false',
 	      contentType: "application/json; charset=utf-8",
-	      data: JSON.stringify({email: email, password: password}),
-	      dataType: "text",
-	      success: function(response) {      
-	    	  
-			// 로그인 성공시 홈페이지로 이동
-	        window.location.href = "/";
-	      },
-	      error: function(xhr, status, error) {
-	        // 로그인 실패시 에러 메시지 출력
-	        alert("로그인에 실패하였습니다. 다시 시도해주세요.");
+	      data: JSON.stringify(data),
+	      dataType: "json"
+	    }).done(function (res) {
+            				alert("로그인이 완료되었습니다.");
 
-	      }
-	    });
-	  });
+            				location.href = "/";
+            			}).fail(function (err) {
+            				alert(JSON.stringify(err));
+            			})
+	  })
 	});
 
 </script>
@@ -150,13 +149,7 @@ $(document).ready(function() {
                       </div> -->
                      <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
                      
-                     <%	
-	                     // 세션에서 이메일 값을 가져옵니다.
-	                     String userEmail = (String) session  .getAttribute("email");
-                     
-                     	System.out.println("email 값 : "+userEmail);
-                     	if(userEmail==null) {
-					 %>
+
                      <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
                        <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
                        <!-- 로그인 모달 -->
@@ -168,7 +161,7 @@ $(document).ready(function() {
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
 						      <div class="modal-body p-5 pt-0">
-						        <form class="" method="post" action="http://localhost:8090/user/login" id="login-form">
+						        <form >
 						          <div class="form-floating mb-3">
 						            <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
 						            <label for="floatingInput">이메일을 입력하세요.</label>
@@ -177,7 +170,7 @@ $(document).ready(function() {
 						            <input type="password" class="form-control rounded-3" id="password" placeholder="Password" required>
 						            <label for="floatingPassword">비밀번호를 입력하세요.</label>
 						          </div>
-						          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">로그인</button>
+						          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="button" id="login-btn">로그인</button>
 						          <small class="text-body-secondary">계정이 없으신가요?</small><br>
 						          <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="/createUser">회원가입</a></small>
 						          </form>
@@ -190,13 +183,7 @@ $(document).ready(function() {
 						    </div>
 						  </div>
 						</div> <!-- END : userModal -->
-						<%	
-					      	}else {
-				      	%>
-				      		<a href="#" class="text-muted"><%= email %></a>
-				      	<%
-				      	}
-				     	%>
+
                      </div>
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative" href="/cart" role="button">
