@@ -93,25 +93,32 @@ $(function() {
      $("#login-btn").on("click", function (){
        // 기본 이벤트 제거
        event.preventDefault();
-        var token;
        // 이메일과 비밀번호 입력 값 가져오기
         let data ={
            email : $("#email").val(),
            password : $("#password").val()
        }
        console.log("이메일"+email+"패스워드"+password);
-       
+
+        /*var token = sessionStorage.getItem("Authorization");*/
+
        // Ajax를 이용한 로그인 처리
        $.ajax({
          type: "POST",
          url: api+"/user/login",
-         async: 'false',
+         async: false,
          contentType: "application/json; charset=utf-8",
          data: JSON.stringify(data),
-         dataType: "json"
+         dataType: "json",
+           success: function(data) {
+               console.log('Success!')
+               localStorage.setItem('token', data.token);
+           },
+           headers: {"Authorization": localStorage.getItem('token')}
        }).done(function (res) {
 	         alert("로그인이 완료되었습니다.");
-	
+
+
 	         location.href = "/";
 	      }).fail(function (err) {
 	         alert(JSON.stringify(err));
@@ -165,11 +172,11 @@ $(function() {
                           <form >
                             <div class="form-floating mb-3">
                               <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
-                              <label for="floatingInput">이메일을 입력하세요.</label>
+                              <label for="email">이메일을 입력하세요.</label>
                             </div>
                             <div class="form-floating mb-3">
                               <input type="password" class="form-control rounded-3" id="password" placeholder="Password" required>
-                              <label for="floatingPassword">비밀번호를 입력하세요.</label>
+                              <label for="password">비밀번호를 입력하세요.</label>
                             </div>
                             <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="button" id="login-btn">로그인</button>
                             <small class="text-body-secondary">계정이 없으신가요?</small><br>
