@@ -162,7 +162,6 @@ $(function() {
                        <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
                        <!-- 로그인 모달 -->
                        <div class="modal fade" tabindex="-1" role="dialog" id="userModal">
-<<<<<<< HEAD
 	                    <div class="modal-dialog" role="document">
 	                      <div class="modal-content rounded-4 shadow">
 	                        <div class="modal-header p-5 pb-4 border-bottom-0">
@@ -192,38 +191,6 @@ $(function() {
 	                      </div>
 	                    </div>
 	                  </div> <!-- END : userModal -->
-=======
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content rounded-4 shadow">
-                        <div class="modal-header p-5 pb-4 border-bottom-0">
-                          <h1 class="fw-bold mb-0 fs-2">로그인</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body p-5 pt-0">
-                          <form >
-                            <div class="form-floating mb-3">
-                              <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
-                              <label for="email">이메일을 입력하세요.</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                              <input type="password" class="form-control rounded-3" id="password" placeholder="Password" required>
-                              <label for="password">비밀번호를 입력하세요.</label>
-                            </div>
-                            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="button" id="login-btn">로그인</button>
-                            <small class="text-body-secondary">계정이 없으신가요?</small><br>
-                            <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="/createUser">회원가입</a></small>
-                            </form>
-                            <hr class="my-4">
-                            <h2 class="fs-5 fw-bold mb-3">소셜 로그인</h2>
-                            <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit"></i>Sign up with Google</button>
-                            <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">Sign up with Naver</button>
-                            <button class="w-100 py-2 mb-2 btn btn-outline-warning rounded-3" type="submit">Sign up with KaKao</button>
-                          </div>
-                      </div>
-                    </div>
-                  </div> <!-- END : userModal -->
->>>>>>> origin/master
-
                      </div>
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative" href="/cart" role="button">
