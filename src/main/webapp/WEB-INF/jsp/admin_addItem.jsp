@@ -5,13 +5,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
     let api = "http://localhost:8090";
-    $("#btnSubmit").click(function (event) {
+   /* $("#btnSubmit").click(function (event) {
     	//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음
     	event.preventDefault();
         // Get form
-        var form = $('#fileUploadForm')[0];
+        var file = $('#fileUploadForm')[0];
         // Create an FormData object
-        var data = new FormData(form);
+        var data = new FormData();
         // disabled the submit button
         $("#btnSubmit").prop("disabled", true);
 
@@ -34,8 +34,39 @@
                 alert("fail");
              }
     	});
-    });
+    });*/
 
+	$(function () {
+		$('#edit-table').on("click", function () {
+			var itemImgFileList = $('#itemImgFileList')[0].files[0];
+			var formData = new FormData();
+			formData.append('itemImgFileList', itemImgFileList);
+
+			var data = {
+				itemName: $('#itemName').val(),
+				price: $('#price').val(),
+				stockNumber: $('#stockNumber').val(),
+				itemDetail: $('#itemDetail').val()
+			};
+			formData.append("itemDto", new Blob([JSON.stringify(data)], {type: "application/json"}));
+
+			$.ajax({
+				url: api + "/user/item/new",
+				method: "post",
+				data: formData,
+				contentType: false,
+				processData: false,
+				cache: false,
+				enctype: 'multipart/form-data',
+				dataType: "json",
+
+			}).done(function (res) {
+				alert("상품등록이 완료되었습니다.");
+			}).fail(function (err) {
+				alert(JSON.stringify(err));
+			});
+		});
+	});
 
 </script>
 <%@include file="fragments/header.jsp" %>
@@ -49,7 +80,7 @@
 			       <p class="lead mb-0">어드민 상품 등록하기</p>
 			    </div>
 			    <!-- form -->
-			    <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+			    <form method="post" enctype="multipart/form-data" id="data">
 			       <!-- input -->
 			       <div class="col-md-12 mb-3">
 			          <label class="form-label">상품이름<span class="text-danger">*</span></label>
@@ -57,7 +88,7 @@
 			       </div>
 			       <div class="col-md-12 mb-3">
 			          <label class="form-label">상품가격<span class="text-danger">*</span></label>
-			          <input type="number" id="price"  name="price" placeholder="상품가격을 입력하세요." required>
+			          <input type="number" id="price" name="price" placeholder="상품가격을 입력하세요." required>
 			       </div>
 			       <div class="col-md-6 mb-3">
 			          <!-- input -->
@@ -69,10 +100,12 @@
 			          <label class="form-label">상품상세설명<span class="text-danger">*</span></label>
 			          <input type="text" id="itemDetail" name="itemDetail" placeholder="상품을 설명해주세요." required>
 			       </div>
-
-			       <div class="col-md-12">
+				   <div class="col-md-6 mb-3">
+					<input type="file" id="itemImgFileList" name="itemImgFileList"/>
+				   </div>
+					   <div class="col-md-12">
 			          <!-- btn -->
-			          <input type="submit" value="Submit" id="btnSubmit"/>
+			          <button type="button" class="btn btn-primary" id="edit-table">등록하기</button>
 			       </div>
 			    </form>
 			  </div>
