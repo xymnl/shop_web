@@ -58,11 +58,6 @@ public class HomeController {
         return "order";
     }
     
-    @GetMapping("/inquiry")
-    public String inquiry() {
-        return "inquiry";
-    }
-
     /* === 테스트용 ===*/
     @GetMapping("/sample")
     public String sample() { return "sample"; }
