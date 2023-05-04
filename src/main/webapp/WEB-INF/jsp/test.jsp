@@ -65,7 +65,7 @@
     formData.append("account", new Blob([JSON.stringify(data)], {type: "application/json"}));
 
     $.ajax({
-      url: api + "user/item/new",
+      url: api + "/user/item/new",
       method: "post",
       data: formData,
       contentType: false,
@@ -75,9 +75,11 @@
       dataType: "json",
       success: function(result) {
         // 성공 시 처리
+        alert("성공");
       },
       error: function (xhr, status, error) {
         // 실패 시 처리
+        alert("실패");
       }
     });
   });
