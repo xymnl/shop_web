@@ -16,7 +16,7 @@ public class HomeController {
 
     @GetMapping("/admin_addItem")
     public String addItem() {
-        return "amin_addItem";
+        return "admin_addItem";
     }
     @GetMapping("/test")
     public String test() {
