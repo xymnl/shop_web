@@ -28,8 +28,9 @@
    <!-- js -->
    <script src="/resources/js/jquery-1.12.4.min.js"></script>
    <script src="/resources/js/slick.js"></script>
+   <script src="/resources/js/inquiry.js"></script>
    <script src="/resources/js/jquery.elevatezoom.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
     <script>
