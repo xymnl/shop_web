@@ -19,22 +19,18 @@
           </tr>
         </thead>
         <tbody>
-        <c:forEach items = "${boardList}" var="boardList">
+        <c:forEach items = "${myboard}" var="myboard">
           <tr>
-            <td><a href="inquiry_detail"><c:out value="${boardList.title}"></c:out></a></td>
-            <td><c:out value="${boardList.content}"></c:out></td>
-            <td><c:out value="${boardList.questionStatus}"></c:out></td>
-            <td><c:out value="${boardList.name}"></c:out></td>
-            <td><c:out value="${boardList.email}"></c:out></td>
+            <td><a href="#"><c:out value="${myboard.title}"></c:out></a></td>
+            <td><c:out value="${myboard.content}"></c:out></td>
+            <td><c:out value="${myboard.questionStatus}"></c:out></td>
+            <td><c:out value="${myboard.name}"></c:out></td>
+            <td><c:out value="${myboard.email}"></c:out></td>
           </tr>
          </c:forEach>
 
         </tbody>
       </table>
-      
-		<div class="pagenation_box">
-			<ul class="pagination pagination-seperated "></ul>
-		</div>
       
     </div>
   </div>
