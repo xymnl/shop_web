@@ -11,7 +11,7 @@ table.dataTable td {
   white-space: nowrap;
 }
 
-.paging {
+.pagenation_box {
 	width:80%;
 	display:inline-flex;
 	align-items:center;

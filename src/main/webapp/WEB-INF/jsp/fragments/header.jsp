@@ -28,8 +28,9 @@
    <!-- js -->
    <script src="/resources/js/jquery-1.12.4.min.js"></script>
    <script src="/resources/js/slick.js"></script>
+   <script src="/resources/js/inquiry.js"></script>
    <script src="/resources/js/jquery.elevatezoom.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
     <script>
@@ -98,7 +99,7 @@ $(function() {
            email : $("#email").val(),
            password : $("#password").val()
        }
-       console.log("이메일"+email+"패스워드"+password);
+       console.log("이메일"+$("#email").val()+"패스워드"+$("#password").val());
 
         /*var token = sessionStorage.getItem("Authorization");*/
 
@@ -120,10 +121,12 @@ $(function() {
                xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
            },
        }).done(function (res) {
+			console.log("로그인된 아이디 비밀번호 : "+data.email+data.password);
             alert("로그인이 완료되었습니다.");
-
             
-            location.href = "/";
+            var email = data.email;            
+            /* location.href = "/"; */
+            $(".enter_email").html(email);
          }).fail(function (err) {
             alert(JSON.stringify(err));
          })
@@ -161,6 +164,7 @@ $(function() {
                       </div> -->
                      <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
 
+					<div class="list-inline"><div class="enter_email"><span>${email}</span></div></div>
 
                      <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
                        <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
@@ -173,7 +177,7 @@ $(function() {
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body p-5 pt-0">
-                          <form >
+                          <form method="post" action="/user/login">
                             <div class="form-floating mb-3">
                               <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
                               <label for="email">이메일을 입력하세요.</label>

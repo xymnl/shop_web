@@ -23,8 +23,6 @@ public class BoardController {
 	 
 	@GetMapping("/inquiry")
 	public String inquiry(Model model) throws Exception {
-
-		
 		 String url = apiServer + "board/admin/"; 
 		 ResponseEntity response = new
 		 RestTemplate().getForEntity(url, Object.class);
@@ -35,5 +33,20 @@ public class BoardController {
 		 model.addAttribute("boardList",boardList);
 
 		return "inquiry";
+	}
+	
+	@GetMapping("/inquiry_detail")
+	public String injuiryDetail(Model model) throws Exception {
+		int boardId = 3;
+		String url = apiServer + "user/my-board/{"+boardId+"}";
+		ResponseEntity response = new
+		RestTemplate().getForEntity(url, Object.class);	
+		
+		List myboard = (List) response.getBody();
+		log.info("myboard = {}", myboard);
+		
+		model.addAttribute("boardList",myboard);
+		
+		return "inquiry_detail";
 	}
 }
