@@ -101,7 +101,7 @@ $(function() {
        }
        console.log("이메일"+$("#email").val()+"패스워드"+$("#password").val());
 
-        /*var token = sessionStorage.getItem("Authorization");*/
+        var token = sessionStorage.getItem("Authorization");
 
        // Ajax를 이용한 로그인 처리
        $.ajax({
@@ -125,14 +125,48 @@ $(function() {
             alert("로그인이 완료되었습니다.");
             
             var email = data.email;            
-            /* location.href = "/"; */
+             location.href = "/";
             $(".enter_email").html(email);
          }).fail(function (err) {
             alert(JSON.stringify(err));
          })
      })
    });
+</script>
+<script>
+        let api = "http://localhost:8090";
 
+            // 로그인 폼 submit 이벤트 처리
+            function login_user(){
+
+                var token = sessionStorage.getItem("token");
+
+                // Ajax를 이용한 회원 조회
+                $.ajax({
+                    type: "POST",
+                    url: api+"/user/info",
+                    async: false,
+                    contentType: "application/text; charset=utf-8",
+                    data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워둔다)
+                    dataType: "text",
+                    success: function(data) {
+                        console.log('Success!')
+
+                    },
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Authorization","Bearer " + token);
+                    },
+                }).done(function (res) {
+                    console.log("로그인된 아이디 비밀번호 : "+data.email+data.password);
+                    alert("로그인이 완료되었습니다.");
+
+                    var email = data.email;
+                    /* location.href = "/"; */
+                    $(".login_email").html(email);
+                }).fail(function (err) {
+                    alert(JSON.stringify(err));
+                })
+            };
 </script>
 </head>
 <body>
@@ -164,6 +198,7 @@ $(function() {
                       </div> -->
                      <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
 
+                         <div class="list-inline"><div class="login_email"><span>${email}</span></div></div>
 					<div class="list-inline"><div class="enter_email"><span>${email}</span></div></div>
 
                      <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
