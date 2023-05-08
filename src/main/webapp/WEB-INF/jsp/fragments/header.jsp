@@ -113,8 +113,12 @@ $(function() {
            success: function(data) {
                console.log('Success!')
                localStorage.setItem('token', data.token);
+
            },
-           headers: {"Authorization": localStorage.getItem('token')}
+           beforeSend: function (xhr) {
+               xhr.setRequestHeader("Content-type","application/json");
+               xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+           },
        }).done(function (res) {
             alert("로그인이 완료되었습니다.");
 
