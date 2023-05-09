@@ -87,9 +87,10 @@
     });
 </script>
 <script>
-let api = "http://localhost:8090";
-
 $(function() {
+	let api = "http://localhost:8090";
+	var token = sessionStorage.getItem("Authorization");
+	
      // 로그인 폼 submit 이벤트 처리
      $("#login-btn").on("click", function (){
        // 기본 이벤트 제거
@@ -101,7 +102,7 @@ $(function() {
        }
        console.log("이메일"+$("#email").val()+"패스워드"+$("#password").val());
 
-        var token = sessionStorage.getItem("Authorization");
+        
 
        // Ajax를 이용한 로그인 처리
        $.ajax({
@@ -122,6 +123,7 @@ $(function() {
            },
        }).done(function (res) {
 			console.log("로그인된 아이디 비밀번호 : "+data.email+data.password);
+			
             alert("로그인이 완료되었습니다.");
             
             var email = data.email;            
@@ -130,7 +132,11 @@ $(function() {
          }).fail(function (err) {
             alert(JSON.stringify(err));
          })
+         
+         
+         
      })
+     
    });
 </script>
 <script>
@@ -140,9 +146,7 @@ $(function() {
     var token = localStorage.getItem("token");
 
     $(document).ready(function(){
-
         let data;
-
         // Ajax를 이용한 회원 조회
         $.ajax({
             type: "GET",
@@ -161,10 +165,13 @@ $(function() {
         }).done(function (res) {
             var email = res.email;
             var name = res.name;
-
-
-            $(".email").html(email);
-            $(".name").html(name);
+            
+            if(res != null){
+           	 $('.mypageLink').remove();
+           	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
+            }
+            
+            
         }).fail(function (err) {
             alert(JSON.stringify(err));
         })
@@ -198,10 +205,11 @@ $(function() {
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> 5 <span class="visually-hidden">unread messages</span></span>
                        </a>
                       </div> -->
-                     <div class="list-inline-item"> <!-- 마이페이지 버튼 -->
+                     <div class="list-inline-item mypageButton"> <!-- 마이페이지 버튼 -->
 
                      <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
-                       <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
+                       <a href="#!" class="text-muted mypageLink" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
+                       
                        <!-- 로그인 모달 -->
                        <div class="modal fade" tabindex="-1" role="dialog" id="userModal">
                     <div class="modal-dialog" role="document">
