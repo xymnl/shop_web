@@ -62,6 +62,10 @@ public class HomeController {
     @GetMapping("/sample")
     public String sample() { return "sample"; }
 
+    @GetMapping("/loginUser")
+    public String loginUser() {
+        return "loginUser";
+    }
     
     
 }
