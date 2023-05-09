@@ -23,7 +23,7 @@ public class BoardController {
 	 
 	@GetMapping("/inquiry")
 	public String inquiry(Model model) throws Exception {
-		 String url = apiServer + "board/admin/"; 
+		 String url = apiServer + "board/user/my-board";
 		 ResponseEntity response = new
 		 RestTemplate().getForEntity(url, Object.class);
 		  
