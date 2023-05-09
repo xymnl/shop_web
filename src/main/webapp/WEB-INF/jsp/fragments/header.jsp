@@ -173,6 +173,34 @@ $(function() {
         })
     });
 </script>
+<script>
+$(function() {
+                 $("#inquiry").on("click",function(){
+
+                var token = localStorage.getItem("token");
+
+                // Ajax를 이용한 회원 조회
+                $.ajax({
+                    type: "GET",
+                    url: api+"/board/user/my-board",
+                    contentType: "application/text; charset=utf-8",
+                    data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워둔다)
+                    dataType: "json",
+                    success: function(data) {
+                        console.log('Success!')
+                    },
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Authorization","Bearer " + token);
+                    },
+                }).done(function (res) {
+                    alert("문의.");
+                     location.href = "/inquiry";
+                }).fail(function (err) {
+                    alert(JSON.stringify(err));
+                })
+            })
+          });
+</script>
 </head>
 <body>
    <header>
@@ -246,7 +274,7 @@ $(function() {
                        </a>
                      </div>
              		<div class="list-inline-item">
-                      <a href="/inquiry">문의하기</a>
+                      <h4 id="inquiry">문의하기</h4>
                     </div>
                    </div>
                  </div>
