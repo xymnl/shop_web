@@ -102,7 +102,6 @@ $(function() {
        }
        console.log("이메일"+$("#email").val()+"패스워드"+$("#password").val());
 
-        
 
        // Ajax를 이용한 로그인 처리
        $.ajax({
@@ -132,9 +131,6 @@ $(function() {
          }).fail(function (err) {
             alert(JSON.stringify(err));
          })
-         
-         
-         
      })
      
    });
