@@ -26,6 +26,11 @@
    <link rel="stylesheet" href="/resources/css/freshshop/inquiry.css">
 
    <!-- js -->
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+            integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
    <script src="/resources/js/jquery-1.12.4.min.js"></script>
    <script src="/resources/js/slick.js"></script>
    <script src="/resources/js/inquiry.js"></script>
@@ -161,29 +166,19 @@ $(function() {
         }).done(function (res) {
             var email = res.email;
             var name = res.name;
-            
+
             if(res != null){
            	 $('.mypageLink').remove();
            	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
             }
-            
-            
+
+
         }).fail(function (err) {
             /* alert(JSON.stringify(err)); */
         })
     });
 </script>
-<script>
-$(function() {
-                 $("#inquiry").on("click",function(){
 
-                var token = localStorage.getItem("token");
-
-                // Ajax를 이용한 회원 조회
-                location.href="inquiry?tokenname="+token;
-            })
-          });
-</script>
 </head>
 <body>
    <header>
@@ -257,8 +252,7 @@ $(function() {
                        </a>
                      </div>
              		<div class="list-inline-item">
-                      <h4 id="inquiry">문의h </h4>
-                      <a href="/inquiry">문의a</a>
+                      <a href="/inquiry">문의</a>
                     </div>
                    </div>
                  </div>

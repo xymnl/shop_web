@@ -25,18 +25,21 @@ public class BoardController {
 	  private String apiServer;
 	 
 	@GetMapping("/inquiry")
-	public String inquiry(Model model, @RequestParam("tokenname") String tokenname) throws Exception {
-		 String url = apiServer + "board/user/my-board";
-		HttpHeaders headers=new HttpHeaders();
-		headers.set("Authorization","Bearer "+tokenname);
+	public String inquiry() {
+	/*	String url = apiServer + "board/user/my-board";
+
+		HttpHeaders headers = new HttpHeaders();
+		String token = String.valueOf(headers.get("Authorization"));
+		System.out.println("token = " + token);
+
 		HttpEntity<?> request = new HttpEntity<>(headers);
 
-		ResponseEntity response = new RestTemplate().exchange(url,HttpMethod.GET,request,Object.class);
+		ResponseEntity response = new RestTemplate().exchange(url, HttpMethod.GET, request, Object.class);
 		  
 		 List boardList = (List) response.getBody();
 		 log.info("list = {}", boardList);
 		  
-		 model.addAttribute("boardList",boardList);
+		 model.addAttribute("boardList",boardList);*/
 
 		return "inquiry";
 	}
