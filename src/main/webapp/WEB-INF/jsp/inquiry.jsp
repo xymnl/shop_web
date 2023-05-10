@@ -17,7 +17,6 @@
 
         $(document).ready(function () {
 
-
             $.ajax({
                 url: api + "/board/user/my-board",
                 type: 'GET',

@@ -172,13 +172,33 @@ $(function() {
            	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
             }
 
-
+            if(email.includes('admin')){
+            	$('#inquiry').remove();
+            	$('.inquiryButton').append('<p id="inquiry">문의 관리</p>');
+            	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
+            }else {
+            	$('.inquiry_box').append('<h2 class="inquiry_title">'+name+'님의 문의 내역</h2>');
+            }
         }).fail(function (err) {
             /* alert(JSON.stringify(err)); */
         })
     });
 </script>
 
+<<<<<<< HEAD
+=======
+	                var token = localStorage.getItem("token");
+
+
+	                if (token == null){
+                		alert("로그인을 해주세요.");
+	                }else {
+	        	        location.href="/inquiry?tokenname="+token;
+	                }
+
+            })
+          });
+</script>
 </head>
 <body>
    <header>
@@ -251,6 +271,7 @@ $(function() {
                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">1<span class="visually-hidden">unread messages</span></span>
                        </a>
                      </div>
+
              		<div class="list-inline-item">
                       <a href="/inquiry">문의</a>
                     </div>
