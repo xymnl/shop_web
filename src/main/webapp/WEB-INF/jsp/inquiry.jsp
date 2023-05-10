@@ -4,7 +4,6 @@
 
 
 <div class="inquiry_box"></div>
-<h2 class="inquiry_title">이곳은 문의화면입니다</h2>
 
 <div class="container">
   <div class="row">
@@ -13,30 +12,46 @@
         <thead>
           <tr>
             <th>title</th>
-            <th>content</th>
+            <th>content</th> 
             <th>questionStatus</th>
             <th>name</th>
             <th>user</th>
           </tr>
         </thead>
         <tbody>
-        <c:forEach items = "${boardList}" var="boardList">
-          <tr>
-            <td><a href="inquiry_detail?idx=${boardList.id}"><c:out value="${boardList.title}"></c:out></a></td>
-            <td><c:out value="${boardList.content}"></c:out></td>
-            <td><c:out value="${boardList.questionStatus}"></c:out></td>
-            <td><c:out value="${boardList.name}"></c:out></td>
-            <td><c:out value="${boardList.email}"></c:out></td>
-          </tr>
-         </c:forEach>
-
+        	<c:set var="boardList" value="${boardList}" />
+        	<c:choose>
+        	<c:when test="${not empty boardList}">
+        		<c:forEach items = "${boardList}" var="boardList">
+        			<tr>
+                      <td><a href="inquiry_detail?idx=${boardList.id}"><c:out value="${boardList.title}"></c:out></a></td>	
+			          <td><c:out value="${boardList.content}"></c:out></td>
+			          <td><c:out value="${boardList.questionStatus}"></c:out></td>
+			          <td><c:out value="${boardList.name}"></c:out></td>
+			          <td><c:out value="${boardList.email}"></c:out></td>
+			        </tr>
+        		</c:forEach>
+        	</c:when>
+        	<c:when test="${empty boardList }">
+        		<tr>
+        			<td>문의 내역이 없습니다.</td>
+        			<td>문의 내역이 없습니다.</td>
+        			<td>문의 내역이 없습니다.</td>
+        			<td>문의 내역이 없습니다.</td>
+        			<td>문의 내역이 없습니다.</td>
+        		</tr>
+        	</c:when>
+        	</c:choose>
         </tbody>
       </table>
-
+      <div class="inquiry_create">
+      	<a href="#">문의 작성</a>
+   	  </div>
+      
 		<div class="pagenation_box">
 			<ul class="pagination pagination-seperated "></ul>
 		</div>
-
+      
     </div>
   </div>
 </div>
