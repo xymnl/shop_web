@@ -8,3 +8,6 @@ ul li {list-style:none;}
 
 .social-bottom {padding-bottom:30px;}
 .social {padding:20px 0; text-align:center;}
+
+#inquiry {cursor:pointer;}
+#inquiry:hover {color:#0aad0a;}

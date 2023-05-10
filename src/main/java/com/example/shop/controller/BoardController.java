@@ -26,7 +26,7 @@ public class BoardController {
 	 
 	@GetMapping("/inquiry")
 	public String inquiry(Model model, @RequestParam("tokenname") String tokenname) throws Exception {
-		 String url = apiServer + "board/user/my-board";
+		String url = apiServer + "board/user/my-board";
 		HttpHeaders headers=new HttpHeaders();
 		headers.set("Authorization","Bearer "+tokenname);
 		HttpEntity<?> request = new HttpEntity<>(headers);
