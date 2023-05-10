@@ -191,14 +191,14 @@ $(document).ready(function(){
     	   
            $('#example2').DataTable({
                pageLength: 10,
-               bPaginate: true,
-               bLengthChange: true,
-               lengthMenu: [[10, 20, 50, -1], [10, 20, 50, "All"]],
+               bPaginate: false,
+               bLengthChange: false,
                bAutoWidth: false,
                processing: true,
                ordering: true,
                serverSide: false,
-               searching: true,
+               searching: false,
+               info: false,
                order: [],
                data: data,
                columnDefs: [{
