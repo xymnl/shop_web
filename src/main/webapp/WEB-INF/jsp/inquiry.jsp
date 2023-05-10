@@ -4,6 +4,7 @@
 
 
 <div class="inquiry_box"></div>
+<h2 class="inquiry_title">이곳은 문의화면입니다</h2>
 
 <div class="container">
   <div class="row">
@@ -12,7 +13,7 @@
         <thead>
           <tr>
             <th>title</th>
-            <th>content</th> 
+            <th>content</th>
             <th>questionStatus</th>
             <th>name</th>
             <th>user</th>
@@ -21,7 +22,7 @@
         <tbody>
         <c:forEach items = "${boardList}" var="boardList">
           <tr>
-            <td><a href="inquiry_detail"><c:out value="${boardList.title}"></c:out></a></td>
+            <td><a href="inquiry_detail?idx=${boardList.id}"><c:out value="${boardList.title}"></c:out></a></td>
             <td><c:out value="${boardList.content}"></c:out></td>
             <td><c:out value="${boardList.questionStatus}"></c:out></td>
             <td><c:out value="${boardList.name}"></c:out></td>
@@ -31,11 +32,11 @@
 
         </tbody>
       </table>
-      
+
 		<div class="pagenation_box">
 			<ul class="pagination pagination-seperated "></ul>
 		</div>
-      
+
     </div>
   </div>
 </div>
