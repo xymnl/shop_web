@@ -170,8 +170,10 @@ $(function() {
             if(email.includes('admin')){
             	$('#inquiry').remove();
             	$('.inquiryButton').append('<p id="inquiry">문의 관리</p>');
+            	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
+            }else {
+            	$('.inquiry_box').append('<h2 class="inquiry_title">'+name+'님의 문의 내역</h2>');
             }
-            
             
         }).fail(function (err) {
             /* alert(JSON.stringify(err)); */

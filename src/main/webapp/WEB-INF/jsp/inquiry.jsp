@@ -3,7 +3,7 @@
 <%@ include file="fragments/header.jsp" %>
 
 
-<h2 class="inquiry_title"> ${boardList.name}님의 문의 내역</h2>
+<div class="inquiry_box"></div>
 
 <div class="container">
   <div class="row">
