@@ -66,4 +66,9 @@ public class BoardController {
 
 		return "inquiry_detail";
 	}
+	@GetMapping("/create")
+	public String inquiry_Create () {
+		
+		return "inquiry_create";
+	}
 }

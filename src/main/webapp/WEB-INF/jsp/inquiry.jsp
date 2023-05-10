@@ -15,7 +15,6 @@
             <th>content</th> 
             <th>questionStatus</th>
             <th>name</th>
-            <th>user</th>
           </tr>
         </thead>
         <tbody>
@@ -28,13 +27,11 @@
 			          <td><c:out value="${boardList.content}"></c:out></td>
 			          <td><c:out value="${boardList.questionStatus}"></c:out></td>
 			          <td><c:out value="${boardList.name}"></c:out></td>
-			          <td><c:out value="${boardList.email}"></c:out></td>
 			        </tr>
         		</c:forEach>
         	</c:when>
         	<c:when test="${empty boardList }">
         		<tr>
-        			<td>문의 내역이 없습니다.</td>
         			<td>문의 내역이 없습니다.</td>
         			<td>문의 내역이 없습니다.</td>
         			<td>문의 내역이 없습니다.</td>
@@ -45,7 +42,7 @@
         </tbody>
       </table>
       <div class="inquiry_create">
-      	<a href="#">문의 작성</a>
+      	<a href="create">문의 작성</a>
    	  </div>
       
 		<div class="pagenation_box">
