@@ -27,6 +27,11 @@
 
                     </tbody>
                 </table>
+                
+                <div class="pagenation_box">
+	            	<ul class="pagination pagination-seperated "></ul>
+	        	</div>
+                
             </div>
         </div>
     </div>

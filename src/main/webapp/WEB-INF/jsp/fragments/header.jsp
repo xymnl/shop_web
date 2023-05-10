@@ -122,7 +122,7 @@ $(function() {
             xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
         },
     }).done(function (res) {
-console.log("로그인된 아이디 비밀번호 : "+data.email+data.password);
+	console.log("로그인된 아이디 비밀번호 : "+data.email+data.password);
 
          alert("로그인이 완료되었습니다.");
          
@@ -187,6 +187,8 @@ $(document).ready(function(){
        cache: false,
        contentType: 'application/json; chartset=utf-8',
        success: function (data) {
+    	   
+    	   
            $('#example2').DataTable({
                pageLength: 10,
                bPaginate: true,
@@ -206,7 +208,10 @@ $(document).ready(function(){
                columns: [
                    {
                        data: null, render: function (data, type, row) {
-                           return data.title;
+                    	   var title_link = '<a href="inquiry_detail?'+data.id+'">'+data.title+'</a>';
+                    	   console.log("data.title : "+data.title);
+                    	   console.log("data.id : "+data.id);
+                           return title_link;
                        }
                    },
                    {
