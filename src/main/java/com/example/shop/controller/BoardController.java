@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
@@ -34,23 +35,10 @@ public class BoardController {
 		return "inquiry";
 	}
 
-	@GetMapping("/inquiry_detail")
-	public String injuiryDetail(Model model, @RequestParam("idx") String idx) throws Exception {
-		log.info("==idx===={}========",idx);
-		String tokens1 = getTokens();
-		log.info("==tokens1===={}========",tokens1);
-		String url = apiServer + "board/user/my-board/"+idx;
-		HttpHeaders headers=new HttpHeaders();
-		headers.set("Authorization","Bearer "+tokens1);
-		HttpEntity<?> request = new HttpEntity<>(headers);
-
-		ResponseEntity response = new RestTemplate().exchange(url,HttpMethod.GET,request,Object.class);
-
-		Object myboard =  response.getBody();
-		log.info("myboard = {}", myboard);
-
-		model.addAttribute("myboard",myboard);
-
+	@GetMapping("/inquiry_detail/{id}")
+	public String injuiryDetail(@PathVariable Long id,Model model){
+		log.info("=====id=={}",id);
+		model.addAttribute("idx",id);
 		return "inquiry_detail";
 	}
 	@GetMapping("/create")

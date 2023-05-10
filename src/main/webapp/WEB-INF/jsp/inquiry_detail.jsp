@@ -34,4 +34,25 @@
   </div>
 </div>
 
+<script>
+/* inquiry.jsp */
+$(document).ready(function(){
+ let api = "http://localhost:8090";
+   $.ajax({
+       url: api + "/board/user/my-board/${idx}",
+       type: 'GET',
+       async: false,
+       cache: false,
+       contentType: 'application/json; chartset=utf-8',
+       success: function (data) {
+       },
+       beforeSend: function (xhr) {
+           xhr.setRequestHeader("Authorization", "Bearer " + token);
+       },
+       error: function (jqXHR, textStatus, errorThrown) {
+           console.log(jqXHR.status + textStatus + errorThrown);
+       }
+   })
+});
+</script>
 <%@ include file="fragments/footer.jsp" %>

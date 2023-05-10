@@ -20,7 +20,6 @@
                         <th>content</th>
                         <th>questionStatus</th>
                         <th>name</th>
-                        <th>email</th>
                     </tr>
                     </thead>
                     <tbody>
