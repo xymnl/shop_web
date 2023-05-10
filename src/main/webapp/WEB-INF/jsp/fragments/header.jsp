@@ -26,178 +26,220 @@
    <link rel="stylesheet" href="/resources/css/freshshop/inquiry.css">
 
    <!-- js -->
-    <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
-            integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
-   <script src="/resources/js/jquery-1.12.4.min.js"></script>
-   <script src="/resources/js/slick.js"></script>
-   <script src="/resources/js/inquiry.js"></script>
-   <script src="/resources/js/jquery.elevatezoom.min.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+	<script src="/resources/js/jquery-1.12.4.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/resources/js/slick.js"></script>
+	<script src="/resources/js/inquiry.js"></script>
+	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
+<script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
 
-        gtag('config', 'G-M8S4MT3EYG');
-    </script>
+   gtag('config', 'G-M8S4MT3EYG');
+</script>
 
-   <!-- slick slide -->
-   <script type="text/javascript">
-    $(document).on('ready', function() {
-      $(".lazy").slick({
-        dots:true,
-        lazyLoad: 'ondemand', // ondemand progressive anticipated
-        infinite: true,
-        autoplay : true,
-        arrows:false
-      });
-      $(".center").slick({
-          infinite: true,
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          autoplay : true,
-          arrows:false
-        });
-      function zoom(f) {
-           var t = f.currentTarget;
-           offsetX = f.offsetX || f.touches[0].pageX,
-           f.offsetY ? offsetY = f.offsetY : offsetX = f.touches[0].pageX,
-           x = offsetX / t.offsetWidth * 100,
-           y = offsetY / t.offsetHeight * 100,
-           t.style.backgroundPosition = x + "% " + y + "%"
-       }
-      $(".zoom").elevateZoom({
-          zoomType: "inner",
-          lensShape: "round",
-          lensSize: 400
-      });
-      
-      var options= {
-        'customize': {
-            container: '',
-            items: 3,
-            controlsContainer: '#customize-controls',
-            navContainer: '#customize-thumbnails',
-            navAsThumbnails: true,
-            autoplay: true,
-            autoplayTimeout: 1000,
-            autoplayButton: '#customize-toggle',
-          }
-      }
+<!-- slick slide -->
+<script type="text/javascript">
+$(document).on('ready', function() {
+  $(".lazy").slick({
+    dots:true,
+    lazyLoad: 'ondemand', // ondemand progressive anticipated
+    infinite: true,
+    autoplay : true,
+    arrows:false
+  });
+  $(".center").slick({
+      infinite: true,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      autoplay : true,
+      arrows:false
     });
+  function zoom(f) {
+       var t = f.currentTarget;
+       offsetX = f.offsetX || f.touches[0].pageX,
+       f.offsetY ? offsetY = f.offsetY : offsetX = f.touches[0].pageX,
+       x = offsetX / t.offsetWidth * 100,
+       y = offsetY / t.offsetHeight * 100,
+       t.style.backgroundPosition = x + "% " + y + "%"
+   }
+  $(".zoom").elevateZoom({
+      zoomType: "inner",
+      lensShape: "round",
+      lensSize: 400
+  });
+  
+  var options= {
+    'customize': {
+        container: '',
+        items: 3,
+        controlsContainer: '#customize-controls',
+        navContainer: '#customize-thumbnails',
+        navAsThumbnails: true,
+        autoplay: true,
+        autoplayTimeout: 1000,
+        autoplayButton: '#customize-toggle',
+      }
+  }
+});
 </script>
 <script>
 $(function() {
 	let api = "http://localhost:8090";
 	var token = sessionStorage.getItem("Authorization");
 	
-     // 로그인 폼 submit 이벤트 처리
-     $("#login-btn").on("click", function (){
-       // 기본 이벤트 제거
-       event.preventDefault();
-       // 이메일과 비밀번호 입력 값 가져오기
-        let data ={
-           email : $("#email").val(),
-           password : $("#password").val()
-       }
-       console.log("이메일"+$("#email").val()+"패스워드"+$("#password").val());
+  // 로그인 폼 submit 이벤트 처리
+  $("#login-btn").on("click", function (){
+    // 기본 이벤트 제거
+    event.preventDefault();
+    // 이메일과 비밀번호 입력 값 가져오기
+     let data ={
+        email : $("#email").val(),
+        password : $("#password").val()
+    }
+    console.log("이메일"+$("#email").val()+"패스워드"+$("#password").val());
 
 
-       // Ajax를 이용한 로그인 처리
-       $.ajax({
-         type: "POST",
-         url: api+"/user/login",
-         async: false,
-         contentType: "application/json; charset=utf-8",
-         data: JSON.stringify(data),
-         dataType: "json",
-           success: function(data) {
-               console.log('Success!')
-               localStorage.setItem('token', data.token);
+    // Ajax를 이용한 로그인 처리
+    $.ajax({
+      type: "POST",
+      url: api+"/user/login",
+      async: false,
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify(data),
+      dataType: "json",
+        success: function(data) {
+            console.log('Success!')
+            localStorage.setItem('token', data.token);
 
-           },
-           beforeSend: function (xhr) {
-               xhr.setRequestHeader("Content-type","application/json");
-               xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
-           },
-       }).done(function (res) {
-			console.log("로그인된 아이디 비밀번호 : "+data.email+data.password);
-			
-            alert("로그인이 완료되었습니다.");
-            
-            var email = data.email;            
-             location.href = "/";
-            $(".enter_email").html(email);
-         }).fail(function (err) {
-            alert(JSON.stringify(err));
-         })
-     })
-     
-   });
+        },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Content-type","application/json");
+            xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+        },
+    }).done(function (res) {
+console.log("로그인된 아이디 비밀번호 : "+data.email+data.password);
+
+         alert("로그인이 완료되었습니다.");
+         
+         var email = data.email;            
+          location.href = "/";
+         $(".enter_email").html(email);
+      }).fail(function (err) {
+         alert(JSON.stringify(err));
+      })
+  })
+});
 </script>
 <script>
-    // 이거 적용해야함.. /loginUser에서는 되는데 여기선 안 불러 와지냐
-
+var token = localStorage.getItem("token");
+$(document).ready(function(){
+    let data;
     let api = "http://localhost:8090";
-    var token = localStorage.getItem("token");
+    // Ajax를 이용한 회원 조회
+    $.ajax({
+        type: "GET",
+        url: api+"/user/info",
+        async: false,
+        contentType: "application/text; charset=utf-8",
+        data: JSON.stringify(data),
+        dataType: "json",
+        success: function(data) {
+            console.log(data)
 
-    $(document).ready(function(){
-        let data;
-        // Ajax를 이용한 회원 조회
-        $.ajax({
-            type: "GET",
-            url: api+"/user/info",
-            async: false,
-            contentType: "application/text; charset=utf-8",
-            data: JSON.stringify(data),
-            dataType: "json",
-            success: function(data) {
-                console.log(data)
+        },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization","Bearer " + token);
+        },
+    }).done(function (res) {
+        var email = res.email;
+        var name = res.name;
 
-            },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization","Bearer " + token);
-            },
-        }).done(function (res) {
-            var email = res.email;
-            var name = res.name;
+        if(res != null){
+       	 $('.mypageLink').remove();
+       	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
+        }
 
-            if(res != null){
-           	 $('.mypageLink').remove();
-           	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
-            }
-
-            if(email.includes('admin')){
-            	$('#inquiry').remove();
-            	$('.inquiryButton').append('<p id="inquiry">문의 관리</p>');
-            	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
-            }else {
-            	$('.inquiry_box').append('<h2 class="inquiry_title">'+name+'님의 문의 내역</h2>');
-            }
-        }).fail(function (err) {
-            /* alert(JSON.stringify(err)); */
-        })
-    });
+        if(email.includes('admin')){
+        	$('#inquiry').remove();
+        	$('.inquiryButton').append('<p id="inquiry">문의 관리</p>');
+        	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
+        }else {
+        	$('.inquiry_box').append('<h2 class="inquiry_title">'+name+'님의 문의 내역</h2>');
+        }
+    }).fail(function (err) {
+        /* alert(JSON.stringify(err)); */
+    })
+});
 </script>
-
-<<<<<<< HEAD
-=======
-	                var token = localStorage.getItem("token");
-
-
-	                if (token == null){
-                		alert("로그인을 해주세요.");
-	                }else {
-	        	        location.href="/inquiry?tokenname="+token;
-	                }
-
-            })
-          });
+<script>
+/* inquiry.jsp */
+$(document).ready(function(){
+ let api = "http://localhost:8090";
+   $.ajax({
+       url: api + "/board/user/my-board",
+       type: 'GET',
+       async: false,
+       cache: false,
+       contentType: 'application/json; chartset=utf-8',
+       success: function (data) {
+           $('#example2').DataTable({
+               pageLength: 10,
+               bPaginate: true,
+               bLengthChange: true,
+               lengthMenu: [[10, 20, 50, -1], [10, 20, 50, "All"]],
+               bAutoWidth: false,
+               processing: true,
+               ordering: true,
+               serverSide: false,
+               searching: true,
+               order: [],
+               data: data,
+               columnDefs: [{
+                   "defaultContent": "-",
+                   "targets": "_all"
+               }],
+               columns: [
+                   {
+                       data: null, render: function (data, type, row) {
+                           return data.title;
+                       }
+                   },
+                   {
+                       data: null, render: function (data, type, row) {
+                           return data.content;
+                       }
+                   },
+                   {
+                       data: null, render: function (data, type, row) {
+                           return data.questionStatus;
+                       }
+                   },
+                   {
+                       data: null, render: function (data, type, row) {
+                           return data.name;
+                       }
+                   },
+                   {
+                       data: null, render: function (data, type, row) {
+                           return data.email;
+                       }
+                   }
+               ]
+           })
+       },
+       beforeSend: function (xhr) {
+           xhr.setRequestHeader("Authorization", "Bearer " + token);
+       },
+       error: function (jqXHR, textStatus, errorThrown) {
+           console.log(jqXHR.status + textStatus + errorThrown);
+       }
+   })
+});
 </script>
 </head>
 <body>
