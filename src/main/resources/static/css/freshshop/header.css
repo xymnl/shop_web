@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+body {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}
+
 ul li {list-style:none;}
 
 .logo > img {width:50px; height:50px; background-size:cover;}
@@ -11,3 +18,5 @@ ul li {list-style:none;}
 
 #inquiry {cursor:pointer;}
 #inquiry:hover {color:#0aad0a;}
+
+img {-webkit-user-drag:none;}

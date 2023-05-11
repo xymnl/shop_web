@@ -8,21 +8,32 @@ body {overflow-x:hidden; width:100%; height:100vh;}
 	padding:10px;
 }
 
-.main-banner-img > img {width:100%; height:400px; background-size:cover;}
-
-/* === slick === */
-.slick-slide {margin: 0px 20px;}
-.slick-prev:before, .slick-next:before {color: black;}
-.slick-slide {transition: all ease-in-out .3s; opacity: .2;}
-.slick-active {opacity: .5;}
-.slick-current {opacity: 1;}
-
-
-/* === 카테고리 배너 === */
-.categories-box {width:50px; height:100px; background:black;}
-
-
 .title {
   text-align: center;
   padding: 20px 0;
+}
+
+.itme-list {
+	width:100%; height:810x; margin:10px auto;
+	display:flex; flex-flow:row wrap; float:left;
+	overflow:hidden;
+}
+
+.item-body {
+	width:200px; height:250px; margin:10px auto;
+	cursor:pointer;
+	overflow:hidden;
+}
+.item-body:hover {
+	border:1px solid #0aad0a; border-radius:10px;
+}
+.item-img {
+	width:100%; height:90%;
+	background-size:cover;
+}
+.itemName {
+	width:100%; height:10%; text-align:center; line-height:25px;
+}
+.item-body:hover .itemName{
+	color:#0aad0a;
 }
