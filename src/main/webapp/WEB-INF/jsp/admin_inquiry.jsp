@@ -45,7 +45,7 @@ $(document).ready(function(){
        type: 'GET',
        async: false,
        cache: false,
-       contentType: 'application/json; chartset=utf-8',
+       contentType: 'application/json; charset=utf-8',
        success: function (data) {
 
 

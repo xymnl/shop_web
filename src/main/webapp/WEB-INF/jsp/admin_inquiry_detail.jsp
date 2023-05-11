@@ -54,7 +54,7 @@ $(document).ready(function(){
        type: 'GET',
        async: false,
        cache: false,
-       contentType: 'application/text; chartset=utf-8',
+       contentType: 'application/text; charset=utf-8',
        dataType: "json",
        success: function (data) {
         console.log("detail : "+data);
@@ -87,10 +87,11 @@ $(function() {
         // Ajax를 이용한 로그인 처리
         $.ajax({
           type: "POST",
-          url: api+"/board/admin/${idx}/answer",
+          url: api+"/board/admin/${idx}/answer?answer="+data.answer,
           async: false,
-         contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify(data)
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(data),
+          dataType: "json",
             success: function(data) {
                 console.log('Success!')
 
@@ -100,13 +101,12 @@ $(function() {
                 xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
             },
         }).done(function (res) {
-             alert("답변이 등록되었습니다.");
+              alert("답변이 등록되었습니다.");
               location.href = "redirect:/admin_inquiry";
           }).fail(function (err) {
-             alert(data);
+             alert("답변 등록 실패");
           })
       })
     });
-    </script>
 </script>
 <%@ include file="fragments/footer.jsp" %>
