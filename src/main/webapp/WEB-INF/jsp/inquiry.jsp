@@ -26,7 +26,8 @@
 
                     </tbody>
                 </table>
-                
+                <a href="/inquiry/create">문의작성</a>
+
                 <div class="pagenation_box">
 	            	<ul class="pagination pagination-seperated "></ul>
 	        	</div>

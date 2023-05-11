@@ -22,12 +22,12 @@ public class BoardController {
 	}
 
 	@GetMapping("/inquiry_detail/{id}")
-	public String injuiryDetail(@PathVariable Long id,Model model){
+	public String inquiryDetail(@PathVariable Long id,Model model){
 		log.info("=====id=={}",id);
 		model.addAttribute("idx",id);
 		return "inquiry_detail";
 	}
-	@GetMapping("/create")
+	@GetMapping("/inquiry/create")
 	public String inquiry_Create () {
 		
 		return "inquiry_create";
