@@ -101,8 +101,6 @@ $(function() {
         email : $("#email").val(),
         password : $("#password").val()
     }
-    console.log("이메일"+$("#email").val()+"패스워드"+$("#password").val());
-
 
     // Ajax를 이용한 로그인 처리
     $.ajax({
@@ -162,18 +160,26 @@ $(document).ready(function(){
         if(res != null){
        	 $('.mypageLink').remove();
        	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
+	     $('#logout_btn').append('<a href="/" class="logout"><i class="bi bi-box-arrow-right"></i></a>');
         }
 
         if(email.includes('admin')){
-        	$('#inquiry').remove();
-        	$('.inquiryButton').append('<p id="inquiry">문의 관리</p>');
+        	$('#inquiry').append('<a href="/inquiry">문의 관리</a>');
         	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
         }else {
+        	$('#inquiry').append('<a href="/inquiry">문의</a>');
         	$('.inquiry_box').append('<h2 class="inquiry_title">'+name+'님의 문의 내역</h2>');
         }
     }).fail(function (err) {
         /* alert(JSON.stringify(err)); */
     })
+    
+    
+    /*로그아웃 버튼 선택*/
+    $('.logout').on("click",function() {
+   	 window.localStorage.clear();
+   	 console.log(token);
+    });
 });
 </script>
 
@@ -252,9 +258,9 @@ $(document).ready(function(){
                        </a>
                      </div>
 
-             		<div class="list-inline-item">
-                      <a href="/inquiry">문의</a>
-                    </div>
+             		<div class="list-inline-item" id="inquiry"></div>
+             		<div class="list-inline-item" id="logout_btn"></div>
+             		
                    </div>
                  </div>
                </div>

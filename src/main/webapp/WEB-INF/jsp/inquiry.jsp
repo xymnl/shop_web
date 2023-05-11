@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="fragments/header.jsp" %>
 
-<h2 class="inquiry_title">이곳은 문의화면입니다</h2>
+<div class="inquiry_box"></div>
 
 <div class="row">
     <div class="col-lg-12 col-md-12">
