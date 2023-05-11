@@ -139,41 +139,44 @@ $(document).ready(function(){
     let data;
     let api = "http://localhost:8090";
     // Ajax를 이용한 회원 조회
-    $.ajax({
-        type: "GET",
-        url: api+"/user/info",
-        async: false,
-        contentType: "application/text; charset=utf-8",
-        data: JSON.stringify(data),
-        dataType: "json",
-        success: function(data) {
-            console.log(data)
+    if(token != null){
+    	$.ajax({
+            type: "GET",
+            url: api+"/user/info",
+            async: false,
+            contentType: "application/text; charset=utf-8",
+            data: JSON.stringify(data),
+            dataType: "json",
+            success: function(data) {
+                console.log(data)
 
-        },
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization","Bearer " + token);
-        },
-    }).done(function (res) {
-        var email = res.email;
-        var name = res.name;
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization","Bearer " + token);
+            },
+        }).done(function (res) {
+            var email = res.email;
+            var name = res.name;
 
-        if(res != null){
-       	 $('.mypageLink').remove();
-       	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
-	     $('#logout_btn').append('<a href="/" class="logout"><i class="bi bi-box-arrow-right"></i></a>');
-        }
+            if(res != null){
+           	 $('.mypageLink').remove();
+           	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
+    	     $('#logout_btn').append('<a href="/" class="logout"><i class="bi bi-box-arrow-right"></i></a>');
+            }
 
-        if(email.includes('admin')){
-        	$('#inquiry').append('<a href="/inquiry">문의 관리</a>');
-        	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
-        }else {
-        	$('#inquiry').append('<a href="/inquiry">문의</a>');
-        	$('.inquiry_box').append('<h2 class="inquiry_title">'+name+'님의 문의 내역</h2>');
-        }
-    }).fail(function (err) {
-        /* alert(JSON.stringify(err)); */
-    })
-    
+            if(email.includes('admin')){
+            	$('#inquiry').append('<a href="/inquiry">문의 관리</a>');
+            	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
+            }else {
+            	$('#inquiry').append('<a href="/inquiry">문의</a>');
+            	$('.inquiry_box').append('<h2 class="inquiry_title">'+name+'님의 문의 내역</h2>');
+            }
+        }).fail(function (err) {
+            	/* alert(JSON.stringify(err)); */
+            	alert('로그인이 필요합니다.');
+            	location.href="/";
+   	    	})
+   		}
     
     /*로그아웃 버튼 선택*/
     $('.logout').on("click",function() {
