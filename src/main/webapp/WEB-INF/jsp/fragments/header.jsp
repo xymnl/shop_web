@@ -187,8 +187,10 @@ $(document).ready(function(){
                  <div class="col-xxl-2 col-lg-3"> <!-- 로고 이미지 / 선택 시 메인 페이지 이동 -->
                    <a class="navbar-brand d-none d-lg-block logo" href="/"><img src="/resources/imgs/logo.png" alt="로고 이미지">Fresh Shop</a>
                  </div>
-                 <div class="col-xxl-6 col-lg-5 d-none d-lg-block"> <!-- 제품 검색 영역 -->
-                   <form action="#">
+                 <div class="col-xxl-6 col-lg-5 d-none d-lg-block">
+
+                 <!-- 제품 검색 영역 -->
+                   <form action="item_search.jsp" method="post" name="search">
                      <div class="input-group">
                        <input class="form-control rounded" type="search" placeholder="Search for products">
                          <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
