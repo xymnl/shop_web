@@ -13,29 +13,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class HomeController {
 
+	@GetMapping("/")
+    public String home() {
+        return "home";
+    }
 
     @GetMapping("/admin_addItem")
     public String addItem() {
         return "admin_addItem";
     }
-    @GetMapping("/test")
-    public String test() {
-        return "test";
-    }
-
-	
-    @GetMapping("/")
-    public String home() {
-        return "home";
-    }
-
-
-
+    
     @GetMapping("/createUser")
     public String createUser() {
     	return "createUser";
     }
-
     
     @GetMapping("/shop_dairy")
     public String shopPage() {
@@ -51,7 +42,6 @@ public class HomeController {
     public String wisthPage() {
     	return "wish";
     }
-    
 
     @GetMapping("/order")
     public String order() {
