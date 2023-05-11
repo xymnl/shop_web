@@ -89,9 +89,8 @@ $(function() {
           type: "POST",
           url: api+"/board/admin/${idx}/answer",
           async: false,
-         contentType: 'application/text; chartset=utf-8',
-         	       dataType: "text",
-         data: data,
+         contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify(data)
             success: function(data) {
                 console.log('Success!')
 
@@ -104,7 +103,7 @@ $(function() {
              alert("답변이 등록되었습니다.");
               location.href = "redirect:/admin_inquiry";
           }).fail(function (err) {
-             alert(JSON.stringify(err));
+             alert(data);
           })
       })
     });
