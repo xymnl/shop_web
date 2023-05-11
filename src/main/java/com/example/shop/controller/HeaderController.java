@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -32,5 +33,17 @@ public class HeaderController {
 
         return "header";
     }
+    @GetMapping("/search/{itemName}")
+    public String search(@PathVariable String itemName, Model model) {
+
+        String url = apiServer + "user/item/search/" + itemName;
+        ResponseEntity response = new RestTemplate().getForEntity(url, Object.class);
+        List list = (List) response.getBody();
+        log.info("list = {}", list);
+        model.addAttribute("list", list);
+
+        return "item_search";
+    }
+
 
 }

@@ -184,6 +184,26 @@ $(document).ready(function(){
     });
 });
 </script>
+<script>
+// 동적 form 생성해서 post 전송
+function sendPost(url, params) {
+    var form = document.createElement("form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", url);
+
+    for(var key in params) {
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", key);
+        hiddenField.setAttribute("value", params[key]);
+
+        form.appendChild(hiddenField);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+</script>
 
 </head>
 <body>
