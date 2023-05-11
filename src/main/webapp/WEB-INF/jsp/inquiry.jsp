@@ -36,5 +36,69 @@
     </div>
 </div>
 </body>
+<script>
+/* inquiry.jsp */
+$(document).ready(function(){
+ let api = "http://localhost:8090";
+   $.ajax({
+       url: api + "/board/user/my-board",
+       type: 'GET',
+       async: false,
+       cache: false,
+       contentType: 'application/json; chartset=utf-8',
+       success: function (data) {
 
+
+           $('#example2').DataTable({
+               pageLength: 10,
+               bPaginate: false,
+               bLengthChange: false,
+               bAutoWidth: false,
+               processing: true,
+               ordering: true,
+               serverSide: false,
+               searching: false,
+               info: false,
+               order: [],
+               data: data,
+               columnDefs: [{
+                   "defaultContent": "-",
+                   "targets": "_all"
+               }],
+               columns: [
+                   {
+                       data: null, render: function (data, type, row) {
+                    	   var title_link = '<a href="inquiry_detail/'+data.id+'">'+data.title+'</a>';
+                    	   console.log("data.title : "+data.title);
+                    	   console.log("data.id : "+data.id);
+                           return title_link;
+                       }
+                   },
+                   {
+                       data: null, render: function (data, type, row) {
+                           return data.content;
+                       }
+                   },
+                   {
+                       data: null, render: function (data, type, row) {
+                           return data.questionStatus;
+                       }
+                   },
+                   {
+                       data: null, render: function (data, type, row) {
+                           return data.name;
+                       }
+                   }
+               ]
+           })
+       },
+       beforeSend: function (xhr) {
+           xhr.setRequestHeader("Authorization", "Bearer " + token);
+       },
+       error: function (jqXHR, textStatus, errorThrown) {
+           console.log(jqXHR.status + textStatus + errorThrown);
+       }
+   })
+});
+</script>
 <%@ include file="fragments/footer.jsp" %>

@@ -20,10 +20,10 @@
         <tbody>
 
           <tr>
-            <td><c:out value="${myboard.title}"></c:out></a></td>
-            <td><c:out value="${myboard.content}"></c:out></td>
-            <td><c:out value="${myboard.questionStatus}"></c:out></td>
-            <td><c:out value="${myboard.name}"></c:out></td>
+            <td><span class='span_dataset1'></span></td>
+            <td><span class='span_dataset2'></span></td>
+            <td><span class='span_dataset3'></span></td>
+            <td><span class='span_dataset4'></span></td>
           </tr>
 
 
@@ -44,7 +44,13 @@ $(document).ready(function(){
        async: false,
        cache: false,
        contentType: 'application/json; chartset=utf-8',
+       dataType: "json",
        success: function (data) {
+        console.log("detail : "+data);
+        $('.span_dataset1').text(data.title);
+        $('.span_dataset2').text(data.content);
+        $('.span_dataset3').text(data.questionStatus);
+        $('.span_dataset4').text(data.name);
        },
        beforeSend: function (xhr) {
            xhr.setRequestHeader("Authorization", "Bearer " + token);
