@@ -34,10 +34,6 @@
 <form method="post">
     <table style="width:600px; margin:auto">
         <tr>
-            <td width="70">제목</td>
-            <td><input type="text" id="title" placeholder="제목을 입력하세요. (20자 이하)"/></td>
-        </tr>
-        <tr>
             <td>내용</td>
             <td><textarea id="content" cols="70" rows="10"></textarea></td>
         </tr>
@@ -59,7 +55,7 @@ $(document).ready(function(){
        async: false,
        cache: false,
        contentType: 'application/text; chartset=utf-8',
-       dataType: "text",
+       dataType: "json",
        success: function (data) {
         console.log("detail : "+data);
         $('.span_dataset1').text(data.title);
@@ -75,5 +71,43 @@ $(document).ready(function(){
        }
    })
 });
+</script>
+<script>
+$(function() {
+    	let api = "http://localhost:8090";
+
+      $("#sub").on("click", function (){
+        // 기본 이벤트 제거
+        event.preventDefault();
+        // 이메일과 비밀번호 입력 값 가져오기
+         let data ={
+            answer : $("#content").val()
+        }
+
+        // Ajax를 이용한 로그인 처리
+        $.ajax({
+          type: "POST",
+          url: api+"/board/admin/${idx}/answer",
+          async: false,
+         contentType: 'application/text; chartset=utf-8',
+         	       dataType: "text",
+         data: data,
+            success: function(data) {
+                console.log('Success!')
+
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Content-type","application/json");
+                xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+            },
+        }).done(function (res) {
+             alert("답변이 등록되었습니다.");
+              location.href = "redirect:/admin_inquiry";
+          }).fail(function (err) {
+             alert(JSON.stringify(err));
+          })
+      })
+    });
+    </script>
 </script>
 <%@ include file="fragments/footer.jsp" %>
