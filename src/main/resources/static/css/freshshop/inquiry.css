@@ -30,3 +30,6 @@ span.active {
 	color:#0aad0a;
 	font-weight:bold;
 }
+
+.delete_btn {float:right; cursor:pointer;}
+.delete_btn:hover {color:#0aad0a; font-weight:bold;}

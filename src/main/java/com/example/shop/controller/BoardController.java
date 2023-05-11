@@ -20,6 +20,11 @@ public class BoardController {
 	public String inquiry() {
 		return "inquiry";
 	}
+	
+	@GetMapping("/admin_inquiry")
+	public String adminInquiry() {
+		return "admin_inquiry";
+	}
 
 	@GetMapping("/inquiry_detail/{id}")
 	public String inquiryDetail(@PathVariable Long id,Model model){
@@ -27,6 +32,14 @@ public class BoardController {
 		model.addAttribute("idx",id);
 		return "inquiry_detail";
 	}
+	
+	@GetMapping("/admin_inquiry_detail/{id}")
+	public String adminInquiryDetail(@PathVariable Long id,Model model){
+		log.info("=====id=={}",id);
+		model.addAttribute("idx",id);
+		return "admin_inquiry_detail";
+	}
+	
 	@GetMapping("/inquiry/create")
 	public String inquiry_Create () {
 		

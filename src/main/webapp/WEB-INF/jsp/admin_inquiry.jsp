@@ -41,7 +41,7 @@
 $(document).ready(function(){
  let api = "http://localhost:8090";
    $.ajax({
-       url: api + "/board/user/my-board",
+       url: api + "/board/admin",
        type: 'GET',
        async: false,
        cache: false,
@@ -68,7 +68,7 @@ $(document).ready(function(){
                columns: [
                    {
                        data: null, render: function (data, type, row) {
-                    	   var title_link = '<a href="inquiry_detail/'+data.id+'">'+data.title+'</a>';
+                    	   var title_link = '<a href="admin_inquiry_detail/'+data.id+'">'+data.title+'</a>';
                     	   console.log("data.title : "+data.title);
                     	   console.log("data.id : "+data.id);
                            return title_link;

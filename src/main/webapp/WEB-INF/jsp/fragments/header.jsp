@@ -165,7 +165,7 @@ $(document).ready(function(){
             }
 
             if(email.includes('admin')){
-            	$('#inquiry').append('<a href="/inquiry">문의 관리</a>');
+            	$('#inquiry').append('<a href="/admin_inquiry">문의 관리</a>');
             	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
             }else {
             	$('#inquiry').append('<a href="/inquiry">문의</a>');

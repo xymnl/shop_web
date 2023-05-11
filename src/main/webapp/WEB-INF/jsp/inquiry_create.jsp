@@ -1,23 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="fragments/header.jsp" %>
-	<h2>문의 작성 페이지</h2>
 
-<form action method="post">
-        <table style="width: 600px; margin: auto">
-            <tr>
-                <td width="70">제목</td>
-                <td><input type="text" id="title"placeholder="제목을 입력하세요. (20자 이하)"/></td>
-            </tr>
-            <tr>
-                <td>내용</td>
-                <td><textarea id="content" cols="70" rows="10"></textarea></td>
-            </tr>
-        </table>
-                <div style="width:835px ;text-align: right; margin-top:10px">
-                    <button type="submit" id="sub">등록</button>
-                </div>
-    </form>
+	<h2 class="inquiry_title">문의 작성 페이지</h2>
+
+<form method="post">
+    <table style="width:600px; margin:auto">
+        <tr>
+            <td width="70">제목</td>
+            <td><input type="text" id="title" placeholder="제목을 입력하세요. (20자 이하)"/></td>
+        </tr>
+        <tr>
+            <td>내용</td>
+            <td><textarea id="content" cols="70" rows="10"></textarea></td>
+        </tr>
+    </table>
+     <div style="width:835px; text-align:right; margin-top:10px">
+         <button type="submit" id="sub">등록</button>
+     </div>
+</form>
 
 <script>
     $(function() {

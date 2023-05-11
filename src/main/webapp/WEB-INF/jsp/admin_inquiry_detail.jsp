@@ -6,6 +6,7 @@
 <h2 class="inquiry_title">상세문의</h2>
 
 <div class="container">
+
   <div class="row">
     <div class="col-xs-12">
       <table class="table table-bordered table-hover dt-responsive">
@@ -26,9 +27,26 @@
           </tr>
         </tbody>
       </table>
-      <div class="delete_btn">등록한 문의 삭제</div>
     </div>
   </div>
+  
+<h2 class="inquiry_title">문의 답변하기</h2>
+<form method="post">
+    <table style="width:600px; margin:auto">
+        <tr>
+            <td width="70">제목</td>
+            <td><input type="text" id="title" placeholder="제목을 입력하세요. (20자 이하)"/></td>
+        </tr>
+        <tr>
+            <td>내용</td>
+            <td><textarea id="content" cols="70" rows="10"></textarea></td>
+        </tr>
+    </table>
+    <div style="width:835px; text-align:right; margin-top:10px">
+        <button type="submit" id="sub">등록</button>
+    </div>
+</form>
+  
 </div>
 
 <script>
@@ -36,12 +54,12 @@
 $(document).ready(function(){
  let api = "http://localhost:8090";
    $.ajax({
-       url: api + "/board/user/my-board/${idx}",
+       url: api + "/board/admin/${idx}",
        type: 'GET',
        async: false,
        cache: false,
-       contentType: 'application/json; chartset=utf-8',
-       dataType: "json",
+       contentType: 'application/text; chartset=utf-8',
+       dataType: "text",
        success: function (data) {
         console.log("detail : "+data);
         $('.span_dataset1').text(data.title);
@@ -56,28 +74,6 @@ $(document).ready(function(){
            console.log(jqXHR.status + textStatus + errorThrown);
        }
    })
-   $('.delete_btn').on("click",function() {
-	  $.ajax({
-		 url : api + "/board/user/my-board/${idx}",
-		 type:'DELETE',
-	       async: false,
-	       cache: false,
-	       contentType: 'application/text; chartset=utf-8',
-	       dataType: "text",
-	       success: function (data) {
-	    	  alert("문의가 삭제되었습니다.");
-	       },
-	       beforeSend: function (xhr) {
-	           xhr.setRequestHeader("Authorization", "Bearer " + token);
-	       },
-	       error: function (jqXHR, textStatus, errorThrown) {
-	           console.log(jqXHR.status + textStatus + errorThrown);
-	       }
-	  }).done(function (res) {
-          alert("문의가 삭제되었습니다.");
-          location.href = "/inquiry";
-      });
-   });
 });
 </script>
 <%@ include file="fragments/footer.jsp" %>
