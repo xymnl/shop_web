@@ -26,6 +26,10 @@
           </tr>
         </tbody>
       </table>
+      <table border="1">
+          <th>답변내용</th>
+          <tr><td><span class='span_dataset5'></span></td></tr>
+        </table>
       <div class="delete_btn">등록한 문의 삭제</div>
     </div>
   </div>
@@ -48,6 +52,7 @@ $(document).ready(function(){
         $('.span_dataset2').text(data.content);
         $('.span_dataset3').text(data.questionStatus);
         $('.span_dataset4').text(data.name);
+        $('.span_dataset5').text(data.answer);
        },
        beforeSend: function (xhr) {
            xhr.setRequestHeader("Authorization", "Bearer " + token);
