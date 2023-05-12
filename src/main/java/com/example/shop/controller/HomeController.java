@@ -5,12 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class HomeController {
 
 	@GetMapping("/")
@@ -33,10 +37,12 @@ public class HomeController {
     	return "products/shop_dairy";
     }
     
-    @GetMapping("/detail")
-    public String detailPage() {
-    	return "products/shop-detail";
-    }
+    @GetMapping("/detail/{id}")
+	public String inquiryDetail(@PathVariable Long id,Model model){
+		log.info("=====id=={}",id);
+		model.addAttribute("idx",id);
+		return "products/shop-detail";
+	}
     
     @GetMapping("/wish")
     public String wisthPage() {

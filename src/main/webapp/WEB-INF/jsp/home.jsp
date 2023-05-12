@@ -4,7 +4,7 @@
 		<section class="categories">
 			<div class="title"><h2>Fresh Shop's Items</h2></div>
 			
-			<div class="itme-list">
+			<div class="itme-list" id="item">
 				<!-- <div class="item-body">
 					<img class="item-img" src="/resources/imgs/product-img-1.jpg">
 					<div class="itemName">상품명</div>
@@ -14,6 +14,8 @@
 					<div class="itemName">상품명</div>
 				</div> -->
 			</div>
+			
+			
 		</section>
 		
 	</div>
@@ -28,17 +30,11 @@ $(document).ready(function(){
        cache: false,
        contentType: 'application/json; chartset=utf-8',
        success: function (data) {
-    	   console.log("data : "+JSON.stringify(data));
-    	   for(var i in data){
-    		   var name = [data[i].item_name];
-    	   }
+    	   console.log("home 에서 출력하는 data "+JSON.stringify(data));
     	   for(var j=0; j<data.length; j++){
-    		   $('.itme-list').append('<div class="item-body"><img class="item-img" src="/resources/imgs/product-img-1.jpg"><div class="itemName">'+data[j].item_name+'</div></div>');
-    	   } 
-    	   
-    	   $.ajax({
-    		   
-    	   });
+    		    /*$('.itme-list').append('<div id="item-body" onclick="myFunction(this)"><img class="item-img" src="/resources/imgs/product-img-1.jpg"><div class="itemName" id="itemName">'+data[j].item_name+'<span id="itemId'+j+'">'+data[j].item_id+'</span></div></div>');*/
+    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'"><div id="item-body" onclick="myFunction(this)"><img class="item-img" src="/resources/imgs/product-img-1.jpg"><div class="itemName" id="itemName">'+data[j].item_name+'</div></div><a>');
+    	   }
        },
        beforeSend: function (xhr) {
            xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -46,7 +42,24 @@ $(document).ready(function(){
        error: function (jqXHR, textStatus, errorThrown) {
            console.log(jqXHR.status + textStatus + errorThrown);
        }
-   })
+   });
+   
+   $.ajax({
+       url: api + "/user/item/${idx}",
+       type: 'GET',
+       async: false,
+       cache: false,
+       contentType: 'application/json; chartset=utf-8',
+       success: function (data) {
+    	   		console.log("상품상세 data : "+data);
+       },
+       beforeSend: function (xhr) {
+           xhr.setRequestHeader("Authorization", "Bearer " + token);
+       },
+       error: function (jqXHR, textStatus, errorThrown) {
+           console.log(jqXHR.status + textStatus + errorThrown);
+       }
+	});
 });
 </script>
 	

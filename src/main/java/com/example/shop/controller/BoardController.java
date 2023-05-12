@@ -30,7 +30,7 @@ public class BoardController {
 	public String inquiryDetail(@PathVariable Long id,Model model){
 		log.info("=====id=={}",id);
 		model.addAttribute("idx",id);
-		return "inquiry_detail";
+		return "detail";
 	}
 	
 	@GetMapping("/admin_inquiry_detail/{id}")

@@ -9,10 +9,9 @@
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="test">Home</a></li>
 			<li class="breadcrumb-item active"><a href="shop">shop</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Napolitanke Ljesnjak</li>
+			<li aria-current="page" class="breadcrumb-item active"><p class="titleName"></p></li>
 		</ol>
 	</nav>
-	
 	<div class="row">
 		<div class="col-md-6">
 			<!-- img slide -->
@@ -23,27 +22,18 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
 		<div class="col-md-6 shop-container">
 			<div class="ps-lg-10 mt-6 mt-md-0">
-				<a href="#!" class="mb-4 d-block">Bakery Biscuits</a>
-				<h1 class="mb-1">Napolitanke Ljesnjak</h1>
-				<div class="mb-4">
-					<small class="text-warning"> 
-						<i class="bi bi-star-fill"></i>
-						<i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> 
-						<i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i>
-					</small><a href="#" class="ms-2">(30 reviews)</a>
-				</div>
+				<h1 class="mb-1 itemName"></h1>
 				<div class="fs-4">
-					<span class="fw-bold text-dark">$32</span> 
-					<span class="text-decoration-line-through text-muted">$35</span>
+					<span class="fw-bold text-dark itemPrice"><!-- 상품 가격 --></span>원 
+					<span class="text-decoration-line-through text-muted">30000</span>원
 					<span><small class="fs-6 ms-2 text-danger">26% Off</small></span>
 				</div>
 				<hr class="my-6">
 				<div>
-					<div class="input-group input-spinner  ">
+					<div class="input-group input-spinner">
 						<input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity"> 
 						<input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input"> 
 						<input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity">
@@ -79,16 +69,6 @@
 						</tbody>
 					</table>
 				</div>
-<!-- 				<div class="mt-8">
-					<div class="dropdown">
-						<a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Share </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#"><i class="bi bi-facebook me-2"></i>Facebook</a></li>
-							<li><a class="dropdown-item" href="#"><i class="bi bi-twitter me-2"></i>Twitter</a></li>
-							<li><a class="dropdown-item" href="#"><i class="bi bi-instagram me-2"></i>Instagram</a></li>
-						</ul>
-					</div>
-				</div> -->
 			</div>
 		</div>
 		
@@ -120,6 +100,30 @@
 		
 </div> <!--  END : m-container -->
 
+<script>
+$(document).ready(function(){
+	 let api = "http://localhost:8090";
+	 $.ajax({
+       url: api + "/user/item/${idx}",
+       type: 'GET',
+       async: false,
+       cache: false,
+       contentType: 'application/json; chartset=utf-8',
+       success: function (data) {
+  	   		console.log("상품상세 data : "+JSON.stringify(data));
+  	   		$('.itemName').append(data.itemName);
+  	   		$('.itemPrice').append(data.price);
+  	   		
+      },
+      beforeSend: function (xhr) {
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR.status + textStatus + errorThrown);
+      }
+	});
+ });
+</script>
 <script>
 $(document).ready(function() {
 	$('.product-detail').addClass('active');
