@@ -32,7 +32,7 @@
                     <!-- img --> <img src="../assets/images/products/product-img-1.jpg" alt="Ecommerce" class="img-fluid"></div>
                   <div class="col-4 col-md-5">
                     <!-- title -->
-                    <a href="shop-single.html" class="text-inherit"><h6 class="mb-0">Haldiram's Sev Bhujia</h6></a>
+                    <a href="shop-single.html" class="text-inherit"><h6 id="name"></h6></a>
                     <span><small class="text-muted">.98 / lb</small></span>
                     <!-- text -->
                     <div class="mt-2 small lh-1"> <a href="#!" class="text-decoration-none text-inherit"> <span class="me-1 align-text-bottom">
@@ -71,8 +71,7 @@
                     <!-- img --> <img src="../assets/images/products/product-img-2.jpg" alt="Ecommerce" class="img-fluid"></div>
                   <div class="col-4 col-md-5">
                     <!-- title -->
-                    <a href="shop-single.html" class="text-inherit"><h6 class="mb-0">NutriChoice Digestive </h6></a>
-                    <span><small class="text-muted">250g</small></span>
+                    <a href="shop-single.html" class="text-inherit"><span id="itemnm"> </span></a>
                     <!-- text -->
                         <div class="mt-2 small lh-1"> <a href="#!" class="text-decoration-none text-inherit"> <span class="me-1 align-text-bottom">
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 text-success">
@@ -88,143 +87,19 @@
                        <!-- input -->
                   <div class="input-group input-spinner  ">
                     <input type="button" value="-" class="button-minus  btn  btn-sm " data-field="quantity">
-                    <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input   ">
+                    <input type="number" step="1" max="10" value="1" id="count" class="quantity-field form-control-sm form-input   ">
                     <input type="button" value="+" class="button-plus btn btn-sm " data-field="quantity">
                   </div>
 
                   </div>
                   <!-- price -->
                   <div class="col-2 text-lg-end text-start text-md-end col-md-2">
-                    <span class="fw-bold text-danger">$20.00</span>
-                    <div class="text-decoration-line-through text-muted small">$26.00</div>
-                  </div>
-                </div>
-
-              </li>
-              <!-- list group -->
-              <li class="list-group-item py-3 py-lg-0 px-0">
-                <!-- row -->
-                <div class="row align-items-center">
-                  <div class="col-3 col-md-2">
-                    <!-- img --> <img src="../assets/images/products/product-img-3.jpg" alt="Ecommerce" class="img-fluid"></div>
-                  <div class="col-4 col-md-5">
-                    <!-- title -->
-                    <a href="shop-single.html" class="text-inherit"><h6 class="mb-0">Cadbury 5 Star Chocolate</h6></a>
-                    <span><small class="text-muted">1 kg</small></span>
-                    <!-- text -->
-                        <div class="mt-2 small lh-1"> <a href="#!" class="text-decoration-none text-inherit"> <span class="me-1 align-text-bottom">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 text-success">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                            </path>
-                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                          </svg></span><span class="text-muted">Remove</span></a></div>
-                  </div>
-                  <!-- input group -->
-                  <div class="col-3 col-md-3 col-lg-2">
-                       <!-- input -->
-                  <div class="input-group input-spinner  ">
-                    <input type="button" value="-" class="button-minus  btn  btn-sm " data-field="quantity">
-                    <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input   ">
-                    <input type="button" value="+" class="button-plus btn btn-sm " data-field="quantity">
-                  </div>
-
-                  </div>
-                  <!-- price -->
-                  <div class="col-2 text-lg-end text-start text-md-end col-md-2">
-                    <span class="fw-bold">$15.00</span>
-                    <div class="text-decoration-line-through text-muted small">$20.00</div>
-                  </div>
-                </div>
-
-              </li>
-              <!-- list group -->
-              <li class="list-group-item py-3 py-lg-0 px-0">
-                <!-- row -->
-                <div class="row align-items-center">
-                  <div class="col-3 col-md-2">
-                    <!-- img --> <img src="../assets/images/products/product-img-4.jpg" alt="Ecommerce" class="img-fluid"></div>
-                  <div class="col-4 col-md-5">
-                    <!-- title -->
-                    <a href="shop-single.html" class="text-inherit">  <h6 class="mb-0">Onion Flavour Potato</h6></a>
-                    <span><small class="text-muted">250g</small></span>
-                    <!-- text -->
-                        <div class="mt-2 small lh-1"> <a href="#!" class="text-decoration-none text-inherit"> <span class="me-1 align-text-bottom">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 text-success">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                            </path>
-                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                          </svg></span><span class="text-muted">Remove</span></a></div>
-                  </div>
-                  <!-- input group -->
-                  <div class="col-3 col-md-3 col-lg-2">
-                       <!-- input -->
-                  <div class="input-group input-spinner  ">
-                    <input type="button" value="-" class="button-minus  btn  btn-sm " data-field="quantity">
-                    <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input   ">
-                    <input type="button" value="+" class="button-plus btn btn-sm " data-field="quantity">
-                  </div>
-
-                  </div>
-                  <!-- price -->
-                  <div class="col-2 text-lg-end text-start text-md-end col-md-2">
-                    <span class="fw-bold">$15.00</span>
-                    <div class="text-decoration-line-through text-muted small">$20.00</div>
-                  </div>
-                </div>
-
-              </li>
-              <!-- list group -->
-              <li class="list-group-item py-3 py-lg-0 px-0 border-bottom">
-                <!-- row -->
-                <div class="row align-items-center">
-                  <div class="col-3 col-md-2">
-                    <!-- img --> <img src="../assets/images/products/product-img-5.jpg" alt="Ecommerce" class="img-fluid"></div>
-                  <div class="col-4 col-md-5">
-                    <!-- title -->
-                    <a href="shop-single.html" class="text-inherit"><h6 class="mb-0">Salted Instant Popcorn </h6></a>
-                    <span><small class="text-muted">100g</small></span>
-                    <!-- text -->
-                        <div class="mt-2 small lh-1"> <a href="#!" class="text-decoration-none text-inherit"> <span class="me-1 align-text-bottom">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 text-success">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                            </path>
-                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                          </svg></span><span class="text-muted">Remove</span></a></div>
-                  </div>
-                  <!-- input group -->
-                  <div class="col-3 col-md-3 col-lg-2">
-                       <!-- input -->
-                  <div class="input-group input-spinner  ">
-                    <input type="button" value="-" class="button-minus  btn  btn-sm " data-field="quantity">
-                    <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input   ">
-                    <input type="button" value="+" class="button-plus btn btn-sm " data-field="quantity">
-                  </div>
-
-                  </div>
-                  <!-- price -->
-                  <div class="col-2 text-lg-end text-start text-md-end col-md-2">
-                    <span class="fw-bold">$15.00</span>
-                    <div class="text-decoration-line-through text-muted small">$25.00</div>
+                    <span id="price"></span>
                   </div>
                 </div>
 
               </li>
 
-            </ul>
-            <!-- btn -->
-            <div class="d-flex justify-content-between mt-4">
-              <a href="#!" class="btn btn-primary">Continue Shopping</a>
-              <a href="#!" class="btn btn-dark">Update Cart</a>
-            </div>
-
-          </div>
-        </div>
 
         <!-- sidebar -->
         <div class="col-12 col-lg-4 col-md-5">
@@ -295,4 +170,31 @@
     </div>
   </section>
 
+
+<script>
+/* inquiry.jsp */
+$(document).ready(function(){
+ let api = "http://localhost:8090";
+   $.ajax({
+       url: api + "/cart/list",
+       type: 'GET',
+       async: false,
+       cache: false,
+       contentType: 'application/text; charset=utf-8',
+       dataType: "json",
+       success: function (data) {
+        console.log("detail : "+data.itemNm+data.count+data.price);
+        $('#itemnm').text(data[0].itemNm);
+        $('#count').text(data[0].count);
+        $('#price').text(data[0].price);
+       },
+       beforeSend: function (xhr) {
+           xhr.setRequestHeader("Authorization", "Bearer " + token);
+       },
+       error: function (jqXHR, textStatus, errorThrown) {
+           console.log(jqXHR.status + textStatus + errorThrown);
+       }
+   })
+});
+</script>
 <%@ include file="fragments/footer.jsp"%>

@@ -35,13 +35,13 @@
 				<div>
 					<div class="input-group input-spinner">
 						<input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity"> 
-						<input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input"> 
+						<input type="number" step="1" max="10" value="1" name="quantity" id="count" class="quantity-field form-control-sm form-input">
 						<input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity">
 					</div>
 				</div>
 				<div class="mt-3 row justify-content-start g-2 align-items-center">
 					<div class="col-xxl-4 col-lg-4 col-md-5 col-5 d-grid">
-						<button type="button" class="btn btn-primary">
+						<button type="button" class="btn btn-primary" id="addToCart">
 							<i class="feather-icon icon-shopping-bag me-2"></i>Add to cart
 						</button>
 					</div>
@@ -145,6 +145,47 @@ $(document).ready(function() {
 });
 </script>
 
+
+
+
+<!--addtocart -->
+<script>
+    $(function() {
+    	let api = "http://localhost:8090";
+
+      $("#addToCart").on("click", function (){
+        // 기본 이벤트 제거
+        event.preventDefault();
+        // 이메일과 비밀번호 입력 값 가져오기
+         let data ={
+            itemId : ${idx},
+            count : $("#content").val()
+        }
+
+        // Ajax를 이용한 로그인 처리
+        $.ajax({
+          type: "POST",
+          url: api+"/cart/new",
+          async: false,
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(data),
+            success: function(data) {
+                console.log('Success!')
+
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Content-type","application/json");
+                xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+            },
+        }).done(function (res) {
+             alert("카트로");
+              location.href = "/";
+          }).fail(function (err) {
+             alert(JSON.stringify(err));
+          })
+      })
+    });
+    </script>
 
 
 <%@ include file="../fragments/footer.jsp"%>
