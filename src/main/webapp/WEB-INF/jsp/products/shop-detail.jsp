@@ -18,6 +18,7 @@
 			</div>
 		</div>
 		<div class="col-md-6 shop-container">
+<<<<<<< HEAD
 			<h1 class="mb-1 itemName pdTitle"><!--상품 이름--></h1>
 			<div class="fs-4">
 				<span class="fw-bold text-dark itemPrice"><!-- 상품 가격 --></span>원 
@@ -30,6 +31,29 @@
 					<input type="button" value="-" class="button-minus btn btn-sm" disabled data-field="quantity"> 
 					<input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input"> 
 					<input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity">
+=======
+			<div class="ps-lg-10 mt-6 mt-md-0">
+				<h1 class="mb-1 itemName"></h1>
+				<div class="fs-4">
+					<span class="fw-bold text-dark itemPrice"><!-- 상품 가격 --></span>원 
+					<span class="text-decoration-line-through text-muted">30000</span>원
+					<span><small class="fs-6 ms-2 text-danger">26% Off</small></span>
+				</div>
+				<hr class="my-6">
+				<div>
+					<div class="input-group input-spinner">
+						<input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity"> 
+						<input type="number" step="1" max="10" value="1" name="quantity" id="count" class="quantity-field form-control-sm form-input">
+						<input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity">
+					</div>
+				</div>
+				<div class="mt-3 row justify-content-start g-2 align-items-center">
+					<div class="col-xxl-4 col-lg-4 col-md-5 col-5 d-grid">
+						<button type="button" class="btn btn-primary" id="addToCart">
+							<i class="feather-icon icon-shopping-bag me-2"></i>Add to cart
+						</button>
+					</div>
+>>>>>>> 436f9b41c0fa26cec67b7e2d312e8dd8ea541e48
 				</div>
 			</div>
 			<div class="mt-3 row justify-content-start g-2 align-items-center">
@@ -149,4 +173,51 @@ $(document).ready(function(){
 	
 });
 </script>
+<<<<<<< HEAD
+=======
+
+
+
+
+<!--addtocart -->
+<script>
+    $(function() {
+    	let api = "http://localhost:8090";
+
+      $("#addToCart").on("click", function (){
+        // 기본 이벤트 제거
+        event.preventDefault();
+        // 이메일과 비밀번호 입력 값 가져오기
+         let data ={
+            itemId : ${idx},
+            count : $("#content").val()
+        }
+
+        // Ajax를 이용한 로그인 처리
+        $.ajax({
+          type: "POST",
+          url: api+"/cart/new",
+          async: false,
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(data),
+            success: function(data) {
+                console.log('Success!')
+
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Content-type","application/json");
+                xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+            },
+        }).done(function (res) {
+             alert("카트로");
+              location.href = "/";
+          }).fail(function (err) {
+             alert(JSON.stringify(err));
+          })
+      })
+    });
+    </script>
+
+
+>>>>>>> 436f9b41c0fa26cec67b7e2d312e8dd8ea541e48
 <%@ include file="../fragments/footer.jsp"%>
