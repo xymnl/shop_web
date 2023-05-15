@@ -14,26 +14,12 @@
 	<div class="row">
 		<div class="col-md-6" style="overflow:hidden">
 			<div class="title-img">
-				<img src="/resources/imgs/product-single-img-1.jpg" alt="" class="shop-img">
+				<img src="/resources/images/product-single-img-1.jpg" alt="" class="shop-img">
 			</div>
 		</div>
 		<div class="col-md-6 shop-container">
-<<<<<<< HEAD
-			<h1 class="mb-1 itemName pdTitle"><!--상품 이름--></h1>
-			<div class="fs-4">
-				<span class="fw-bold text-dark itemPrice"><!-- 상품 가격 --></span>원 
-				<span class="text-decoration-line-through text-muted">30000</span>원
-				<span><small class="fs-6 ms-2 text-danger">26% Off</small></span>
-			</div>
-			<hr class="my-6">
-			<div>
-				<div class="input-group input-spinner">
-					<input type="button" value="-" class="button-minus btn btn-sm" disabled data-field="quantity"> 
-					<input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input"> 
-					<input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity">
-=======
 			<div class="ps-lg-10 mt-6 mt-md-0">
-				<h1 class="mb-1 itemName"></h1>
+				<h1 class="mb-1 itemName pdTitle"><!-- 상품 이름 --></h1>
 				<div class="fs-4">
 					<span class="fw-bold text-dark itemPrice"><!-- 상품 가격 --></span>원 
 					<span class="text-decoration-line-through text-muted">30000</span>원
@@ -45,22 +31,12 @@
 						<input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity"> 
 						<input type="number" step="1" max="10" value="1" name="quantity" id="count" class="quantity-field form-control-sm form-input">
 						<input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity">
-					</div>
-				</div>
-				<div class="mt-3 row justify-content-start g-2 align-items-center">
-					<div class="col-xxl-4 col-lg-4 col-md-5 col-5 d-grid">
+						
 						<button type="button" class="btn btn-primary" id="addToCart">
 							<i class="feather-icon icon-shopping-bag me-2"></i>Add to cart
 						</button>
 					</div>
->>>>>>> 436f9b41c0fa26cec67b7e2d312e8dd8ea541e48
-				</div>
-			</div>
-			<div class="mt-3 row justify-content-start g-2 align-items-center">
-				<div class="col-xxl-4 col-lg-4 col-md-5 col-5 d-grid">
-					<button type="button" class="btn btn-primary">
-						<i class="feather-icon icon-shopping-bag me-2"></i>Add to cart
-					</button>
+					
 				</div>
 			</div>
 			<hr class="my-6">
@@ -115,6 +91,7 @@
 <script>
 $(document).ready(function(){
 	 let api = "http://localhost:8090";
+	 let token = localStorage.getItem("token");
 	 $.ajax({
        url: api + "/user/item/${idx}",
        type: 'GET',
@@ -151,7 +128,6 @@ $(document).ready(function(){
 		$('.product-detail').removeClass('active');
 	});
 	
-	
 	$('.button-plus').click(function(){
 	    var n = $('.button-plus').index(this);
 	    var num = $(".form-input:eq("+n+")").val();
@@ -173,17 +149,11 @@ $(document).ready(function(){
 	
 });
 </script>
-<<<<<<< HEAD
-=======
-
-
-
-
 <!--addtocart -->
 <script>
     $(function() {
     	let api = "http://localhost:8090";
-
+   		let token = localStorage.getItem("token");
       $("#addToCart").on("click", function (){
         // 기본 이벤트 제거
         event.preventDefault();
@@ -217,7 +187,4 @@ $(document).ready(function(){
       })
     });
     </script>
-
-
->>>>>>> 436f9b41c0fa26cec67b7e2d312e8dd8ea541e48
 <%@ include file="../fragments/footer.jsp"%>

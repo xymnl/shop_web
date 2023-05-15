@@ -11,6 +11,7 @@
 <script>
 $(document).ready(function(){
  let api = "http://localhost:8090";
+ var token = localStorage.getItem("token");
    $.ajax({
        url: api + "/user/item",
        type: 'GET',
@@ -18,8 +19,9 @@ $(document).ready(function(){
        cache: false,
        contentType: 'application/json; chartset=utf-8',
        success: function (data) {
+    	   console.log("데이터 불러오기 " + JSON.stringify(data));
     	   for(let j in data){
-    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'" class="item-box"><img class="item-img" src="/resources/'+data[j].img_url+'"><div class="itemName" id="itemName">'+data[j].item_name+'</div><a>');
+    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'" class="item-box"><img class="item-img" src="/resources/'+data[j].imgUrl+'"><div class="itemName" id="itemName">'+data[j].itemName+'</div><a>');
     	   }
 	    	/* for(var j=0; j<dataLength.length; j++){
     		   console.log("j값 : "+j);

@@ -8,6 +8,10 @@ $(document).ready(function(){
 	/* ===== Login JS ===== */ 
 	let api = "http://localhost:8090";
 	var token = sessionStorage.getItem("Authorization");
+	
+	document.getElementById("myInfo").style.display= "none";
+	document.getElementById("inquiry").style.display= "none";
+	
 	// 로그인 폼 submit 이벤트 처리
 	$("#login-btn").on("click", function (){
 		event.preventDefault();
@@ -33,9 +37,7 @@ $(document).ready(function(){
 	       },
 	   }).done(function (res) {
 			   alert("로그인이 완료되었습니다.");
-			   var email = data.email;            
 			   location.href = "/";
-			   $(".enter_email").html("내 정보");
 	   		}).fail(function (err) {
 	   			alert(JSON.stringify(err));
 	   		})
@@ -60,18 +62,21 @@ $(document).ready(function(){
         }).done(function (res) {
             var email = res.email;
             var name = res.name;
+            
+    		document.getElementById("myInfo").style.display= "";
+    		document.getElementById("inquiry").style.display= "";
 
             if(res != null){
            	 $('.mypageLink').remove();
-           	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
-    	     $('#logout_btn').append('<a href="/" class="logout"><i class="bi bi-box-arrow-right"></i></a>');
+           	 $('.mypageButton').append('<a href="/" class="logout">로그아웃</a>');
+    	     $('#myInfo').append('<a href="/mypage" class="myinfoBtn">내 정보 </a>');
             }
-
+            
             if(email.includes('admin')){
-            	$('#inquiry').append('<a href="/admin_inquiry">문의 관리</a>');
+            	$('#inquiry').append('<a href="/admin_inquiry" class="inquryBtn">문의 관리</a>');
             	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
             }else {
-            	$('#inquiry').append('<a href="/inquiry">문의</a>');
+            	$('#inquiry').append('<a href="/inquiry" class="inquryBtn">문의</a>');
             	$('.inquiry_box').append('<h2 class="inquiry_title">'+name+'님의 문의 내역</h2>');
             }
         }).fail(function (err) {

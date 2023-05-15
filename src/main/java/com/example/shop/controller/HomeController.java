@@ -21,6 +21,11 @@ public class HomeController {
     public String home() {
         return "home";
     }
+	
+	@GetMapping("/mypage")
+	public String myPage() {
+		return "myPage";
+	}
 
     @GetMapping("/admin_addItem")
     public String addItem() {
