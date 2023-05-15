@@ -14,7 +14,8 @@
 	<div class="row">
 		<div class="col-md-6" style="overflow:hidden">
 			<div class="title-img">
-				<img src="/resources/images/product-single-img-1.jpg" alt="" class="shop-img">
+				<!-- <img src="/resources/images/product-single-img-1.jpg" alt="" class="shop-img"> -->
+				<!-- 상품 이미지 -->
 			</div>
 		</div>
 		<div class="col-md-6 shop-container">
@@ -70,21 +71,13 @@
 		    <li class="product-information">information</li>
 		  </ul>
 		  <div class="product-detail-txt">
-		    <h5>상품 상세 설명</h5>
-		    <p class="productDetail"></p>
-		    <h6>Storage Tips</h6>
-		    <p>Nisi, tellus iaculis urna bibendum in lacus, integer. Id imperdiet vitae varius sed magnis eu nisi nunc sit. Vel, varius habitant ornare ac rhoncus. Consequat risus facilisis ante ipsum netus risus adipiscing sagittis sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-		    <h6>Unit</h6>
-		    <p>3 units</p>
-		    <h6>Seller</h6>
-		    <p>DMart Pvt. LTD</p>
-		    <h6>Disclaimer</h6>
-		    <p>Image shown is a representation and may slightly vary from the actual product. Every effort is made to maintain accuracy of all information displayed.</p>
+	  		<div class="sub-img"></div>	
 		  </div>
 		  <div class="information" style="display:none">
-		  	 	<h4 class="productDetail"></h4>
+		  	 	<p class="productDetail"></p>
 		  </div>
 		</div>
+		
 	</div> <!-- END : row -->
 </div> <!--  END : m-container -->
 
@@ -99,7 +92,27 @@ $(document).ready(function(){
        cache: false,
        contentType: 'application/json; chartset=utf-8',
        success: function (data) {
-  	   		console.log("상품상세 data : "+JSON.stringify(data));
+    	    console.log(data.itemImgDtoList);
+    	    
+    	    
+    	    for(let i in data.itemImgDtoList){
+    	    	let imtitle = data.itemImgDtoList[i].repImgYn;
+    	    	console.log("imgtitle : "+imtitle);
+    	    	console.log("data.itemImgDtoList[i] : "+JSON.stringify(data.itemImgDtoList[i]));
+    	    	if(imtitle == 'Y'){
+        	    	let titleImg = data.itemImgDtoList[i].imgName;
+          	   		let rtitleImg = titleImg.replace('"', '');
+          	   		console.log("rtitleImg ::: " + rtitleImg);
+          	   		$('.title-img').append('<img src="/resources/images/item/'+rtitleImg+'" alt="" class="shop-img">')
+        	    }else {
+        	    	let detailImg = data.itemImgDtoList[i].imgName;
+        	    	let rtitleImg = detailImg.replace('"', '');
+        	    	$('.sub-img').append('<img src="/resources/images/item/'+detailImg+'" alt="" class="shop-img">')
+        	    }
+    	    }
+    	    
+    	    
+  	   		
   	   		$('.itemName').append(data.itemName);
   	   		const itemPrice = data.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   	   		$('.itemPrice').append(itemPrice);

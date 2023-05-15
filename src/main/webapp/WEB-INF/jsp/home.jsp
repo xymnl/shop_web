@@ -21,7 +21,7 @@ $(document).ready(function(){
        success: function (data) {
     	   console.log("데이터 불러오기 " + JSON.stringify(data));
     	   for(let j in data){
-    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'" class="item-box"><img class="item-img" src="/resources/'+data[j].imgUrl+'"><div class="itemName" id="itemName">'+data[j].itemName+'</div><a>');
+    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'" class="item-box"><img class="item-img" src="/resources'+data[j].imgUrl+'"><div class="itemName" id="itemName">'+data[j].itemName+'</div><a>');
     	   }
 	    	/* for(var j=0; j<dataLength.length; j++){
     		   console.log("j값 : "+j);
