@@ -173,7 +173,7 @@ $(document).ready(function(){
         // 이메일과 비밀번호 입력 값 가져오기
          let data ={
             itemId : ${idx},
-            count : $("#content").val()
+            count : $("#count").val()
         }
 
         // Ajax를 이용한 로그인 처리
