@@ -116,17 +116,18 @@ $(document).ready(function(){
        for(var j=0; j<data.length; j++){
        var allprice = data[j].count * data[j].price;
        $('.cartlist').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
-                            +'</div>'
-                            +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].itemNm+'</span></a></div>'
+                             +'<img src="/resources/images/item/'+data[j].imgUrl+'" alt="" class="shop-img"/>'
+                             +'</div>'
+                             +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].itemNm+'</span></a></div>'
                              +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
                              +'<button id="rem" data-id="'+data[j].cartItemId+'">Remove'+data[j].cartItemId+'</button>'
                              +'<button id="order" data-id="'+data[j].cartItemId+'">주문하기'+data[j].cartItemId+'</button></div>'
                              +'<div class="col-3 col-md-3 col-lg-2"><div class="input-group input-spinner  ">'
-                             +'<input type="button" value="-" id="minus-btn" data-id="'+data[j].cartItemId+'" data-count="'+data[j].count+'" class="button-minus  btn  btn-sm " data-field="quantity"/>'
-                             +'<input type="number" step="1" id="count'+data[j].cartItemId+'" data-id="count'+data[j].cartItemId+'" value="'+data[j].count+'"class="quantity-field form-control-sm form-input"/>'
-                             +'<input type="button" value="+" id="plus-btn" data-id="'+data[j].cartItemId+'" data-count="'+data[j].count+'" class="button-plus btn btn-sm " data-field="quantity"/></div></div>'
+                             +'<input type="button" value="-" data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-minus  btn  btn-sm " data-field="quantity"/>'
+                             +'<input type="number" min="1" id="count'+data[j].cartItemId+'" data-id="count'+data[j].cartItemId+'" value="'+data[j].count+'"class="quantity-field form-control-sm form-input"/>'
+                             +'<input type="button" value="+"  data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-plus btn btn-sm " data-field="quantity"/></div></div>'
                              +'<div class="col-2 text-lg-end text-start text-md-end col-md-2">'
-                             +'<span class="fw-bold">'+allprice+'원</span></div></div>'
+                             +'<span id="pricenum'+data[j].cartItemId+'" class="fw-bold">'+allprice+'원</span></div></div>'
                           );
        }},
        beforeSend: function (xhr) {
@@ -136,7 +137,35 @@ $(document).ready(function(){
            console.log(jqXHR.status + textStatus + errorThrown);
        }
    })
+   $('.button-plus').click(function(e){
+   	    var n = $('.button-plus').index(this);
+   	    var num = $(".form-input:eq("+n+")").val();
+   	    num = $(".form-input:eq("+n+")").val(num*1+1);
+   	    if($(".form-input").val() > 0){
+   	    	document.querySelector(".button-minus").removeAttribute("disabled");
+   	    }
+   	            var num = e.target.dataset.id;
+          	    var price1 = e.target.dataset.price;
+          	    var prices = $("#count"+num).val() * price1;
+          	    $('#pricenum'+num).text(prices+"원");
+   	 });
+
+   	$('.button-minus').click(function(e){
+   	    if(($('.form-input').val()-1) < 2){
+   	    	document.querySelector(".button-minus").setAttribute("disabled", "");
+   	    }
+   	    let n2 = $('.button-minus').index(this);
+   	  	let num2 = $(".form-input:eq("+n2+")").val();
+   	    num2 = $(".form-input:eq("+n2+")").val(num2*1-1);
+
+        var num = e.target.dataset.id;
+   	    var price1 = e.target.dataset.price;
+   	    var prices = $("#count"+num).val() * price1;
+   	      $('#pricenum'+num).text(prices+"원");
+   	});
 });
+
+
 $(document).on('click', '#rem', function(e){
 let api = "http://localhost:8090";
  let token = localStorage.getItem("token");
@@ -169,72 +198,35 @@ $(document).on('click', '#order', function(e){
     	var num = e.target.dataset.id;
         // 기본 이벤트 제거
         event.preventDefault();
-
-        $.ajax({
-          type: "POST",
-          url: api+"/cart/list/cart-to-order/"+num,
-          async: false,
-          contentType: "application/json; charset=utf-8",
-          success: function(data) { console.log('Success!') },
-          beforeSend: function (xhr) {
-              xhr.setRequestHeader("Content-type","application/json");
-              xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
-          },
-        }).done(function (res) {
-              alert("주문하셨습니다.");
-              location.reload();
-           }).fail(function (err) { alert("주문 실패"); })
-});
-
-<!--  개수 이벤트 -->
-<!--  개수 이벤트var plus= e.target.dataset.plus; -->
-<!--  개수 이벤트var minus= e.target.dataset.minus; -->
-<!--  개수 이벤트var count= e.target.dataset.count; -->
-$(document).on('click', '#minus-btn', function(e){
-    	let api = "http://localhost:8090";
-    	var countminus = e.target.dataset.count;
-    	var num = e.target.dataset.id;
-        // 기본 이벤트 제거
-        event.preventDefault();
-        --countminus;
-        $.ajax({
-          type: "PATCH",
-          url: api+"/cart/list/"+num+"?count="+countminus,
-          async: false,
-          contentType: "application/json; charset=utf-8",
-          success: function(data) {
-            $("#count"+num).val(countminus);
-          },
-          beforeSend: function (xhr) {
-              xhr.setRequestHeader("Content-type","application/json");
-              xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
-          },
-        }).done(function (res) {
-
-           }).fail(function (err) { alert("주문 실패"); })
-});
-
-$(document).on('click', '#plus-btn', function(e){
-    	let api = "http://localhost:8090";
-    	var countplus = e.target.dataset.count;
-    	var num = e.target.dataset.id;
-        // 기본 이벤트 제거
-        event.preventDefault();
-        ++countplus;
-        $.ajax({
-          type: "PATCH",
-          url: api+"/cart/list/"+num+"?count="+countplus,
-          async: false,
-          contentType: "application/json; charset=utf-8",
-          success: function(data) {
-            $("#count"+num).val(countplus);
-          },
-          beforeSend: function (xhr) {
-              xhr.setRequestHeader("Content-type","application/json");
-              xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
-          },
-        }).done(function (res) {
-           }).fail(function (err) { alert("주문 실패"); })
+        var counts= $("#count"+num).val()
+         $.ajax({
+                  type: "PATCH",
+                  url: api+"/cart/list/"+num+"?count="+counts,
+                  async: false,
+                  contentType: "application/json; charset=utf-8",
+                  success: function(data) {
+                        console.log('patch Success! : '+counts);
+                         $.ajax({
+                              type: "POST",
+                              url: api+"/cart/list/cart-to-order/"+num,
+                              async: false,
+                              contentType: "application/json; charset=utf-8",
+                              success: function(data) { console.log('cart to order Success!') },
+                              beforeSend: function (xhr) {
+                                  xhr.setRequestHeader("Content-type","application/json");
+                                  xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+                              },
+                            }).done(function (res) {
+                                  alert("주문하셨습니다.");
+                                  location.reload();
+                            }).fail(function (err) { alert("주문 실패"); })
+                  },
+                  beforeSend: function (xhr) {
+                      xhr.setRequestHeader("Content-type","application/json");
+                      xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+                  },
+                }).done(function (res) {
+                   }).fail(function (err) { alert("주문 실패"); })
 });
 </script>
 <%@ include file="fragments/footer.jsp"%>
