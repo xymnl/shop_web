@@ -22,189 +22,18 @@
    <link rel="stylesheet" href="/resources/css/freshshop/slick.css">
    <link rel="stylesheet" href="/resources/css/freshshop/slick-theme.css">
    <link rel="stylesheet" href="/resources/css/freshshop/shop.css">
-   <link rel="stylesheet" href="/resources/css/freshshop/detail.css">
    <link rel="stylesheet" href="/resources/css/freshshop/inquiry.css">
 
    <!-- js -->
 	<script src="/resources/js/jquery-1.12.4.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/resources/js/freshshop/header.js"></script>
 	<script src="/resources/js/slick.js"></script>
 	<script src="/resources/js/inquiry.js"></script>
 	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
-<script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
-
-   gtag('config', 'G-M8S4MT3EYG');
-</script>
-
-<!-- slick slide -->
-<script type="text/javascript">
-$(document).on('ready', function() {
-  $(".lazy").slick({
-    dots:true,
-    lazyLoad: 'ondemand', // ondemand progressive anticipated
-    infinite: true,
-    autoplay : true,
-    arrows:false
-  });
-  $(".center").slick({
-      infinite: true,
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      autoplay : true,
-      arrows:false
-    });
-  function zoom(f) {
-       var t = f.currentTarget;
-       offsetX = f.offsetX || f.touches[0].pageX,
-       f.offsetY ? offsetY = f.offsetY : offsetX = f.touches[0].pageX,
-       x = offsetX / t.offsetWidth * 100,
-       y = offsetY / t.offsetHeight * 100,
-       t.style.backgroundPosition = x + "% " + y + "%"
-   }
-  $(".zoom").elevateZoom({
-      zoomType: "inner",
-      lensShape: "round",
-      lensSize: 400
-  });
-  
-  var options= {
-    'customize': {
-        container: '',
-        items: 3,
-        controlsContainer: '#customize-controls',
-        navContainer: '#customize-thumbnails',
-        navAsThumbnails: true,
-        autoplay: true,
-        autoplayTimeout: 1000,
-        autoplayButton: '#customize-toggle',
-      }
-  }
-});
-</script>
-<script>
-$(function() {
-	let api = "http://localhost:8090";
-	var token = sessionStorage.getItem("Authorization");
-	
-  // 로그인 폼 submit 이벤트 처리
-  $("#login-btn").on("click", function (){
-    // 기본 이벤트 제거
-    event.preventDefault();
-    // 이메일과 비밀번호 입력 값 가져오기
-     let data ={
-        email : $("#email").val(),
-        password : $("#password").val()
-    }
-
-    // Ajax를 이용한 로그인 처리
-    $.ajax({
-      type: "POST",
-      url: api+"/user/login",
-      async: false,
-      contentType: "application/json; charset=utf-8",
-      data: JSON.stringify(data),
-      dataType: "json",
-        success: function(data) {
-            console.log('Success!')
-            localStorage.setItem('token', data.token);
-
-        },
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Content-type","application/json");
-            xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
-        },
-    }).done(function (res) {
-	console.log("로그인된 아이디 비밀번호 : "+data.email+data.password);
-
-         alert("로그인이 완료되었습니다.");
-         
-         var email = data.email;            
-          location.href = "/";
-         $(".enter_email").html(email);
-      }).fail(function (err) {
-         alert(JSON.stringify(err));
-      })
-  })
-});
-</script>
-<script>
-var token = localStorage.getItem("token");
-$(document).ready(function(){
-    let data;
-    let api = "http://localhost:8090";
-    // Ajax를 이용한 회원 조회
-    if(token != null){
-    	$.ajax({
-            type: "GET",
-            url: api+"/user/info",
-            async: false,
-            contentType: "application/text; charset=utf-8",
-            data: JSON.stringify(data),
-            dataType: "json",
-            success: function(data) {
-                console.log(data)
-
-            },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization","Bearer " + token);
-            },
-        }).done(function (res) {
-            var email = res.email;
-            var name = res.name;
-
-            if(res != null){
-           	 $('.mypageLink').remove();
-           	 $('.mypageButton').append('<span class="msg">'+res.email+'</span>');
-    	     $('#logout_btn').append('<a href="/" class="logout"><i class="bi bi-box-arrow-right"></i></a>');
-            }
-
-            if(email.includes('admin')){
-            	$('#inquiry').append('<a href="/admin_inquiry">문의 관리</a>');
-            	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
-            }else {
-            	$('#inquiry').append('<a href="/inquiry">문의</a>');
-            	$('.inquiry_box').append('<h2 class="inquiry_title">'+name+'님의 문의 내역</h2>');
-            }
-        }).fail(function (err) {
-            	/* alert(JSON.stringify(err)); */
-            	alert('로그인이 필요합니다.');
-   	    	})
-   		}
-    
-    /*로그아웃 버튼 선택*/
-    $('.logout').on("click",function() {
-   	 window.localStorage.clear();
-   	 console.log(token);
-    });
-});
-</script>
-<script>
-// 동적 form 생성해서 post 전송
-function sendPost(url, params) {
-    var form = document.createElement("form");
-    form.setAttribute("method", "post");
-    form.setAttribute("action", url);
-
-    for(var key in params) {
-        var hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", key);
-        hiddenField.setAttribute("value", params[key]);
-
-        form.appendChild(hiddenField);
-    }
-
-    document.body.appendChild(form);
-    form.submit();
-}
-</script>
-
 </head>
 <body>
    <header>
@@ -213,7 +42,7 @@ function sendPost(url, params) {
              <div class="container">
                <div class="row w-100 align-items-center gx-lg-2 gx-0">
                  <div class="col-xxl-2 col-lg-3"> <!-- 로고 이미지 / 선택 시 메인 페이지 이동 -->
-                   <a class="navbar-brand d-none d-lg-block logo" href="/"><img src="/resources/imgs/logo.png" alt="로고 이미지">Fresh Shop</a>
+                   <a class="navbar-brand d-none d-lg-block logo" href="/"><img src="/resources/images/logo.png" alt="로고 이미지">Fresh Shop</a>
                  </div>
                  <div class="col-xxl-6 col-lg-5 d-none d-lg-block">
 
@@ -227,19 +56,11 @@ function sendPost(url, params) {
                      </div>
                    </form>
                  </div>
-                 <div class="col-md-4 col-xxl-4 text-end d-none d-lg-block"> <!-- 위시 버튼;하트 -->
+                 <div class="col-md-4 col-xxl-4 text-end d-none d-lg-block">
                    <div class="list-inline">
-                     <!-- <div class="list-inline-item">
-                       <a href="../../pages/shop-wishlist.html" class="text-muted position-relative">
-                  <i class="bi bi-heart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> 5 <span class="visually-hidden">unread messages</span></span>
-                       </a>
-                      </div> -->
-                     <div class="list-inline-item mypageButton"> <!-- 마이페이지 버튼 -->
-
-                     <!-- 비로그인 상태에서 마이페이지 버튼 선택 -->
+                     <div class="list-inline-item mypageButton"> <!-- 로그인 버튼 -->
                        <a href="#!" class="text-muted mypageLink" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
-                       
+
                        <!-- 로그인 모달 -->
                        <div class="modal fade" tabindex="-1" role="dialog" id="userModal">
                     <div class="modal-dialog" role="document">
@@ -270,19 +91,16 @@ function sendPost(url, params) {
                           </div>
                       </div>
                     </div>
-                  </div> <!-- END : userModal -->
-
+                  </div> <!-- END : 로그인 모달 -->
                      </div>
+                     <div class="list-inline-item" id="myInfo"></div> <!-- 내정보 버튼 -->
+                     <div class="list-inline-item" id="inquiry"></div> <!-- 문의 버튼 -->
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative" href="/cart" role="button">
                          <i class="bi bi-cart3"></i>
                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">1<span class="visually-hidden">unread messages</span></span>
                        </a>
                      </div>
-
-             		<div class="list-inline-item" id="inquiry"></div>
-             		<div class="list-inline-item" id="logout_btn"></div>
-             		
                    </div>
                  </div>
                </div>

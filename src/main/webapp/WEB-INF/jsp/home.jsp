@@ -3,26 +3,15 @@
 	<div class="m-container">	
 		<section class="categories">
 			<div class="title"><h2>Fresh Shop's Items</h2></div>
-			
 			<div class="itme-list" id="item">
-				<!-- <div class="item-body">
-					<img class="item-img" src="/resources/imgs/product-img-1.jpg">
-					<div class="itemName">상품명</div>
-				</div>
-				<div class="item-body">
-					<img class="item-img" src="/resources/imgs/product-img-1.jpg">
-					<div class="itemName">상품명</div>
-				</div> -->
 			</div>
-			
-			
 		</section>
-		
 	</div>
 	
 <script>
 $(document).ready(function(){
  let api = "http://localhost:8090";
+ var token = localStorage.getItem("token");
    $.ajax({
        url: api + "/user/item",
        type: 'GET',
@@ -30,11 +19,15 @@ $(document).ready(function(){
        cache: false,
        contentType: 'application/json; chartset=utf-8',
        success: function (data) {
-    	   console.log("home 에서 출력하는 data "+JSON.stringify(data));
-    	   for(var j=0; j<data.length; j++){
-    		    /*$('.itme-list').append('<div id="item-body" onclick="myFunction(this)"><img class="item-img" src="/resources/imgs/product-img-1.jpg"><div class="itemName" id="itemName">'+data[j].item_name+'<span id="itemId'+j+'">'+data[j].item_id+'</span></div></div>');*/
-    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'"><div id="item-body" onclick="myFunction(this)"><img class="item-img" src="/resources/imgs/product-img-1.jpg"><div class="itemName" id="itemName">'+data[j].item_name+'</div></div><a>');
+    	   console.log("데이터 불러오기 " + JSON.stringify(data));
+    	   for(let j in data){
+    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'" class="item-box"><img class="item-img" src="/resources'+data[j].imgUrl+'"><div class="itemName" id="itemName">'+data[j].itemName+'</div><a>');
     	   }
+	    	/* for(var j=0; j<dataLength.length; j++){
+    		   console.log("j값 : "+j);
+    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'" class="item-box"><img class="item-img" src="/resources/'+data[j].img_url+'"><div class="itemName" id="itemName">'+data[j].item_name+'</div><a>');
+    		   console.log("아이템 아이디 : "+data[j].item_id);
+    	   } */
        },
        beforeSend: function (xhr) {
            xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -43,23 +36,6 @@ $(document).ready(function(){
            console.log(jqXHR.status + textStatus + errorThrown);
        }
    });
-   
-   $.ajax({
-       url: api + "/user/item/${idx}",
-       type: 'GET',
-       async: false,
-       cache: false,
-       contentType: 'application/json; chartset=utf-8',
-       success: function (data) {
-    	   		console.log("상품상세 data : "+data);
-       },
-       beforeSend: function (xhr) {
-           xhr.setRequestHeader("Authorization", "Bearer " + token);
-       },
-       error: function (jqXHR, textStatus, errorThrown) {
-           console.log(jqXHR.status + textStatus + errorThrown);
-       }
-	});
 });
 </script>
 	

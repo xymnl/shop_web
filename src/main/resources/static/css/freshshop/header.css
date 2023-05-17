@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* === 공통 === */
 body {
   -webkit-user-select:none;
   -moz-user-select:none;
@@ -20,3 +21,6 @@ ul li {list-style:none;}
 #inquiry:hover {color:#0aad0a;}
 
 img {-webkit-user-drag:none;}
+
+/* === 헤더 영역 === */
+.myinfoBtn, .logout, .inquryBtn, .bi-cart3 {color:#333;}

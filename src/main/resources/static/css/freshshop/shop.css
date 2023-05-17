@@ -30,3 +30,28 @@
 
 /* btn 수평정렬 방법 */
 .wrap {display:flex; justify-content:center; align-items:center;}
+
+/*=== shop-deatil.jsp ===*/
+.pgName {width:400px; text-align:left;}
+.title-img {width:450px; height:450px; margin:10px auto;}
+.sub-img {width:450px; height:450px; margin:10px auto;}
+.shop-img {width:100%; height:100%; background-size:cover;}
+
+.pdTitle {
+	text-align:left; line-height:50px;
+}
+
+.product-bar {background:#ccc;}
+.product-details {height:50px; border-bottom:1px solid #ccc;}
+.product-details > li {
+	width:130px; height:100%; float:left; 
+	margin:0 10px; line-height:50px;
+	text-transform:capitalize; text-align:center;
+	cursor: pointer;
+	transition:all 0.4s ease;
+}
+.product-details > li:hover {color:#0aad0a;  border-bottom:2px solid #0aad0a;}
+
+
+.product-detail.active {color:#0aad0a;  border-bottom:2px solid #0aad0a;}
+.product-information.active {color:#0aad0a;  border-bottom:2px solid #0aad0a;}
