@@ -36,6 +36,9 @@
 						<button type="button" class="btn btn-primary" id="addToCart">
 							<i class="feather-icon icon-shopping-bag me-2"></i>Add to cart
 						</button>
+						<button type="button" class="btn btn-primary" id="order">
+                        	<i class="feather-icon icon-shopping-bag me-1"></i>Order
+                        </button>
 					</div>
 					
 				</div>
@@ -199,5 +202,43 @@ $(document).ready(function(){
           })
       })
     });
+
+<!--order -->
+
+    $(function() {
+        	let api = "http://localhost:8090";
+       		let token = localStorage.getItem("token");
+          $("#order").on("click", function (){
+            // 기본 이벤트 제거
+            event.preventDefault();
+            // 이메일과 비밀번호 입력 값 가져오기
+             let data ={
+             itemId : ${idx},
+                count : $("#count").val()
+            }
+
+            // Ajax를 이용한 로그인 처리
+            $.ajax({
+              type: "POST",
+              url: api+"/order",
+              async: false,
+              contentType: "application/json; charset=utf-8",
+              data: JSON.stringify(data),
+                success: function(data) {
+                    console.log('Success!')
+
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Content-type","application/json");
+                    xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+                },
+            }).done(function (res) {
+                 alert("주문완료");
+                  location.href = "/";
+              }).fail(function (err) {
+                 alert(JSON.stringify(err));
+              })
+          })
+        });
     </script>
 <%@ include file="../fragments/footer.jsp"%>
