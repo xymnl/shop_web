@@ -56,7 +56,7 @@ $(document).ready(function(){
        contentType: 'application/text; charset=utf-8',
        dataType: "json",
        success: function (data) {
-        var totalprice=0;
+       var totalprice=0;
        for(var j=0; j<data.length; j++){ console.log("detail : "+data[j].imgName);
        var allprice = data[j].count * data[j].price;
 
@@ -75,16 +75,17 @@ $(document).ready(function(){
                              +'<input type="button" value="+"  data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-plus btn btn-sm " data-field="quantity"/></div></div>'
                              +'<div class="col-2 text-lg-end text-start text-md-end col-md-2">'
                              +'<span id="pricenum'+data[j].cartItemId+'" class="fw-bold">'+allprice+' 원</span></div></div>'
-                          );
+       );
 
-        $('.list-groups').append('<li class="list-group-item d-flex justify-content-between align-items-start">'
+       $('.list-groups').append('<li class="list-group-item d-flex justify-content-between align-items-start">'
                                +'<div class="me-auto"><div>'+data[j].itemNm+'</div></div>'
-                               +'<span>'+allprice+'원</span></li>'
-                          );
+                               +'<span id="small'+data[j].cartItemId+'" value="'+allprice+'">'+allprice+'</span><span> 원</span></li>'
+       );
        }    <!-- for문 -->
+
        $('.list-groups').append('<li class="list-group-item d-flex justify-content-between align-items-start">'
                                       +'<div class="me-auto"><div class="fw-bold">Total</div></div>'
-                                      +'<span class="fw-bold">'+totalprice+'원</span></li>'
+                                      +'<span class="fw-bold" id="small" data-total="'+totalprice+'" value="'+totalprice+'">'+totalprice+'</span><span> 원</span></li>'
                                  );
        },
        beforeSend: function (xhr) {
@@ -94,6 +95,9 @@ $(document).ready(function(){
            console.log(jqXHR.status + textStatus + errorThrown);
        }
    })
+   let fir = document.getElementById('small');
+    var totalss=fir.dataset.total;
+    var tt=Number(totalss);
    $('.button-plus').click(function(e){
    	    var n = $('.button-plus').index(this);
    	    var num = $(".form-input:eq("+n+")").val();
@@ -101,10 +105,15 @@ $(document).ready(function(){
    	    if($(".form-input").val() > 0){
    	    	document.querySelector(".button-minus").removeAttribute("disabled");
    	    }
-   	            var num = e.target.dataset.id;
+   	            var num2 = e.target.dataset.id;
           	    var price1 = e.target.dataset.price;
-          	    var prices = $("#count"+num).val() * price1;
-          	    $('#pricenum'+num).text(prices+"원");
+          	    var prices = $("#count"+num2).val() * price1;
+
+          	    $('#pricenum'+num2).text(prices+"원");
+          	    $('#small'+num2).text(prices);
+          	    console.log(totalss);
+          	    tt+=Number(price1);
+          	    $('#small').text(tt);
    	 });
 
    	$('.button-minus').click(function(e){
@@ -119,6 +128,10 @@ $(document).ready(function(){
    	    var price1 = e.target.dataset.price;
    	    var prices = $("#count"+num).val() * price1;
    	      $('#pricenum'+num).text(prices+"원");
+   	      $('#small'+num).text(prices);
+
+   	      tt-=Number(price1);
+          $('#small').text(tt);
    	});
 });
 
