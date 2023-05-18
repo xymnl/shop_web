@@ -21,13 +21,10 @@ $(document).ready(function(){
        success: function (data) {
     	   console.log("데이터 불러오기 " + JSON.stringify(data));
     	   for(let j in data){
-    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'" class="item-box"><img class="item-img" src="/resources'+data[j].imgUrl+'"><div class="itemName" id="itemName">'+data[j].itemName+'</div><a>');
+    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'" class="item-box">'
+    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
+    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'</div><a>');
     	   }
-	    	/* for(var j=0; j<dataLength.length; j++){
-    		   console.log("j값 : "+j);
-    		   $('.itme-list').append('<a href="detail/'+data[j].item_id+'" class="item-box"><img class="item-img" src="/resources/'+data[j].img_url+'"><div class="itemName" id="itemName">'+data[j].item_name+'</div><a>');
-    		   console.log("아이템 아이디 : "+data[j].item_id);
-    	   } */
        },
        beforeSend: function (xhr) {
            xhr.setRequestHeader("Authorization", "Bearer " + token);

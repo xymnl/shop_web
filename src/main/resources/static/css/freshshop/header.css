@@ -1,26 +1,66 @@
 @charset "UTF-8";
 
 /* === 공통 === */
-body {
+/* body {
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
   user-select:none
+} */
+
+@font-face {
+    font-family:sandol;
+    src:url('/resources/font/AppleSDGothicNeoM.eot');
+}
+@font-face {
+    font-family:sandolB;
+    src:url('/resources/font/AppleSDGothicNeoB.eot');
+}
+
+
+
+body {
+	font-family :sandolB;
 }
 
 ul li {list-style:none;}
 
+.headerBottom {width:80%; margin:0 auto; border-bottom:1px solid #333;}
+/* .headerBottom::after {content:""; display:block; width:80%; margin:0 auto; border-bottom:1px solid #333;} */
+
 .logo > img {width:50px; height:50px; background-size:cover;}
+.logoTitle {font-size:20px; font-weight:bold; }
 
 .bi-person {font-size:18px;}
 
 .social-bottom {padding-bottom:30px;}
 .social {padding:20px 0; text-align:center;}
 
+.list-inline-item:hover, .bi-cart3:hover {color:#0aad0a; font-weight:bold;}
 #inquiry {cursor:pointer;}
-#inquiry:hover {color:#0aad0a;}
 
 img {-webkit-user-drag:none;}
 
 /* === 헤더 영역 === */
 .myinfoBtn, .logout, .inquryBtn, .bi-cart3 {color:#333;}
+
+/* === MyPage.jsp === */
+.myPageLeftbar {
+	float:left;
+	width:200px;
+	height:100%;
+	margin:60px 30px 0 30px;
+}
+.myPageBody{ margin-left:300px;	height:100%; }
+.titleText {text-align:left; padding:10px 0 30px;}
+.myInfoBox > ul {
+	height:150px;
+	border-top:1px solid #333;
+	border-bottom:1px solid #333;
+}
+.myInfoBox > ul > li {
+	text-align:center;
+	margin:10px;
+	background:pink;
+}
+
