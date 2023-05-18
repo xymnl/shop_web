@@ -67,6 +67,9 @@ public class HomeController {
     public String loginUser() {
         return "loginUser";
     }
-    
-    
+
+    @GetMapping("/updateUser")
+    public String updateUser() {
+        return "userUpdate";
+    }
 }
