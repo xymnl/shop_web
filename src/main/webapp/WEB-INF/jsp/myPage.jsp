@@ -14,13 +14,20 @@
 		<div class="myPageTitle"><h2 class="titleText">나의 페이지</h2></div>
 		<div class="myInfoBox">
 			<ul>
-				<li><div class="myInfoName">이름<p>email</p></div></li>
-				<li>이메일</li>
-				<li>주소</li>
+				<li><div class="myInfoName"></div></li>
+				<li><div class="myInfoBtn">개인정보수정</div></li>
+				<li><div class="myInfoBtn">회원탈퇴</div></li>
 				
 			</ul>
 		</div>
-		<h4 class="inquiry_title"><a href="/orderList" style="color:#333">주문 내역</a></h4>
+		<div class="orderTitle"><h3 class="titleText">주문내역</h3></div>
+		<div class="orderBox">
+		<a href="#" class="moreBtn">더보기 +</a>
+			<ul>
+				<li><p class="noOrder">주문하신 내역이 없습니다.</p></li>
+			</ul>
+		</div>
+		
 	</div>
 </div>
 

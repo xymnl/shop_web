@@ -70,6 +70,7 @@ $(document).ready(function(){
            	 $('.mypageLink').remove();
            	 $('.mypageButton').append('<a href="/" class="logout">로그아웃</a>');
     	     $('#myInfo').append('<a href="/mypage" class="myinfoBtn">내 정보 </a>');
+    	     $('.myInfoName').append(name+'<p class="myInfoemail">'+email+'</p>');
             }
             
             if(email.includes('admin')){

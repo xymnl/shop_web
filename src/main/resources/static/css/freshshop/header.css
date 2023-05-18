@@ -50,17 +50,40 @@ img {-webkit-user-drag:none;}
 	width:200px;
 	height:100%;
 	margin:60px 30px 0 30px;
+	font-weight:bold;
+	font-size:24px;
 }
+.myPageLeftbar > ul > li {margin-bottom:50px;}
+.myPageLeftbar > ul > li:hover {cursor:pointer;}
 .myPageBody{ margin-left:300px;	height:100%; }
 .titleText {text-align:left; padding:10px 0 30px;}
 .myInfoBox > ul {
-	height:150px;
+	display:flex;
+	height:200px;
 	border-top:1px solid #333;
 	border-bottom:1px solid #333;
 }
 .myInfoBox > ul > li {
-	text-align:center;
+	flaot:left;
 	margin:10px;
-	background:pink;
+	font-weight:bold; font-size:25px;
 }
+.myInfoName {margin-top:50px;}
+.myInfoBox > ul > li:nth-child(2), .myInfoBox > ul > li:nth-child(3) {margin-top:70px;}
+.myInfoemail {height:50px; font-weight:normal; font-size:18px; color:#aaa;}
+.myInfoBtn {
+	width:160px; height:50px; text-align:center; 
+	margin-left:30px;
+	font-size:18px; line-height:50px;
+	border:1px solid #333; border-radius:20px;
+	}
+.myInfoBtn:hover {cursor:pointer;}
+
+.noOrder {text-align:center; font-size:20px;}
+.orderBox > ul {
+	height:100px;
+	border-bottom:1px solid #333;
+}
+.moreBtn {color:#333; font-weight:bold;}
+
 
