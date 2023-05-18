@@ -40,6 +40,7 @@
 /* inquiry.jsp */
 $(document).ready(function(){
  let api = "http://localhost:8090";
+ let token = localStorage.getItem("token");
    $.ajax({
        url: api + "/board/user/my-board",
        type: 'GET',

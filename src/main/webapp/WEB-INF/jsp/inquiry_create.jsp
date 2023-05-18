@@ -23,7 +23,7 @@
 <script>
     $(function() {
     	let api = "http://localhost:8090";
-
+let token = localStorage.getItem("token");
       $("#sub").on("click", function (){
         // 기본 이벤트 제거
         event.preventDefault();
