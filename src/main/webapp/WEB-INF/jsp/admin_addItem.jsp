@@ -5,6 +5,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
     let api = "http://localhost:8090";
+    let token = localStorage.getItem("token");
    /* $("#btnSubmit").click(function (event) {
     	//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음
     	event.preventDefault();
