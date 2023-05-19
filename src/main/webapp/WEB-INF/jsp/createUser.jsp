@@ -8,10 +8,10 @@
         $(function () {
     		$("#btn-save").on("click", function (){ //this를 바인딩하기 위해 화샬표 함수 사용
     		    let data = { //JavaScript Object
-    					email: $("#email").val(),
-    					name: $("#name").val(),
-    					password: $("#password").val(),
-    					address: $("#address").val()
+    					email: $("#emails").val(),
+    					name: $("#names").val(),
+    					password: $("#passwords").val(),
+    					address: $("#addresss").val()
     			}
     			$.ajax({
     				type: "POST", //Http method
@@ -44,16 +44,16 @@
 			       <!-- input -->
 			       <div class="col-md-12 mb-3">
 			          <label class="form-label" for="email">Email<span class="text-danger">*</span></label>
-			          <input type="email" id="email" name="email" class="form-control" placeholder="Enter Your First Name" required >
+			          <input type="email" id="emails" name="email" class="form-control" placeholder="Enter Your First Name" required >
 			       </div>
 			       <div class="col-md-12 mb-3">
 			          <label class="form-label" for="name"> Name<span class="text-danger">*</span></label>
-			          <input type="text" id="name" class="form-control" name="name" placeholder="Enter Your Name" required>
+			          <input type="text" id="names" class="form-control" name="name" placeholder="Enter Your Name" required>
 			       </div>
 			       <div class="col-md-6 mb-3">
 			          <!-- input -->
 			          <label class="form-label" for="password"> password<span class="text-danger">*</span></label>
-			          <input type="password" id="password" name="password" class="form-control" placeholder="password" required>
+			          <input type="password" id="passwords" name="password" class="form-control" placeholder="password" required>
 			       </div>
 			       <div class="col-md-6 mb-3">
 			          <!-- input -->
@@ -63,7 +63,7 @@
 			       <div class="col-md-12 mb-3">
 			          <!-- input -->
 			          <label class="form-label" for="address"> Address</label>
-			          <input type="text" id="address" name="address" class="form-control" placeholder="Your address" required>
+			          <input type="text" id="addresss" name="address" class="form-control" placeholder="Your address" required>
 			       </div>
 			       <div class="col-md-12">
 			          <!-- btn -->
