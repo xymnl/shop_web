@@ -47,10 +47,10 @@
                  <div class="col-xxl-6 col-lg-5 d-none d-lg-block">
 
                  <!-- 제품 검색 영역 -->
-                   <form action="item_search.jsp" method="post" name="search">
+                   <form method="post" name="search">
                      <div class="input-group">
                        <input class="form-control rounded" type="search" placeholder="Search for products">
-                         <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
+                         <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button" onclick="document.location.href=getvalue()">
                             <i class="bi bi-search"></i>
                          </button>
                      </div>
@@ -148,3 +148,10 @@
          </nav>
        </div>
    </header>
+   <script>
+   function getvalue(){
+           var idx = document.getElementById('rounded').value;
+           var urll = 'search/'+idx;
+           return urll;
+           }
+   </script>

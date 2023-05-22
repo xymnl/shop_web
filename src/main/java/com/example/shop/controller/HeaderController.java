@@ -23,7 +23,6 @@ public class HeaderController {
     // localhost:8090/user/login
     @GetMapping("/user/login")
     public String header(Model model) {
-
         String url = apiServer + "user/login";
         ResponseEntity response = new RestTemplate().getForEntity(url, Object.class);
         List list = (List) response.getBody();
