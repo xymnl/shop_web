@@ -47,13 +47,13 @@
                  <div class="col-xxl-6 col-lg-5 d-none d-lg-block">
 
                  <!-- 제품 검색 영역 -->
-                   <form method="post" name="search">
-                     <div class="input-group">
-                       <input class="form-control rounded" type="search" placeholder="Search for products">
-                         <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button" onclick="document.location.href=getvalue()">
-                            <i class="bi bi-search"></i>
-                         </button>
-                     </div>
+                   <form method="get" name="search" id="search" onSubmit="return false;">
+                       <div class="input-group">
+                           <input class="form-control rounded" type="search" id="rounded" name="rounded" placeholder="Search for products" onkeypress="show_name(event)"">
+                                 <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button" form="search" onclick="location.href=getvalue()">
+                                      <i class="bi bi-search"></i>
+                                  </button>
+                       </div>
                    </form>
                  </div>
                  <div class="col-md-4 col-xxl-4 text-end d-none d-lg-block">
@@ -149,9 +149,19 @@
        </div>
    </header>
    <script>
-   function getvalue(){
-           var idx = document.getElementById('rounded').value;
-           var urll = 'search/'+idx;
-           return urll;
-           }
-   </script>
+      function getvalue(){
+              var idx = document.getElementById('rounded').value;
+              console.log("data"+idx);
+              var urll = 'http://localhost:8091/search/'+idx;
+              return urll;
+              }
+
+      function show_name(e){
+    var urll = null;
+                 var idx = document.getElementById('rounded').value;
+        urll = 'http://localhost:8091/search/'+idx;
+                 if(e.keyCode == 13){
+                   return window.location.href=urll;
+                 }
+              }
+      </script>
