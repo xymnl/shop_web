@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ include file="fragments/header.jsp" %>
 
-<div class="m-container">
+<div class="h-container">
 	<aside class="myPageLeftbar">
 		<ul>
-			<li>홈</li>
-			<li>주문 내역</li>
-			<li><a href="/updateUser">개인정보 수정</a></li>
+			<li><div class="homeBtn">홈</div></li>
+			<li><div class="orderBtn">주문 내역</div></li>
+			<li><div class="updateBtn"><a href="/updateUser">개인정보 수정</a></div></li>
 		</ul>
 	</aside>
 	<div class="myPageBody">
@@ -21,17 +21,6 @@
 				
 			</ul>
 		</div>
-
-        <!-- 폐기하려면 폐기 ㄱㄱ -->
-		            <li>이름</li>
-                    <span class='span_dataset1'></span>
-                    <li>이메일</li>
-                    <span class='span_dataset2'></span>
-                    <li>주소</li>
-                    <span class='span_dataset3'></span>
-         <!-- 폐기하려면 폐기 ㄱㄱ -->
-
-
 		<div class="orderTitle"><h3 class="titleText">주문내역</h3>
 		</div>
 		<div class="orderBox">
@@ -41,10 +30,6 @@
 		
 	</div>
 </div>
-
-
-
-
 
 <script>
         let api = "http://localhost:8090";
@@ -115,27 +100,33 @@
         });
 
 $(document).on('click', '.myInfodelete', function(e){
-    	let api = "http://localhost:8090";
-        // 기본 이벤트 제거
-        event.preventDefault();
-         $.ajax({
-                  type: "DELETE",
-                  url: api+"/user/delete",
-                  async: false,
-                  contentType: "application/json; charset=utf-8",
-                  success: function(data) {
-                        console.log('계정삭제완료');
-                  },
-                  beforeSend: function (xhr) {
-                      xhr.setRequestHeader("Content-type","application/json");
-                      xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
-                  },
-                }).done(function (res) {
-                alert("계정삭제완료");
-                window.localStorage.clear();
-                          location.href = "/";
-                }).
-                fail(function (err) { alert("개인정보수정 실패"); })
+		let result = confirm("회원 탈퇴를 하시겠습니까?");
+		if(result == true){
+			alert("회원 탈퇴를 진행합니다.");		
+			let api = "http://localhost:8090";
+	        // 기본 이벤트 제거
+	        event.preventDefault();
+	         $.ajax({
+	                  type: "DELETE",
+	                  url: api+"/user/delete",
+	                  async: false,
+	                  contentType: "application/json; charset=utf-8",
+	                  success: function(data) {
+	                        console.log('계정삭제완료');
+	                  },
+	                  beforeSend: function (xhr) {
+	                      xhr.setRequestHeader("Content-type","application/json");
+	                      xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+	                  },
+	                }).done(function (res) {
+	                alert("계정삭제완료");
+	                window.localStorage.clear();
+	                          location.href = "/";
+	                }).
+	                fail(function (err) { alert("개인정보수정 실패"); })
+		}else {
+			alert("회원 탈퇴를 취소합니다.");
+		}
 });
 </script>
 

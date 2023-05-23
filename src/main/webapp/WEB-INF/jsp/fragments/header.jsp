@@ -73,15 +73,15 @@
                           <form method="post" action="/user/login">
                             <div class="form-floating mb-3">
                               <input type="email" class="form-control rounded-3" id="email" placeholder="input@email.com" required>
-                              <label for="email">이메일을 입력하세요.</label>
+                              <label class="loginTxt" for="email">이메일을 입력하세요.</label>
                             </div>
                             <div class="form-floating mb-3">
                               <input type="password" class="form-control rounded-3" id="password" placeholder="Password" required>
-                              <label for="password">비밀번호를 입력하세요.</label>
+                              <label class="loginTxt" for="password">비밀번호를 입력하세요.</label>
                             </div>
                             <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="button" id="login-btn">로그인</button>
                             <small class="text-body-secondary">계정이 없으신가요?</small><br>
-                            <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="/createUser">회원가입</a></small>
+                            <small class="text-body-secondary">Fresh Shop의 회원이 되어 혜택을 누리세요! <a href="/createUser" class="createBtn">회원가입</a></small>
                             </form>
                             <hr class="my-4">
                             <h2 class="fs-5 fw-bold mb-3">소셜 로그인</h2>

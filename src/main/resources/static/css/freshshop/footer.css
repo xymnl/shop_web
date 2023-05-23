@@ -2,6 +2,4 @@
 
 .clear {clear:both;}
 
-footer {width:100%; height:150px; background:#efefef;}
-  
-.border-top {width:80%; margin:0 auto;}
+.footerTop {width:80%; margin:0 auto; border-top:1px solid #333;}

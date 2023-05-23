@@ -17,16 +17,14 @@
     src:url('/resources/font/AppleSDGothicNeoB.eot');
 }
 
-
-
 body {
-	font-family :sandolB;
+	font-family :sandolB; color:#000000;
 }
 
 ul li {list-style:none;}
+a {color:#000000;}
 
 .headerBottom {width:80%; margin:0 auto; border-bottom:1px solid #333;}
-/* .headerBottom::after {content:""; display:block; width:80%; margin:0 auto; border-bottom:1px solid #333;} */
 
 .logo > img {width:50px; height:50px; background-size:cover;}
 .logoTitle {font-size:20px; font-weight:bold; }
@@ -43,8 +41,16 @@ img {-webkit-user-drag:none;}
 
 /* === 헤더 영역 === */
 .myinfoBtn, .logout, .inquryBtn, .bi-cart3 {color:#333;}
+.loginTxt {color:#333;}
+.createBtn {color:#0aad0a;}
 
-/* === MyPage.jsp === */
+/* === myPage.jsp === */
+.h-container {
+	width:80%;
+    height:600px;  
+	margin:10px auto;
+	padding:10px;
+}
 .myPageLeftbar {
 	float:left;
 	width:200px;
@@ -53,8 +59,12 @@ img {-webkit-user-drag:none;}
 	font-weight:bold;
 	font-size:24px;
 }
-.myPageLeftbar > ul > li {margin-bottom:50px;}
-.myPageLeftbar > ul > li:hover {cursor:pointer;}
+.myPageLeftbar > ul > li {margin-bottom:50px; color:#333; font-size:18px;}
+.myPageLeftbar > ul > li:hover {cursor:pointer; color:#0aad0a;}
+.orderBtn, .updateBtn > a {color:#c0c0c0;}
+.updateBtn {color:#333;}
+.updateBtn:hover {color:#333;}
+
 .myPageBody{ margin-left:300px;	height:100%; }
 .titleText {text-align:left; padding:10px 0 30px;}
 .myInfoBox > ul {
@@ -70,14 +80,15 @@ img {-webkit-user-drag:none;}
 }
 .myInfoName {margin-top:50px;}
 .myInfoBox > ul > li:nth-child(2), .myInfoBox > ul > li:nth-child(3) {margin-top:70px;}
+.myInfoBox > ul > li {margin:0 auto;}
 .myInfoemail {height:50px; font-weight:normal; font-size:18px; color:#aaa;}
-.myInfoBtn {
+.myInfoBtn, .myInfodelete {
 	width:160px; height:50px; text-align:center; 
 	margin-left:30px;
 	font-size:18px; line-height:50px;
-	border:1px solid #333; border-radius:20px;
+	border:1px solid #333; border-radius:30px;
 	}
-.myInfoBtn:hover {cursor:pointer;}
+.myInfoBtn:hover, .myInfodelete:hover {cursor:pointer; color:#0aad0a;}
 
 .noOrder {text-align:center; font-size:20px;}
 .orderBox > ul {
