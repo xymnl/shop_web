@@ -43,6 +43,12 @@ public class HeaderController {
 
         return "item_search";
     }
+    
+    @GetMapping("/orderList")
+    public String orderList() {
+    	
+    	return "orderList";
+    }
 
 
 }

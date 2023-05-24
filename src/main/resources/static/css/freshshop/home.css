@@ -9,8 +9,8 @@ body {overflow-x:hidden; width:100%; height:100vh;}
 }
 
 .title {
-  text-align: center;
-  padding: 20px 0;
+  text-align:center;
+  padding:20px 0;
 }
 
 .itme-list {

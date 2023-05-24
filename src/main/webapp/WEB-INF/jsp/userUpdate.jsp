@@ -2,32 +2,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="fragments/header.jsp" %>
 
+<div class="h-container">
+<aside class="myPageLeftbar">
+		<ul>
+			<li><div><a href="/mypage" id="homeBtn">홈</a></div></li>
+			<li><div><a href="/orderList" id="orderBtn">주문 내역</a></div></li>
+			<li><div><a href="/updateUser" id="updateBtn">개인정보 수정</a></div></li>
+		</ul>
+	</aside>
+	<div class="myPageBody">
+       <div class="col-md-12 mb-3">
+         <label class="form-label" for="name">이름<span class="text-danger">*</span></label>
+         <input type="text" id="names" class="names" placeholder="Enter Your Name" required>
+       </div>
 
+       <div class="col-md-12 mb-3">
+          <label class="form-label" for="email">이메일<span class="text-danger">*</span></label>
+          <input type="text" class="emails" id="emails" value="" class="form-control" readonly>
+       </div>
 
-			       <div class="col-md-12 mb-3">
-			          <label class="form-label" for="name">이름<span class="text-danger">*</span></label>
-                      <input type="text" id="names" class="names" placeholder="Enter Your Name" required>
-                   </div>
+       <div class="col-md-12 mb-3">
+          <label class="form-label" for="address">주소<span class="text-danger">*</span></label>
+          <input type="text" class="addresss" id="addresss" value="" class="form-control"></input>
+       </div>
 
-			       <div class="col-md-12 mb-3">
-			          <label class="form-label" for="email">이메일<span class="text-danger">*</span></label>
-			          <input type="text" class="emails" id="emails" value="" class="form-control" readonly>
-			       </div>
+       <div class="col-md-12 mb-3">
+	   		<label class="form-label" for="address">비밀번호<span class="text-danger">*</span></label>
+	   		<input type="password" class="passwords" id="passwords" value="" class="form-control"></input>
+	   </div>
 
-			       <div class="col-md-12 mb-3">
-			          <label class="form-label" for="address">주소<span class="text-danger">*</span></label>
-			          <input type="text" class="addresss" id="addresss" value="" class="form-control"></input>
-			       </div>
-
-			       <div class="col-md-12 mb-3">
-                   		<label class="form-label" for="address">비밀번호<span class="text-danger">*</span></label>
-                   		<input type="password" class="passwords" id="passwords" value="" class="form-control"></input>
-                   	</div>
-
-			       <div class="col-md-12">
-			          <button type="button" class="btn btn-primary" id="userinfoupdate">수정하기</button>
-			          <button type="button" class="btn btn-primary" id="userinfodelete">계정삭제하기</button>
-			       </div>
+       <div class="col-md-12">
+          <button type="button" class="btn btn-primary" id="userinfoupdate">수정하기</button>
+          <button type="button" class="btn btn-primary" id="userinfodelete">계정삭제하기</button>
+       </div>
+	</div>
+</div>
 
 <script>
         let api = "http://localhost:8090";
@@ -112,5 +121,12 @@ $(document).on('click', '#userinfodelete', function(e){
                 }).
                 fail(function (err) { alert("개인정보수정 실패"); })
 });
+</script>
+
+<script>
+let nowUrl = window.location.href;
+if (nowUrl.indexOf("updateUser")){
+	   document.getElementById('updateBtn').classList.add("active");
+}
 </script>
 <%@ include file="fragments/footer.jsp" %>

@@ -18,7 +18,7 @@
 }
 
 body {
-	font-family :sandolB; color:#000000;
+	font-family:sandolB; color:#000000;
 }
 
 ul li {list-style:none;}
@@ -59,10 +59,11 @@ img {-webkit-user-drag:none;}
 	font-weight:bold;
 	font-size:24px;
 }
-.myPageLeftbar > ul > li {margin-bottom:50px; color:#333; font-size:18px;}
+.myPageLeftbar > ul > li {margin-bottom:50px; font-size:18px;}
+.myPageLeftbar > ul > li > div > a {color:#c0c0c0;}
 .myPageLeftbar > ul > li:hover {cursor:pointer; color:#0aad0a;}
-.orderBtn, .updateBtn > a {color:#c0c0c0;}
-.updateBtn {color:#333;}
+.updateBtnz {color:#333;}
+.myPageLeftbar > ul > li > div > a.active {color:#333;}
 .updateBtn:hover {color:#333;}
 
 .myPageBody{ margin-left:300px;	height:100%; }

@@ -5,9 +5,9 @@
 <div class="h-container">
 	<aside class="myPageLeftbar">
 		<ul>
-			<li><div class="homeBtn">홈</div></li>
-			<li><div class="orderBtn">주문 내역</div></li>
-			<li><div class="updateBtn"><a href="/updateUser">개인정보 수정</a></div></li>
+			<li><div><a href="/mypage" id="homeBtn">홈</a></div></li>
+			<li><div><a href="/orderList" id="orderBtn">주문 내역</a></div></li>
+			<li><div><a href="/updateUser" id="updateBtn">개인정보 수정</a></div></li>
 		</ul>
 	</aside>
 	<div class="myPageBody">
@@ -24,80 +24,75 @@
 		<div class="orderTitle"><h3 class="titleText">주문내역</h3>
 		</div>
 		<div class="orderBox">
-		<a href="#" class="moreBtn">더보기 +</a>
-
+		<a href="/orderList" class="moreBtn">더보기 +</a>
+			<div class="orderListBox">
+			
+			</div>
 		</div>
 		
 	</div>
 </div>
 
 <script>
-        let api = "http://localhost:8090";
-        var token = localStorage.getItem("token");
-
-        $(document).ready(function(){
-
-                let data;
-
-                // Ajax를 이용한 회원 조회
+let api = "http://localhost:8090";
+var token = localStorage.getItem("token");
+$(document).ready(function(){
+        let data;
+        $.ajax({
+            type: "GET",
+            url: api+"/user/info",
+            async: false,
+            contentType: "application/text; charset=utf-8",
+            data: JSON.stringify(data),
+            dataType: "json",
+            success: function(data) {
+            	console.log("/user/info 데이터 : "+JSON.stringify(data));
                 $.ajax({
-                    type: "GET",
-                    url: api+"/user/info",
+                    url: api + "/order",
+                    type: 'GET',
                     async: false,
-                    contentType: "application/text; charset=utf-8",
-                    data: JSON.stringify(data),
+                    cache: false,
+                    contentType: 'application/text; charset=utf-8',
                     dataType: "json",
-                    success: function(data) {
-                            $('.span_dataset1').text(data.name);
-                            $('.span_dataset2').text(data.email);
-                            $('.span_dataset3').text(data.address);
-
-                            $.ajax({
-                                   url: api + "/order",
-                                   type: 'GET',
-                                   async: false,
-                                   cache: false,
-                                   contentType: 'application/text; charset=utf-8',
-                                   dataType: "json",
-                                   success: function (data) {
-                                   for(var j=0; j<data.length; j++){
-                                   var allprice=data[j].orderItemDtoList[0].count * data[j].orderItemDtoList[0].orderPrice;
-                                   if(data != null){
-                                   console.log(data);
-                                   $('.orderBox').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
-                                                         +'<img src="/resources'+data[j].orderItemDtoList[0].imgUrl+'" alt="" class="shop-img"/>'
-                                                         +'</div>'
-                                                         +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].orderDate+'</span></a></div>'
-                                                         +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
-                                                         +'<button id="rem" data-id="'+data[j].orderId+'">Cancel</button>'
-                                                         +'</div>'
-                                                         +'<div class="col-3 col-md-3 col-lg-2"><div class="input-group input-spinner  ">'
-                                                         +'<input type="number" value="'+data[j].orderItemDtoList[0].count+'"class="quantity-field form-control-sm form-input"/>'
-                                                         +'</div></div>'
-                                                         +'<div class="col-2 text-lg-end text-start text-md-end col-md-2">'
-                                                         +'<span>'+data[j].orderStatus+'</span><span class="fw-bold">'+allprice+'원</span></div></div>'
-                                   );
-                                   }else{
-                                   $('.orderBox').append('<ul><li><p class="noOrder">주문하신 내역이 없습니다.</p></li></ul>');
-                                   }
-                                   }},
-                                   beforeSend: function (xhr) {
-                                       xhr.setRequestHeader("Authorization", "Bearer " + token);
-                                   },
-                                   error: function (jqXHR, textStatus, errorThrown) {
-                                       console.log(jqXHR.status + textStatus + errorThrown);
-                                   }
-                            })
-
+                    success: function (data) {
+	                    if(data > ""){
+	                    	for(var j=0; j<data.length; j++){
+	                    		var allprice=data[j].orderItemDtoList[0].count * data[j].orderItemDtoList[0].orderPrice;
+	                    		console.log("order데이터 : "+data);
+			                    $('.orderListBox').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
+                                        +'<img src="/resources'+data[j].orderItemDtoList[0].imgUrl+'" alt="" class="shop-img"/>'
+                                        +'</div>'
+                                        +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].orderDate+'</span></a></div>'
+                                        +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
+                                        +'<button id="rem" data-id="'+data[j].orderId+'">Cancel</button>'
+                                        +'</div>'
+                                        +'<div class="col-3 col-md-3 col-lg-2"><div class="input-group input-spinner  ">'
+                                        +'<input type="number" value="'+data[j].orderItemDtoList[0].count+'"class="quantity-field form-control-sm form-input"/>'
+                                        +'</div></div>'
+                                        +'<div class="col-2 text-lg-end text-start text-md-end col-md-2">'
+                                        +'<span>'+data[j].orderStatus+'</span><span class="fw-bold">'+allprice+'원</span></div></div>'
+			                    );
+	                    	}
+	                    }else {
+	                    	$('.orderListBox').append('<ul><li><p class="noOrder">주문하신 내역이 없습니다.</p></li></ul>');
+	                    }
                     },
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader("Authorization","Bearer " + token);
-                    },
-                }).done(function (res) {
-                }).fail(function (err) {
-                    alert(JSON.stringify(err));
+	                    beforeSend: function (xhr) {
+	                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+	                    },
+	                    error: function (jqXHR, textStatus, errorThrown) {
+	                        console.log(jqXHR.status + textStatus + errorThrown);
+	                    }
                 })
-        });
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization","Bearer " + token);
+            },
+        }).done(function (res) {
+        }).fail(function (err) {
+            alert(JSON.stringify(err));
+        })
+});
 
 $(document).on('click', '.myInfodelete', function(e){
 		let result = confirm("회원 탈퇴를 하시겠습니까?");
@@ -128,6 +123,12 @@ $(document).on('click', '.myInfodelete', function(e){
 			alert("회원 탈퇴를 취소합니다.");
 		}
 });
+</script>
+<script>
+   let nowUrl = window.location.href;
+   if(nowUrl.indexOf("mypage")){
+	   document.getElementById('homeBtn').classList.add("active");
+   }
 </script>
 
 <%@ include file="fragments/footer.jsp" %>
