@@ -20,7 +20,9 @@
 
             <ul class="list-group list-group-flush">
               <li class="cartlist">
-            </li>
+
+              </li>
+
 
         <!-- sidebar -->
         <div class="col-12 col-lg-4 col-md-5">
@@ -57,7 +59,7 @@ $(document).ready(function(){
        dataType: "json",
        success: function (data) {
        var totalprice=0;
-       for(var j=0; j<data.length; j++){ console.log("detail : "+data[j].imgName);
+       for(var j=0; j<data.length; j++){
        var allprice = data[j].count * data[j].price;
 
        totalprice += allprice;
@@ -65,23 +67,22 @@ $(document).ready(function(){
        $('.cartlist').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
                              +'<img src="/resources/images/item/'+data[j].imgName+'" alt="" class="shop-img"/>'
                              +'</div>'
-                             +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].itemNm+'</span></a></div>'
+                             +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].itemNm+'  </span></a>'
+                             +'<button id="order" data-id="'+data[j].cartItemId+'">주문하기'+data[j].cartItemId+'</button><span>  </span><button id="rem" data-id="'+data[j].cartItemId+'">Remove'+data[j].cartItemId+'</button>'
                              +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
-                             +'<button id="rem" data-id="'+data[j].cartItemId+'">Remove'+data[j].cartItemId+'</button>'
-                             +'<button id="order" data-id="'+data[j].cartItemId+'">주문하기'+data[j].cartItemId+'</button></div>'
-                             +'<div class="col-3 col-md-3 col-lg-2"><div class="input-group input-spinner  ">'
+                             +'</div>'
+                             +'<div class="input-group input-spinner  ">'
                              +'<input type="button" value="-" data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-minus  btn  btn-sm " data-field="quantity"/>'
-                             +'<input type="number" min="1" id="count'+data[j].cartItemId+'" data-id="count'+data[j].cartItemId+'" value="'+data[j].count+'"class="quantity-field form-control-sm form-input"/>'
-                             +'<input type="button" value="+"  data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-plus btn btn-sm " data-field="quantity"/></div></div>'
-                             +'<div class="col-2 text-lg-end text-start text-md-end col-md-2">'
-                             +'<span id="pricenum'+data[j].cartItemId+'" class="fw-bold">'+allprice+' 원</span></div></div>'
+                             +'<input type="number" min="1" id="count'+data[j].cartItemId+'" data-id="count'+data[j].cartItemId+'" value="'+data[j].count+'"class="quantity-field form-control-sm form-input" readonly/>'
+                             +'<input type="button" value="+"  data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-plus btn btn-sm " data-field="quantity"/>'
+                             +'&nbsp&nbsp&nbsp<span id="pricenum'+data[j].cartItemId+'" class="fw-bold">'+allprice+'원</span></div></div></div><hr>'
        );
 
        $('.list-groups').append('<li class="list-group-item d-flex justify-content-between align-items-start">'
                                +'<div class="me-auto"><div>'+data[j].itemNm+'</div></div>'
                                +'<span id="small'+data[j].cartItemId+'" value="'+allprice+'">'+allprice+'</span><span> 원</span></li>'
        );
-       }    <!-- for문 -->
+       }
 
        $('.list-groups').append('<li class="list-group-item d-flex justify-content-between align-items-start">'
                                       +'<div class="me-auto"><div class="fw-bold">Total</div></div>'
@@ -111,7 +112,6 @@ $(document).ready(function(){
 
           	    $('#pricenum'+num2).text(prices+"원");
           	    $('#small'+num2).text(prices);
-          	    console.log(totalss);
           	    tt+=Number(price1);
           	    $('#small').text(tt);
    	 });
@@ -140,7 +140,6 @@ $(document).on('click', '#rem', function(e){
 let api = "http://localhost:8090";
  let token = localStorage.getItem("token");
        var num = e.target.dataset.id;
-       console.log(num);
    	  $.ajax({
    		 url : api + "/cart/list/"+num,
    		 type:'DELETE',
@@ -166,7 +165,6 @@ let api = "http://localhost:8090";
 $(document).on('click', '#order', function(e){
     	let api = "http://localhost:8090";
     	var num = e.target.dataset.id;
-        // 기본 이벤트 제거
         event.preventDefault();
         var counts= $("#count"+num).val()
          $.ajax({
