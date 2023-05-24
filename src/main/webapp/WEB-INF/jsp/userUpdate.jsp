@@ -3,14 +3,15 @@
 <%@ include file="fragments/header.jsp" %>
 
 <div class="h-container">
-<aside class="myPageLeftbar">
+	<aside class="myPageLeftbar">
 		<ul>
 			<li><div><a href="/mypage" id="homeBtn">홈</a></div></li>
 			<li><div><a href="/orderList" id="orderBtn">주문 내역</a></div></li>
 			<li><div><a href="/updateUser" id="updateBtn">개인정보 수정</a></div></li>
 		</ul>
 	</aside>
-	<div class="myPageBody">
+	<h3 class="inquiryTitle">개인정보 수정</h3>
+	<div class="userBody">
        <div class="col-md-12 mb-3">
          <label class="form-label" for="name">이름<span class="text-danger">*</span></label>
          <input type="text" id="names" class="names" placeholder="Enter Your Name" required>

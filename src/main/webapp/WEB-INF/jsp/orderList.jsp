@@ -11,16 +11,77 @@
 		</ul>
 	</aside>
 	<div class="myPageBody">
-		<h3 class="inquiryTitle">~님의 주문 내역</h3>
+		<h3 class="orderTitleDetail">주문내역</h3>
+		<div class="orderListBoxDetail">
+			
+		</div>	
 	</div>
  
 </div>
 
 <script>
+let api = "http://localhost:8090";
+let token = localStorage.getItem("token");
 let nowUrl = window.location.href;
 if(nowUrl.indexOf("orderList")){
 	   document.getElementById('orderBtn').classList.add("active");
 }
+$(document).ready(function(){
+    let data;
+    $.ajax({
+        type: "GET",
+        url: api+"/user/info",
+        async: false,
+        contentType: "application/text; charset=utf-8",
+        data: JSON.stringify(data),
+        dataType: "json",
+        success: function(data) {
+            $.ajax({
+                url: api + "/order",
+                type: 'GET',
+                async: false,
+                cache: false,
+                contentType: 'application/text; charset=utf-8',
+                dataType: "json",
+                success: function (data) {
+                    if(data > ""){
+                    	for(var j=0; j<data.length; j++){
+                    		var allprice=data[j].orderItemDtoList[0].count * data[j].orderItemDtoList[0].orderPrice;
+                    		console.log("order데이터 : "+data);
+		                    $('.orderListBoxDetail').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
+                                    +'<img src="/resources'+data[j].orderItemDtoList[0].imgUrl+'" alt="" class="shop-img"/>'
+                                    +'</div>'
+                                    +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].orderDate+'</span></a></div>'
+                                    +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
+                                    +'<button id="rem" data-id="'+data[j].orderId+'">Cancel</button>'
+                                    +'</div>'
+                                    +'<div class="col-3 col-md-3 col-lg-2"><div class="input-group input-spinner  ">'
+                                    +'<input type="number" value="'+data[j].orderItemDtoList[0].count+'"class="quantity-field form-control-sm form-input"/>'
+                                    +'</div></div>'
+                                    +'<div class="col-2 text-lg-end text-start text-md-end col-md-2">'
+                                    +'<span>'+data[j].orderStatus+'</span><span class="fw-bold">'+allprice+'원</span></div></div>'
+		                    );
+                    	}
+                    }else {
+                    	$('.orderListBoxDetail').append('<ul><li><p class="noOrder">주문하신 내역이 없습니다.</p></li></ul>');
+                    }
+                },
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(jqXHR.status + textStatus + errorThrown);
+                    }
+            })
+        },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization","Bearer " + token);
+        },
+    }).done(function (res) {
+    }).fail(function (err) {
+        alert(JSON.stringify(err));
+    })
+});
 </script>
 
 <%@ include file="fragments/footer.jsp" %>

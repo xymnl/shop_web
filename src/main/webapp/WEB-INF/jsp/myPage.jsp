@@ -46,7 +46,6 @@ $(document).ready(function(){
             data: JSON.stringify(data),
             dataType: "json",
             success: function(data) {
-            	console.log("/user/info 데이터 : "+JSON.stringify(data));
                 $.ajax({
                     url: api + "/order",
                     type: 'GET',
