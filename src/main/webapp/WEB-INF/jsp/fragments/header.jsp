@@ -6,7 +6,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>FreshCart - eCommerce HTML Template</title>
-   <link rel="icon" href="/resources/imgs/favicon-logo.svg" sizes="32x32" type="image/png">
+   <link rel="icon" href="/resources/images/favicon-logo.svg" sizes="32x32" type="image/png">
 
    <!-- BootStrap -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
@@ -38,9 +38,8 @@
 <body>
    <header>
       <div class="headerBottom">
-           <div class="py-4 pt-lg-3 pb-lg-0">
              <div class="container">
-               <div class="row w-100 align-items-center gx-lg-2 gx-0">
+               <div class="row w-auto align-items-center gx-lg-2 gx-0">
                  <div class="col-xxl-2 col-lg-3"> <!-- 로고 이미지 / 선택 시 메인 페이지 이동 -->
                    <a class="navbar-brand d-none d-lg-block logo" href="/"><img src="/resources/images/logo.png" alt="로고 이미지"><span class="logoTitle">Fresh Shop</span></a>
                  </div>
@@ -49,7 +48,7 @@
                  <!-- 제품 검색 영역 -->
                    <form method="get" name="search" id="search" onSubmit="return false;">
                        <div class="input-group">
-                           <input class="form-control rounded" type="search" id="rounded" name="rounded" placeholder="Search for products" onkeypress="show_name(event)"">
+                           <input class="form-control rounded" type="search" id="rounded" name="rounded" placeholder="Search for products" onkeypress="show_name(event)">
                                  <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button" form="search" onclick="location.href=getvalue()">
                                       <i class="bi bi-search"></i>
                                   </button>
@@ -76,7 +75,7 @@
                               <label class="loginTxt" for="email">이메일을 입력하세요.</label>
                             </div>
                             <div class="form-floating mb-3">
-                              <input type="password" class="form-control rounded-3" id="password" placeholder="Password" required>
+                              <input type="password" class="form-control rounded-3" id="password" placeholder="Password" autocomplete="off" required>
                               <label class="loginTxt" for="password">비밀번호를 입력하세요.</label>
                             </div>
                             <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="button" id="login-btn">로그인</button>
@@ -105,7 +104,6 @@
                  </div>
                </div>
              </div>
-           </div> <!-- END : py-4 pt-lg-3 pb-lg-0 -->
          <nav class="navbar navbar-expand-lg navbar-light navbar-default py-0 py-lg-4">
            <div class="container px-0 px-md-3">
              <div class="dropdown me-3 d-none d-lg-block"> <!-- 모든 카테고리 버튼 -->

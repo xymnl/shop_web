@@ -1,13 +1,6 @@
 @charset "UTF-8";
 
 /* === 공통 === */
-/* body {
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none
-} */
-
 @font-face {
     font-family:sandol;
     src:url('/resources/font/AppleSDGothicNeoM.eot');
@@ -16,13 +9,12 @@
     font-family:sandolB;
     src:url('/resources/font/AppleSDGothicNeoB.eot');
 }
-
+* {margin:0px; padding:0px;}
 body {
 	font-family:sandolB; color:#000000;
 }
-
 ul li {list-style:none;}
-a {color:#000000;}
+a {text-decoration:none; color:#000000;}
 
 .headerBottom {width:80%; margin:0 auto; border-bottom:1px solid #333;}
 
