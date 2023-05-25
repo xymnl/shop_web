@@ -66,12 +66,10 @@ $(document).ready(function(){
 				if(page == num_pages){
 					jQuery('.pagination li:first-child').removeClass("disabled"); // prev 활성
 					jQuery('.pagination li:last-child').addClass("disabled");	
-				}else if (page == 1){
-					jQuery('.pagination li:first-child').addClass("disabled"); // prev 비활성
-					if(num_pages > 2){
-						jQuery('.pagination li:last-child').removeClass("disabled"); // next 활성
-					}else {
-						jQuery('.pagination li:last-child').addClass("disabled"); // next 비활성
+					if(page == 1){
+						jQuery('.pagination li:first-child').addClass("disabled"); // prev 비활성
+						if(num_pages > 2) jQuery('.pagination li:last-child').removeClass("disabled"); // next 활성
+						else jQuery('.pagination li:last-child').addClass("disabled"); // next 비활성
 					}
 				}else {
 					jQuery('.pagination li:first-child').removeClass("disabled"); // prev 활성
