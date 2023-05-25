@@ -30,7 +30,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/resources/js/freshshop/header.js"></script>
 	<script src="/resources/js/slick.js"></script>
-	<script src="/resources/js/inquiry.js"></script>
+	<script src="/resources/js/freshshop/inquiry.js"></script>
 	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>

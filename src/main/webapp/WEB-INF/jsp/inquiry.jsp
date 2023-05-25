@@ -48,8 +48,6 @@ $(document).ready(function(){
        cache: false,
        contentType: 'application/json; chartset=utf-8',
        success: function (data) {
-
-
            $('#example2').DataTable({
                pageLength: 10,
                bPaginate: false,
@@ -70,8 +68,8 @@ $(document).ready(function(){
                    {
                        data: null, render: function (data, type, row) {
                     	   var title_link = '<a href="inquiry_detail/'+data.id+'">'+data.title+'</a>';
-                    	   console.log("data.title : "+data.title);
-                    	   console.log("data.id : "+data.id);
+                    	   /* console.log("data.title : "+data.title);
+                    	   console.log("data.id : "+data.id); */
                            return title_link;
                        }
                    },
