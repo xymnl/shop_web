@@ -25,7 +25,7 @@
 		</div>
 		<div class="orderBox">
 		<a href="/orderList" class="moreBtn">더보기 +</a>
-			<div class="orderListBox">
+			<div style="overflow-x:hidden;overflow-y:scroll; width:600px; height:200px;" class="orderListBox">
 			
 			</div>
 		</div>

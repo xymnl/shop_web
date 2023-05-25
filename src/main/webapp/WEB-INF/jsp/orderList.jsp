@@ -12,11 +12,11 @@
 	</aside>
 	<div class="myPageBody">
 		<h3 class="orderTitleDetail">주문내역</h3>
-		<div class="orderListBoxDetail">
-			
-		</div>	
+		<div style="overflow-x:hidden;overflow-y:scroll; width:800px; height:500px;" class="orderListBoxDetail">
+
+		</div>
 	</div>
- 
+
 </div>
 
 <script>

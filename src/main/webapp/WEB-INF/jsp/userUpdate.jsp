@@ -14,22 +14,22 @@
 	<div class="userBody">
        <div class="col-md-12 mb-3">
          <label class="form-label" for="name">이름<span class="text-danger">*</span></label>
-         <input type="text" id="names" class="names" placeholder="Enter Your Name" required>
+         <input type="text" id="name" class="name" placeholder="Enter Your Name" required>
        </div>
 
        <div class="col-md-12 mb-3">
           <label class="form-label" for="email">이메일<span class="text-danger">*</span></label>
-          <input type="text" class="emails" id="emails" value="" class="form-control" readonly>
+          <input type="text" class="email" id="email" value="" class="form-control" readonly>
        </div>
 
        <div class="col-md-12 mb-3">
           <label class="form-label" for="address">주소<span class="text-danger">*</span></label>
-          <input type="text" class="addresss" id="addresss" value="" class="form-control"></input>
+          <input type="text" class="address" id="address" value="" class="form-control"></input>
        </div>
 
        <div class="col-md-12 mb-3">
 	   		<label class="form-label" for="address">비밀번호<span class="text-danger">*</span></label>
-	   		<input type="password" class="passwords" id="passwords" value="" class="form-control"></input>
+	   		<input type="password" class="password" id="passwords" value="" class="form-control"></input>
 	   </div>
 
        <div class="col-md-12">
@@ -55,10 +55,10 @@
                     dataType: "json",
                     success: function(data) {
                     console.log(data);
-                            $('.names').val(data.name);
-                            $('.emails').val(data.email);
-                            $('.addresss').val(data.address);
-                            $('.passwords').val(data.password);
+                            $('.name').val(data.name);
+                            $('.email').val(data.email);
+                            $('.address').val(data.address);
+                            $('.password').val(data.password);
                     },
                     beforeSend: function (xhr) {
                         xhr.setRequestHeader("Authorization","Bearer " + token);
@@ -72,9 +72,9 @@
 $(document).on('click', '#userinfoupdate', function(e){
     	let api = "http://localhost:8090";
     	let data = { //JavaScript Object
-            					name: $("#names").val(),
-            					password: $("#passwords").val(),
-            					address: $("#addresss").val()
+            					name: $("#name").val(),
+            					password: $("#password").val(),
+            					address: $("#address").val()
             			}
         // 기본 이벤트 제거
         event.preventDefault();

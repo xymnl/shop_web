@@ -25,8 +25,11 @@
               <!-- list group -->
               <li class="orderlist">
               </li>
+            </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </section>
 
 
