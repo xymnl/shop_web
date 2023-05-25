@@ -63,7 +63,6 @@ $(document).ready(function(){
 				jQuery('.pagination li:first-child').addClass("disabled");
 				jQuery('.pagination li:last-child').removeClass("disabled");
 			}else {
-				console.log("temp 값 : "+temp)
 				if(page == num_pages){
 					jQuery('.pagination li:first-child').removeClass("disabled"); // prev 활성
 					jQuery('.pagination li:last-child').addClass("disabled");	
