@@ -2,6 +2,7 @@
 <%@ include file="fragments/header.jsp"%>
 <section class="mb-lg-14 mb-8 mt-8">
     <div class="container">
+
       <!-- row -->
       <div class="row">
         <div class="col-12">
@@ -13,6 +14,7 @@
           </div>
         </div>
       </div>
+
       <!-- row -->
       <div class="row">
         <div class="col-lg-8 col-md-7">
@@ -22,7 +24,9 @@
               <li class="cartlist">
 
               </li>
-
+            </ul>
+          </div>
+        </div>
 
         <!-- sidebar -->
         <div class="col-12 col-lg-4 col-md-5">
@@ -32,16 +36,21 @@
               <!-- heading -->
               <h2 class="h5 mb-4">Summary</h2>
               <div class="card mb-2">
-
+                <br>
                 <!-- list group -->
                 <ul class="list-groups list-group-flush">
+
+
                 </ul>
 
               </div>
+
             </div>
           </div>
         </div>
+
       </div>
+
     </div>
   </section>
 
@@ -68,7 +77,7 @@ $(document).ready(function(){
                              +'<img src="/resources/images/item/'+data[j].imgName+'" alt="" class="shop-img"/>'
                              +'</div>'
                              +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].itemNm+'  </span></a>'
-                             +'<button id="order" data-id="'+data[j].cartItemId+'">주문하기'+data[j].cartItemId+'</button><span>  </span><button id="rem" data-id="'+data[j].cartItemId+'">Remove'+data[j].cartItemId+'</button>'
+                             +'<button id="order" data-id="'+data[j].cartItemId+'">주문하기</button><span>  </span><button id="rem" data-id="'+data[j].cartItemId+'">Remove</button>'
                              +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
                              +'</div>'
                              +'<div class="input-group input-spinner  ">'
@@ -80,7 +89,7 @@ $(document).ready(function(){
 
        $('.list-groups').append('<li class="list-group-item d-flex justify-content-between align-items-start">'
                                +'<div class="me-auto"><div>'+data[j].itemNm+'</div></div>'
-                               +'<span id="small'+data[j].cartItemId+'" value="'+allprice+'">'+allprice+'</span><span> 원</span></li>'
+                               +'<span id="small'+data[j].cartItemId+'" value="'+allprice+'">'+allprice+'</span><span> 원</span></li><hr>'
        );
        }
 
