@@ -25,7 +25,7 @@
 		</div>
 		<div class="orderBox">
 		<a href="/orderList" class="moreBtn">더보기 +</a>
-			<div style="overflow-x:hidden;overflow-y:scroll; width:600px; height:200px;" class="orderListBox">
+			<div style="overflow-x:hidden;overflow-y:scroll; width:700px; height:200px;" class="orderListBox">
 			
 			</div>
 		</div>
@@ -61,15 +61,15 @@ $(document).ready(function(){
 			                    $('.orderListBox').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
                                         +'<img src="/resources'+data[j].orderItemDtoList[0].imgUrl+'" alt="" class="shop-img"/>'
                                         +'</div>'
-                                        +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].orderDate+'</span></a></div>'
+                                        +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].orderDate+'</span></a>'
                                         +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
-                                        +'<button id="rem" data-id="'+data[j].orderId+'">Cancel</button>'
-                                        +'</div>'
+                                        +'<span>'+data[j].orderItemDtoList[0].count+'</span><span>&nbsp개</span>'
+                                        +'&nbsp&nbsp<span class="fw-bold">'+allprice+'원</span></div></div>'
                                         +'<div class="col-3 col-md-3 col-lg-2"><div class="input-group input-spinner  ">'
-                                        +'<input type="number" value="'+data[j].orderItemDtoList[0].count+'"class="quantity-field form-control-sm form-input"/>'
+                                        +'<button id="rem" data-id="'+data[j].orderId+'">주문취소하기</button>'
                                         +'</div></div>'
                                         +'<div class="col-2 text-lg-end text-start text-md-end col-md-2">'
-                                        +'<span>'+data[j].orderStatus+'</span><span class="fw-bold">'+allprice+'원</span></div></div>'
+                                        +'<span>'+data[j].orderStatus+'&nbsp&nbsp</span></div></div><hr>'
 			                    );
 	                    	}
 	                    }else {
