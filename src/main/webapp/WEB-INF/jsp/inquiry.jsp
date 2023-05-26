@@ -2,39 +2,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="fragments/header.jsp" %>
 
-<div class="inquiry_box"></div>
+<div class="m-container">
+	<div class="inquiry_box"></div>
 
-<div class="row">
-    <div class="col-lg-12 col-md-12">
-        <div class="box box-success">
-            <div class="box-body">
-                <table id="example2" class="table table-bordered table-hover">
-                    <colgroup>
-                        <col width="30%">
-                        <col width="60%">
-                        <col width="10%">
-                    </colgroup>
-                    <thead>
-                    <tr>
-                        <th>title</th>
-                        <th>content</th>
-                        <th>questionStatus</th>
-                        <th>name</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <a href="/inquiry/create">문의작성</a>
-
-                <div class="pagenation_box">
-	            	<ul class="pagination pagination-seperated "></ul>
-	        	</div>
-                
-            </div>
-        </div>
-    </div>
+	<div class="row">
+	    <div class="col-lg-12 col-md-12">
+	        <div class="box box-success">
+	            <div class="box-body">
+	                <table id="example2" class="table table-bordered table-hover">
+	                    <colgroup>
+	                        <col width="30%">
+	                        <col width="60%">
+	                        <col width="10%">
+	                    </colgroup>
+	                    <thead>
+	                    <tr>
+	                        <th>title</th>
+	                        <th>content</th>
+	                        <th>questionStatus</th>
+	                        <th>name</th>
+	                    </tr>
+	                    </thead>
+	                    <tbody>
+	                    </tbody>
+	                </table>
+	                <a href="/inquiry/create">문의작성</a>
+	
+	                <div class="pagination_box">
+		            	<ul class="paginationI pagination-seperated"></ul>
+		        	</div>
+	                
+	            </div>
+	        </div>
+	    </div> <!-- end : row -->
+	</div>
 </div>
+
 </body>
 <script>
 /* inquiry.jsp */
@@ -98,10 +101,9 @@ $(document).ready(function(){
            console.log(jqXHR.status + textStatus + errorThrown);
        }
    })
+   
 });
-jQuery('document').ready(function() {
-	pagination();
-	jQuery('.pagination li:first-child').addClass("disabled");
-});
+
+
 </script>
 <%@ include file="fragments/footer.jsp" %>
