@@ -38,7 +38,7 @@ $(document).ready(function(){
    });
    	/* === home.jsp 상품 페이지네이션 === */
 	function homePagination() {
-		var req_num_row = 6; // 화면에 표시할 상품 개수
+		var req_num_row = 10 // 화면에 표시할 상품 개수
 		var $tr = jQuery('.item-box');	// paging 대상 class명
 		var total_num_row = $tr.length;
 		console.log("total_num_row 개수 : "+total_num_row);
