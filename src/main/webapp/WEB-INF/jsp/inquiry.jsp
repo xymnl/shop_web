@@ -99,5 +99,9 @@ $(document).ready(function(){
        }
    })
 });
+jQuery('document').ready(function() {
+	pagination();
+	jQuery('.pagination li:first-child').addClass("disabled");
+});
 </script>
 <%@ include file="fragments/footer.jsp" %>
