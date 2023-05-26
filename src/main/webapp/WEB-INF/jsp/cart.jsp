@@ -89,13 +89,13 @@ $(document).ready(function(){
 
        $('.list-groups').append('<li class="list-group-item d-flex justify-content-between align-items-start">'
                                +'<div class="me-auto"><div>'+data[j].itemNm+'</div></div>'
-                               +'<span id="small'+data[j].cartItemId+'" value="'+allprice+'">'+allprice+'</span><span> 원</span></li><hr>'
+                               +'<span id="small'+data[j].cartItemId+'" value="'+allprice+'">'+allprice+'</span><span> 원</span>&nbsp&nbsp</li><hr>'
        );
        }
 
        $('.list-groups').append('<li class="list-group-item d-flex justify-content-between align-items-start">'
                                       +'<div class="me-auto"><div class="fw-bold">Total</div></div>'
-                                      +'<span class="fw-bold" id="small" data-total="'+totalprice+'" value="'+totalprice+'">'+totalprice+'</span><span> 원</span></li>'
+                                      +'<span class="fw-bold" id="small" data-total="'+totalprice+'" value="'+totalprice+'">'+totalprice+'</span><span> 원</span>&nbsp&nbsp</li>'
                                  );
        },
        beforeSend: function (xhr) {
