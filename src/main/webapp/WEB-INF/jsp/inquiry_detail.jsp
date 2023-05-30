@@ -61,7 +61,7 @@ $(document).ready(function(){
            xhr.setRequestHeader("Authorization", "Bearer " + token);
        },
        error: function (jqXHR, textStatus, errorThrown) {
-           console.log(jqXHR.status + textStatus + errorThrown);
+           alert("문의 내용을 불러오지 못하였습니다.");
        }
    })
    $('.delete_btn').on("click",function() {
@@ -73,13 +73,12 @@ $(document).ready(function(){
 	       contentType: 'application/text; chartset=utf-8',
 	       dataType: "text",
 	       success: function (data) {
-	    	  alert("문의가 삭제되었습니다.");
 	       },
 	       beforeSend: function (xhr) {
 	           xhr.setRequestHeader("Authorization", "Bearer " + token);
 	       },
 	       error: function (jqXHR, textStatus, errorThrown) {
-	           console.log(jqXHR.status + textStatus + errorThrown);
+	           alert("문의 삭제를 실패하였습니다.");
 	       }
 	  }).done(function (res) {
           alert("문의가 삭제되었습니다.");

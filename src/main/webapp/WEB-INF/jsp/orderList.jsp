@@ -49,7 +49,6 @@ $(document).ready(function(){
                     if(data > ""){
                     	for(var j=0; j<data.length; j++){
                     		var allprice=data[j].orderItemDtoList[0].count * data[j].orderItemDtoList[0].orderPrice;
-                    		console.log("order데이터 : "+data);
 		                    $('.orderListBoxDetail').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
                                     +'<img src="/resources'+data[j].orderItemDtoList[0].imgUrl+'" alt="" class="shop-img"/>'
                                     +'</div>'
@@ -72,7 +71,7 @@ $(document).ready(function(){
                         xhr.setRequestHeader("Authorization", "Bearer " + token);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        console.log(jqXHR.status + textStatus + errorThrown);
+                       alert("주문 리스트를 받아오지 못했습니다.");
                     }
             })
         },
@@ -81,7 +80,7 @@ $(document).ready(function(){
         },
     }).done(function (res) {
     }).fail(function (err) {
-        alert(JSON.stringify(err));
+        alert("주문 리스트를 받아오지 못했습니다.");
     })
 });
 </script>

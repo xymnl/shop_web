@@ -69,7 +69,7 @@ $(document).ready(function(){
            xhr.setRequestHeader("Authorization", "Bearer " + token);
        },
        error: function (jqXHR, textStatus, errorThrown) {
-           console.log(jqXHR.status + textStatus + errorThrown);
+           alert("주문내역을 불러오지 못하였습니다.");
        }
 })
 });
@@ -78,7 +78,6 @@ $(document).on('click', '#rem', function(e){
 let api = '${api}';
  let token = localStorage.getItem("token");
        var num = e.target.dataset.id;
-       console.log(num);
    	  $.ajax({
    		 url : api + "/order/cancel/"+num,
    		 type:'POST',
@@ -93,7 +92,7 @@ let api = '${api}';
    	           xhr.setRequestHeader("Authorization", "Bearer " + token);
    	       },
    	       error: function (jqXHR, textStatus, errorThrown) {
-   	           console.log(jqXHR.status + textStatus + errorThrown);
+   	           alert("주문 취소를 실패하였습니다.");
    	       }
    	  }).done(function (res) {
               location.reload();

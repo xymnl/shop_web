@@ -126,7 +126,6 @@
  <%--  <script>
       function getvalue(){
               var idx = document.getElementById('rounded').value;
-              console.log("data"+idx);
               var urll = 'http://localhost:8091/search/'+idx;
               return urll;
               }

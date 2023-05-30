@@ -32,8 +32,7 @@
             	$("#btnSubmit").prop("disabled", false);
             },
             error: function (e) {
-            	console.log("ERROR : ", e);
-                $("#btnSubmit").prop("disabled", false);
+            	 $("#btnSubmit").prop("disabled", false);
                 alert("fail");
              }
     	});
@@ -66,7 +65,7 @@
 			}).done(function (res) {
 				alert("상품등록이 완료되었습니다.");
 			}).fail(function (err) {
-				alert(JSON.stringify(err));
+				alert("상품등록 실패.");
 			});
 		});
 	});

@@ -59,7 +59,7 @@ $(document).ready(function(){
 	                    if(data > ""){
 	                    	for(var j=0; j<data.length; j++){
 	                    		var allprice=data[j].orderItemDtoList[0].count * data[j].orderItemDtoList[0].orderPrice;
-	                    		console.log("order데이터 : "+data);
+
 			                    $('.orderListBox').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
                                         +'<img src="/resources'+data[j].orderItemDtoList[0].imgUrl+'" alt="" class="shop-img"/>'
                                         +'</div>'
@@ -82,7 +82,7 @@ $(document).ready(function(){
 	                        xhr.setRequestHeader("Authorization", "Bearer " + token);
 	                    },
 	                    error: function (jqXHR, textStatus, errorThrown) {
-	                        console.log(jqXHR.status + textStatus + errorThrown);
+	                        alert("마이페이지를 로드하지 못했습니다.");
 	                    }
                 })
             },
@@ -108,7 +108,7 @@ $(document).on('click', '.myInfodelete', function(e){
 	                  async: false,
 	                  contentType: "application/json; charset=utf-8",
 	                  success: function(data) {
-	                        console.log('계정삭제완료');
+
 	                  },
 	                  beforeSend: function (xhr) {
 	                      xhr.setRequestHeader("Content-type","application/json");

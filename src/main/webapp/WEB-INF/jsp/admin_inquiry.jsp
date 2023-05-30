@@ -74,8 +74,6 @@ $(document).ready(function(){
                    {
                        data: null, render: function (data, type, row) {
                     	   var title_link = '<a href="admin_inquiry_detail/'+data.id+'">'+data.title+'</a>';
-                    	   console.log("data.title : "+data.title);
-                    	   console.log("data.id : "+data.id);
                            return title_link;
                        }
                    },
@@ -101,7 +99,7 @@ $(document).ready(function(){
            xhr.setRequestHeader("Authorization", "Bearer " + token);
        },
        error: function (jqXHR, textStatus, errorThrown) {
-           console.log(jqXHR.status + textStatus + errorThrown);
+            alert("일반회원은 접근할 수 없습니다.");
        }
    })
    jQuery('document').ready(function() {

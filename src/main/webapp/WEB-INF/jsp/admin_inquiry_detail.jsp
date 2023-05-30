@@ -64,7 +64,6 @@ $(document).ready(function(){
        contentType: 'application/text; charset=utf-8',
        dataType: "json",
        success: function (data) {
-        console.log("detail : "+data);
         $('.span_dataset1').text(data.title);
         $('.span_dataset2').text(data.content);
         $('.span_dataset3').text(data.questionStatus);
@@ -75,7 +74,7 @@ $(document).ready(function(){
            xhr.setRequestHeader("Authorization", "Bearer " + token);
        },
        error: function (jqXHR, textStatus, errorThrown) {
-           console.log(jqXHR.status + textStatus + errorThrown);
+           alert("일반회원은 접근할 수 없습니다.");
        }
    })
 });
@@ -101,8 +100,6 @@ $(function() {
           data : dataa,
           dataType: "text",
             success: function(data) {
-                console.log('Success!')
-
             },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Content-type","application/json");

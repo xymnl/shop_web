@@ -74,8 +74,7 @@ $(document).ready(function(){
                    {
                        data: null, render: function (data, type, row) {
                     	   var title_link = '<a href="inquiry_detail/'+data.id+'">'+data.title+'</a>';
-                    	   /* console.log("data.title : "+data.title);
-                    	   console.log("data.id : "+data.id); */
+
                            return title_link;
                        }
                    },
@@ -101,7 +100,7 @@ $(document).ready(function(){
            xhr.setRequestHeader("Authorization", "Bearer " + token);
        },
        error: function (jqXHR, textStatus, errorThrown) {
-           console.log(jqXHR.status + textStatus + errorThrown);
+           alert("문의 리스트를 받아오지 못했습니다.");
        }
    })
    

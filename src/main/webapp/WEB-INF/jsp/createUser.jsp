@@ -26,7 +26,7 @@
     				alert("회원가입이 완료되었습니다.");
     				location.href = "/";
     			}).fail(function (err) {
-    				alert(JSON.stringify(err));
+    				alert("회원가입이 실패하였습니다.");
     			})
     		})
         });

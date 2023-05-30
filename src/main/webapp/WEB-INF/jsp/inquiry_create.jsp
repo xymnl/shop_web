@@ -34,10 +34,8 @@ let token = localStorage.getItem("token");
             title : $("#title").val(),
             content : $("#content").val()
         }
-        console.log("title"+$("#email").val());
 
 
-        // Ajax를 이용한 로그인 처리
         $.ajax({
           type: "POST",
           url: api+"/board/user/new",
@@ -45,24 +43,19 @@ let token = localStorage.getItem("token");
           contentType: "application/json; charset=utf-8",
           data: JSON.stringify(data),
             success: function(data) {
-                console.log('Success!')
-
             },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Content-type","application/json");
                 xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
             },
         }).done(function (res) {
-             alert("문의가 등록되었습니다.");
+             alert("문의가 등록 되었습니다.");
               location.href = "/inquiry";
           }).fail(function (err) {
-             alert(JSON.stringify(err));
+             alert("문의 등록을 실패 하였습니다.");
           })
       })
     });
     </script>
-
-
-
 
 <%@ include file="fragments/footer.jsp" %>

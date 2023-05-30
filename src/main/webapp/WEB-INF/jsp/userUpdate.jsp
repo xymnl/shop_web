@@ -56,7 +56,6 @@
                     data: JSON.stringify(data),
                     dataType: "json",
                     success: function(data) {
-                    console.log(data);
                             $('.name').val(data.name);
                             $('.email').val(data.email);
                             $('.address').val(data.address);
@@ -67,7 +66,7 @@
                     },
                 }).done(function (res) {
                 }).fail(function (err) {
-                    alert(JSON.stringify(err));
+                    alert("회원 조회 실패.");
                 })
         });
 
@@ -88,14 +87,14 @@ $(document).on('click', '#userinfoupdate', function(e){
                   data: JSON.stringify(data),
                   dataType: "json",
                   success: function(data) {
-                        console.log('개인정보수정완료');
+                        alert("개인 정보 수정 완료.");
                   },
                   beforeSend: function (xhr) {
                       xhr.setRequestHeader("Content-type","application/json");
                       xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
                   },
                 }).done(function (res) {
-                alert("개인정보수정완료");
+
                           location.href = "/";
                 }).
                 fail(function (err) { alert("개인정보수정 실패"); })
@@ -111,15 +110,14 @@ $(document).on('click', '#userinfodelete', function(e){
                   async: false,
                   contentType: "application/json; charset=utf-8",
                   success: function(data) {
-                        console.log('계정삭제완료');
+                        alert("계정 삭제 완료.");
                   },
                   beforeSend: function (xhr) {
                       xhr.setRequestHeader("Content-type","application/json");
                       xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
                   },
                 }).done(function (res) {
-                alert("계정삭제완료");
-                window.localStorage.clear();
+                 window.localStorage.clear();
                           location.href = "/";
                 }).
                 fail(function (err) { alert("개인정보수정 실패"); })

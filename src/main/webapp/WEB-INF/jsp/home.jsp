@@ -55,7 +55,7 @@ $(document).ready(function(){
 	           xhr.setRequestHeader("Authorization", "Bearer " + token);
 	       },
 	       error: function (jqXHR, textStatus, errorThrown) {
-	           console.log("이미지 불러오기 실패");
+	          alert("아이템 불러오기 실패");
 	       }
 	   });
     $('#getValue').on("click",function(){
@@ -81,7 +81,7 @@ $(document).ready(function(){
    	           xhr.setRequestHeader("Authorization", "Bearer " + token);
    	       },
    	       error: function (jqXHR, textStatus, errorThrown) {
-   	           console.log("이미지 불러오기 실패");
+   	           alert("아이템 불러오기 실패");
    	       }
    	   });
     })

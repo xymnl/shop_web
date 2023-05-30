@@ -74,7 +74,7 @@ $(document).ready(function(){
        var allprice = data[j].count * data[j].price;
 
        totalprice += allprice;
-       console.log("totalprice : "+totalprice);
+
        $('.cartlist').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
                              +'<img src="/resources/images/item/'+data[j].imgName+'" alt="" class="shop-img"/>'
                              +'</div>'
@@ -104,7 +104,7 @@ $(document).ready(function(){
            xhr.setRequestHeader("Authorization", "Bearer " + token);
        },
        error: function (jqXHR, textStatus, errorThrown) {
-           console.log(jqXHR.status + textStatus + errorThrown);
+           alert("장바구니 리스트를 받아오지 못했습니다.");
        }
    })
    let fir = document.getElementById('small');
@@ -165,7 +165,7 @@ let api = '${api}';
    	           xhr.setRequestHeader("Authorization", "Bearer " + token);
    	       },
    	       error: function (jqXHR, textStatus, errorThrown) {
-   	           console.log(jqXHR.status + textStatus + errorThrown);
+   	           alert("장바구니 삭제 실패.");
    	       }
    	  }).done(function (res) {
               location.reload();

@@ -56,7 +56,7 @@
                     },
                 }).done(function (res) {
                 }).fail(function (err) {
-                    alert(JSON.stringify(err));
+                   alert("회원 정보 불러오기 실패.");
                 })
         });
 </script>
