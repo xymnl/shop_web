@@ -1,4 +1,6 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <%@include file="fragments/header.jsp"%>
 	<div class="m-container">	
 		<section class="categories">
@@ -12,11 +14,30 @@
 	</div>
 	
 <script>
+
 $(document).ready(function(){
- let api = "http://localhost:8090";
+
+	//let searchQuery = null;
+	let searchQuery = "물통";
+ let api = '${api}';
  var token = localStorage.getItem("token");
+
+
+	$('#getValue').on("click", function () {
+
+		var rounded = document.getElementById('rounded').value;
+		alert(rounded);
+	});
+
+	 //rounded 값을 searchQuery에 저장해야함
+	 //검색 결과 searchQuery에 저장 검색 안할시 전체 상품 리스트 검색
+	 if(rounded != null) {
+	 searchQuery = rounded;
+	 }
+ 	console.log(searchQuery)
+
    $.ajax({
-       url: api + "/user/item",
+       url: api + "/user/item?searchQuery="+searchQuery,
        type: 'GET',
        async: false,
        cache: false,
@@ -122,6 +143,8 @@ $(document).ready(function(){
 		jQuery('.pagination li:first-child').addClass("disabled");
 	});
 });
+
+
 </script>
 	
 <%@include file="fragments/footer.jsp"%>

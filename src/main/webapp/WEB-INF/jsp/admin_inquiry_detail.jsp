@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <%@ include file="fragments/header.jsp" %>
 
 
@@ -52,7 +54,7 @@
 <script>
 /* inquiry.jsp */
 $(document).ready(function(){
- let api = "http://localhost:8090";
+ let api = '${api}';
  let token = localStorage.getItem("token");
    $.ajax({
        url: api + "/board/admin/${idx}",
@@ -80,7 +82,7 @@ $(document).ready(function(){
 </script>
 <script>
 $(function() {
-    	let api = "http://localhost:8090";
+    	let api = '${api}';
 
       $("#sub").on("click", function (){
         // 기본 이벤트 제거

@@ -1,5 +1,7 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="fragments/header.jsp"%>
+<spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <section class="mb-lg-14 mb-8 mt-8">
     <div class="container">
 
@@ -57,7 +59,7 @@
 
 <script>
 $(document).ready(function(){
- let api = "http://localhost:8090";
+ let api = '${api}';
   let token = localStorage.getItem("token");
    $.ajax({
        url: api + "/cart/list",
@@ -146,7 +148,7 @@ $(document).ready(function(){
 
 
 $(document).on('click', '#rem', function(e){
-let api = "http://localhost:8090";
+let api = '${api}';
  let token = localStorage.getItem("token");
        var num = e.target.dataset.id;
    	  $.ajax({
@@ -172,7 +174,7 @@ let api = "http://localhost:8090";
 
 
 $(document).on('click', '#order', function(e){
-    	let api = "http://localhost:8090";
+    	let api = '${api}';
     	var num = e.target.dataset.id;
         event.preventDefault();
         var counts= $("#count"+num).val()

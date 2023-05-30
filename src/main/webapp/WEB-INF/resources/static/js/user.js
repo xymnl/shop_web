@@ -1,7 +1,7 @@
 /*
 //'use strict';
 
-let api = "http://localhost:8090"
+let api = '${api}'
 $("#btn-test").click(function() {
 			$.ajax({
 				url:api+"/user/new",

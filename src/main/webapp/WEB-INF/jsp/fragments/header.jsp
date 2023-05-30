@@ -30,6 +30,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/resources/js/freshshop/header.js"></script>
 	<script src="/resources/js/freshshop/inquiry.js"></script>
+    <script src="/resources/js/freshshop/home.js"></script>
 	<script src="/resources/js/slick.js"></script>
 	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
 	<!-- Google tag (gtag.js) -->
@@ -48,8 +49,8 @@
                  <!-- 제품 검색 영역 -->
                    <form method="get" name="search" id="search" onSubmit="return false;">
                        <div class="input-group">
-                           <input class="form-control rounded" type="search" id="rounded" name="rounded" placeholder="Search for products" onkeypress="show_name(event)">
-                                 <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button" form="search" onclick="location.href=getvalue()">
+                           <input class="form-control rounded" type="search" id="rounded" name="rounded" placeholder="Search for products">
+                                 <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button" form="search" id="getValue">
                                       <i class="bi bi-search"></i>
                                   </button>
                        </div>
@@ -84,9 +85,9 @@
                             </form>
                             <hr class="my-4">
                             <h2 class="fs-5 fw-bold mb-3">소셜 로그인</h2>
-                            <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" onclick="location.href='http://localhost:8090/oauth2/authorization/google'" type="submit"></i>Sign up with Google</button>
-                            <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" onclick="location.href='http://localhost:8090/oauth2/authorization/naver'" type="submit">Sign up with Naver</button>
-                            <button class="w-100 py-2 mb-2 btn btn-outline-warning rounded-3" onclick="location.href='http://localhost:8090/oauth2/authorization/kakao'" type="submit">Sign up with KaKao</button>
+                            <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" onclick="location.href='${api}/oauth2/authorization/google'" type="submit"></i>Sign up with Google</button>
+                            <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" onclick="location.href='${api}/oauth2/authorization/naver'" type="submit">Sign up with Naver</button>
+                            <button class="w-100 py-2 mb-2 btn btn-outline-warning rounded-3" onclick="location.href='${api}/oauth2/authorization/kakao'" type="submit">Sign up with KaKao</button>
                           </div>
                       </div>
                     </div>
@@ -146,7 +147,7 @@
          </nav>
        </div>
    </header>
-   <script>
+ <%--  <script>
       function getvalue(){
               var idx = document.getElementById('rounded').value;
               console.log("data"+idx);
@@ -162,4 +163,5 @@
                    return window.location.href=urll;
                  }
               }
-      </script>
+      </script>--%>
+

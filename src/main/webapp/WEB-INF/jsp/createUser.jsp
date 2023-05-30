@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-    let api = "http://localhost:8090"
+    let api = '${api}'
         $(function () {
     		$("#btn-save").on("click", function (){ //this를 바인딩하기 위해 화샬표 함수 사용
     		    let data = { //JavaScript Object

@@ -1,3 +1,5 @@
+
+
 /* ===== Google tag (gtag.js) ===== */
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -7,6 +9,7 @@ gtag('config', 'G-M8S4MT3EYG');
 $(document).ready(function(){
 	/* ===== Login JS ===== */ 
 	let api = "http://localhost:8090";
+	//let api = "http://3.34.134.70:8080/hong";
 	var token = sessionStorage.getItem("Authorization");
 	
 	document.getElementById("myInfo").style.display= "none";

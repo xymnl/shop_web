@@ -1,5 +1,7 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <%@ include file="fragments/header.jsp" %>
 
 <div class="h-container">
@@ -20,7 +22,7 @@
 </div>
 
 <script>
-let api = "http://localhost:8090";
+let api = '${api}';
 let token = localStorage.getItem("token");
 let nowUrl = window.location.href;
 if(nowUrl.indexOf("orderList")){

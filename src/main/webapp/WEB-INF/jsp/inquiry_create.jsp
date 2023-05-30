@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <%@ include file="fragments/header.jsp" %>
 
 	<h2 class="inquiry_title">문의 작성 페이지</h2>
@@ -22,7 +24,7 @@
 
 <script>
     $(function() {
-    	let api = "http://localhost:8090";
+    	let api = '${api}';
 let token = localStorage.getItem("token");
       $("#sub").on("click", function (){
         // 기본 이벤트 제거

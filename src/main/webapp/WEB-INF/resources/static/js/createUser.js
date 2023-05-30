@@ -1,4 +1,4 @@
-let api = "http://localhost:8090"
+let api = '${api}'
     $(function () {
 		$("#btn-save").on("click", function (){ //this를 바인딩하기 위해 화샬표 함수 사용
 		    let data = { //JavaScript Object
