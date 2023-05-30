@@ -17,10 +17,10 @@
 
 $(document).ready(function(){
 
-   let searchQuery = "";
+   
    //let searchQuery = "토끼";
-	 let api = '${api}';
-	 var token = localStorage.getItem("token");
+	 
+	 
 
 
    /*$('#getValue').on("click", function () {
@@ -35,27 +35,58 @@ $(document).ready(function(){
     searchQuery = rounded;
     }
     console.log(searchQuery)*/
-   $.ajax({
-       url: api + "/user/item?searchQuery="+searchQuery,
-       type: 'GET',
-       async: false,
-       cache: false,
-       contentType: 'application/json; chartset=utf-8',
-       success: function (data) {
-    	   for(let j in data){
-    	   const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-    		   $('.itme-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
-    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
-    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>');
-    	   }
-       },
-       beforeSend: function (xhr) {
-           xhr.setRequestHeader("Authorization", "Bearer " + token);
-       },
-       error: function (jqXHR, textStatus, errorThrown) {
-           console.log("이미지 불러오기 실패");
-       }
-   });
+    let api = '${api}';
+    var token = localStorage.getItem("token");
+    $.ajax({
+	       url: api + "/user/item",
+	       type: 'GET',
+	       async: false,
+	       cache: false,
+	       contentType: 'application/json; chartset=utf-8',
+	       success: function (data) {
+	    	   for(let j in data){
+	    	   const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	    		   $('.itme-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
+	    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
+	    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>');
+	    	   }
+	       },
+	       beforeSend: function (xhr) {
+	           xhr.setRequestHeader("Authorization", "Bearer " + token);
+	       },
+	       error: function (jqXHR, textStatus, errorThrown) {
+	           console.log("이미지 불러오기 실패");
+	       }
+	   });
+    $('#getValue').on("click",function(){
+    	let searchQuery = $('#rounded').val();
+    	console.log("searchQuery : "+searchQuery)
+    	let api = '${api}';
+        var token = localStorage.getItem("token");
+    	 $.ajax({
+   	       url: api + "/user/item?searchQuery="+searchQuery,
+   	       type: 'GET',
+   	       async: false,
+   	       cache: false,
+   	       contentType: 'application/json; chartset=utf-8',
+   	       success: function (data) {
+   	    	   for(let j in data){
+   	    	   const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+   	    		   $('.itme-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
+   	    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
+   	    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>');
+   	    	   }
+   	       },
+   	       beforeSend: function (xhr) {
+   	           xhr.setRequestHeader("Authorization", "Bearer " + token);
+   	       },
+   	       error: function (jqXHR, textStatus, errorThrown) {
+   	           console.log("이미지 불러오기 실패");
+   	       }
+   	   });
+    })
+  
+    
    	/* === home.jsp 상품 페이지네이션 === */
 	function homePagination() {
 		var req_num_row = 10 // 화면에 표시할 상품 개수
