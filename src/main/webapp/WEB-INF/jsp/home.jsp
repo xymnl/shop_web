@@ -17,25 +17,24 @@
 
 $(document).ready(function(){
 
-	//let searchQuery = null;
-	let searchQuery = "물통";
- let api = '${api}';
- var token = localStorage.getItem("token");
+   let searchQuery = "";
+   //let searchQuery = "토끼";
+	 let api = '${api}';
+	 var token = localStorage.getItem("token");
 
 
-	$('#getValue').on("click", function () {
+   /*$('#getValue').on("click", function () {
 
-		var rounded = document.getElementById('rounded').value;
-		alert(rounded);
-	});
+      var rounded = document.getElementById('rounded').value;
+      alert(rounded);
+   });*/
 
-	 //rounded 값을 searchQuery에 저장해야함
-	 //검색 결과 searchQuery에 저장 검색 안할시 전체 상품 리스트 검색
-	 if(rounded != null) {
-	 searchQuery = rounded;
-	 }
- 	console.log(searchQuery)
-
+    //rounded 값을 searchQuery에 저장해야함
+    //검색 결과 searchQuery에 저장 검색 안할시 전체 상품 리스트 검색
+   /* if(rounded != null) {
+    searchQuery = rounded;
+    }
+    console.log(searchQuery)*/
    $.ajax({
        url: api + "/user/item?searchQuery="+searchQuery,
        type: 'GET',

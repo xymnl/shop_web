@@ -30,7 +30,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/resources/js/freshshop/header.js"></script>
 	<script src="/resources/js/freshshop/inquiry.js"></script>
-    <script src="/resources/js/freshshop/home.js"></script>
+    <!-- <script src="/resources/js/freshshop/home.js"></script> -->
 	<script src="/resources/js/slick.js"></script>
 	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
 	<!-- Google tag (gtag.js) -->
@@ -108,15 +108,17 @@
          <nav class="navbar navbar-expand-lg navbar-light navbar-default py-0 py-lg-4">
            <div class="container px-0 px-md-3">
              <div class="dropdown me-3 d-none d-lg-block"> <!-- 모든 카테고리 버튼 -->
-               <button class="btn btn-primary px-6 " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+               <button class="btn btn-primary px-6" type="button" id="allCategories">
                  <span class="me-1"><i class="bi bi-grid"></i></span> 모든 카테고리
                </button>
+               <div id="categoryBox" class="acB">
+             	<ul id="categoryList">
+             		<li id="fashion">패션의류 / 잡화 </li>
+             		<li id="beauty">뷰티</li>
+             		<li id="food">식품</li>
+             	</ul>
+               </div> <!-- END : 카테고리 박스 -->
              </div> <!-- END : 모든 카테고리 버튼 -->
-             <div class="offcanvas offcanvas-start p-4 p-lg-0" id="navbar-default"> <!-- 오프캔버스??? 뭘 눌러야 나오는지 모르겠음... -->
-               <div class="d-none d-lg-block"> <!-- 간단한 네비게이션 영역 -->
-
-               </div> <!-- END : 간단한 네비게이션 영역 -->
-             </div> <!-- END : 오프캔버스 -->
            </div>
          </nav>
        </div>

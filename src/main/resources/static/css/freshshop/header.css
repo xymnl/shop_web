@@ -16,6 +16,7 @@ body {
 ul li {list-style:none;}
 a {text-decoration:none; color:#000000;}
 
+header {padding-top:25px;}
 .headerBottom {width:80%; margin:0 auto; border-bottom:1px solid #333;}
 
 .logo > img {width:50px; height:50px; background-size:cover;}
@@ -33,8 +34,31 @@ img {-webkit-user-drag:none;}
 
 /* === 헤더 영역 === */
 .myinfoBtn, .logout, .inquryBtn, .bi-cart3 {color:#333;}
+
 .loginTxt {color:#333;}
 .createBtn {color:#0aad0a;}
+
+.acB {
+	display:none; position:absolute; left:0; top:43px; 
+	width:100%; height:120px;
+	background:#FFF;
+	border-radius:10px;
+	box-shadow:1px 1px 2px 2px grey; 
+	transition:all 0.7s ease; z-index:99;
+}
+.acB.show {display:block; transition:all 0.7s ease;}
+#categoryList > li {
+	height:40px; margin-left:-32px;
+	text-align:center; line-height:40px;  
+	border-radius:10px;
+	font-size:16px; font-weight:bold; color:#595959;
+}
+#categoryList > li:hover {
+	cursor:pointer;
+	color:#0aad0a;
+	background:#CFCFCF;
+	transition:all 0.4s ease;
+}
 
 /* === myPage.jsp === */
 .h-container {

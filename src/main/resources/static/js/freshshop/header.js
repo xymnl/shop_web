@@ -94,4 +94,22 @@ $(document).ready(function(){
    	 window.localStorage.clear();
    	 console.log(token);
     });
+    
+    /* ===== 모든 카테고리 버튼 ===== */
+    let categoryBtn = document.getElementById('allCategories');
+    let categorybox = document.getElementById('categoryBox');
+    $(categoryBtn).on("click",function(){
+		$(categorybox).toggleClass("show");
+    });
+    
+    /* ===== 카테고리 별 버튼  ===== */
+    $('#fashion').on("click",function(){
+   	 	location.href="http://localhost:8091/shop_dairy?"+this.id;
+     });
+    $('#beauty').on("click",function(){
+   	 	location.href="http://localhost:8091/shop_dairy?"+this.id;
+     });
+    $('#food').on("click",function(){
+   	 	location.href="http://localhost:8091/shop_dairy?"+this.id;
+     });
 });
