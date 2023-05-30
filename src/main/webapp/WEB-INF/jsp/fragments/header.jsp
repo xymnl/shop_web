@@ -111,36 +111,10 @@
                <button class="btn btn-primary px-6 " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                  <span class="me-1"><i class="bi bi-grid"></i></span> 모든 카테고리
                </button>
-               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                 <li><a class="dropdown-item" href="shop_dairy">Dairy, Bread & Eggs</a></li>
-                 <li><a class="dropdown-item" href="#">Snacks & Munchies</a></li>
-                 <li><a class="dropdown-item" href="#">Fruits & Vegetables</a></li>
-               </ul>
              </div> <!-- END : 모든 카테고리 버튼 -->
              <div class="offcanvas offcanvas-start p-4 p-lg-0" id="navbar-default"> <!-- 오프캔버스??? 뭘 눌러야 나오는지 모르겠음... -->
                <div class="d-none d-lg-block"> <!-- 간단한 네비게이션 영역 -->
-                 <ul class="navbar-nav align-items-center ">
-                   <li class="nav-item dropdown">
-                     <a class="nav-link" href="#" role="button">Shop <i class="bi bi-chevron-down"></i></a>
-                     <ul class="dropdown-menu">
-                       <li><a class="dropdown-item" href="#">Shop Grid - Filter</a></li>
-                       <li><a class="dropdown-item" href="#">Shop Grid - 3 column</a></li>
-                       <li><a class="dropdown-item" href="#">Shop List - Filter</a></li>
-                       <li><a class="dropdown-item" href="#">Shop - Filter</a></li>
-                     </ul>
-                   </li>
-                   <li class="nav-item dropdown">
-                     <a class="nav-link" href="#" role="button">Stores <i class="bi bi-chevron-down"></i></a>
-                     <ul class="dropdown-menu">
-                       <li><a class="dropdown-item" href="#">Store List</a></li>
-                       <li><a class="dropdown-item" href="#">Store Grid</a></li>
-                       <li><a class="dropdown-item" href="#">Store Single</a></li>
-                     </ul>
-                   </li>
-                   <li class="nav-item"> <!-- 관리자 로그인 시 노출 -->
-                     <a class="nav-link" href="#">Dashboard</a>
-                   </li>
-                 </ul>
+
                </div> <!-- END : 간단한 네비게이션 영역 -->
              </div> <!-- END : 오프캔버스 -->
            </div>

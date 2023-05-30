@@ -24,9 +24,7 @@
 			<div class="ps-lg-10 mt-6 mt-md-0">
 				<h1 class="mb-1 itemName pdTitle"><!-- 상품 이름 --></h1>
 				<div class="fs-4">
-					<span class="fw-bold text-dark itemPrice"><!-- 상품 가격 --></span>원 
-					<span class="text-decoration-line-through text-muted">30000</span>원
-					<span><small class="fs-6 ms-2 text-danger">26% Off</small></span>
+					<span class="fw-bold text-dark itemPrice"></span>
 				</div>
 				<hr class="my-6">
 				<div>
@@ -120,7 +118,7 @@ $(document).ready(function(){
   	   		
   	   		$('.itemName').append(data.itemName);
   	   		const itemPrice = data.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  	   		$('.itemPrice').append(itemPrice);
+  	   		$('.itemPrice').append(itemPrice+" 원");
   	   		$('.productDetail').append(data.itemDetail);
       },
       beforeSend: function (xhr) {
