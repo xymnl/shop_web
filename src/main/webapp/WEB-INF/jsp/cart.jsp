@@ -3,7 +3,7 @@
 <%@ include file="fragments/header.jsp"%>
 <spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <section class="mb-lg-14 mb-8 mt-8">
-    <div class="container">
+    <div class="m-container">
 
       <!-- row -->
       <div class="row">
@@ -78,8 +78,8 @@ $(document).ready(function(){
        $('.cartlist').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
                              +'<img src="/resources/images/item/'+data[j].imgName+'" alt="" class="shop-img"/>'
                              +'</div>'
-                             +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><span>'+data[j].itemNm+'  </span></a>'
-                             +'<button id="order" data-id="'+data[j].cartItemId+'">주문하기</button><span>  </span><button id="rem" data-id="'+data[j].cartItemId+'">Remove</button>'
+                             +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><h3>'+data[j].itemNm+'  </h3></a>'
+                             +'<button id="order" class="btn btn-primary px-3" data-id="'+data[j].cartItemId+'">주문하기</button><span>  </span><button id="rem" class="btn btn-primary px-3" data-id="'+data[j].cartItemId+'">Remove</button>'
                              +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
                              +'</div>'
                              +'<div class="input-group input-spinner  ">'
