@@ -16,25 +16,6 @@
 <script>
 
 $(document).ready(function(){
-
-   
-   //let searchQuery = "토끼";
-	 
-	 
-
-
-   /*$('#getValue').on("click", function () {
-
-      var rounded = document.getElementById('rounded').value;
-      alert(rounded);
-   });*/
-
-    //rounded 값을 searchQuery에 저장해야함
-    //검색 결과 searchQuery에 저장 검색 안할시 전체 상품 리스트 검색
-   /* if(rounded != null) {
-    searchQuery = rounded;
-    }
-    console.log(searchQuery)*/
     let api = '${api}';
     var token = localStorage.getItem("token");
     $.ajax({
@@ -55,10 +36,11 @@ $(document).ready(function(){
 	           xhr.setRequestHeader("Authorization", "Bearer " + token);
 	       },
 	       error: function (jqXHR, textStatus, errorThrown) {
-	          alert("아이템 불러오기 실패");
+	           alert("이미지 불러오기 실패");
 	       }
 	   });
     $('#getValue').on("click",function(){
+        $('.item-box').remove();
     	let searchQuery = $('#rounded').val();
     	console.log("searchQuery : "+searchQuery)
     	let api = '${api}';
@@ -70,6 +52,7 @@ $(document).ready(function(){
    	       cache: false,
    	       contentType: 'application/json; chartset=utf-8',
    	       success: function (data) {
+   	    	   console.log("검색 데이터 불러오기 : "+JSON.stringify(data));
    	    	   for(let j in data){
    	    	   const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
    	    		   $('.itme-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
@@ -81,11 +64,12 @@ $(document).ready(function(){
    	           xhr.setRequestHeader("Authorization", "Bearer " + token);
    	       },
    	       error: function (jqXHR, textStatus, errorThrown) {
-   	           alert("아이템 불러오기 실패");
+   	           alert("이미지 불러오기 실패");
    	       }
    	   });
     })
-  
+    
+    
     
    	/* === home.jsp 상품 페이지네이션 === */
 	function homePagination() {
@@ -171,6 +155,9 @@ $(document).ready(function(){
 	jQuery('document').ready(function() {
 		homePagination();
 		jQuery('.pagination li:first-child').addClass("disabled");
+		$('#getValue').on("click",function(){
+			$(document).off(); // 검색 버튼 눌렀을때 모든 이벤트 종료
+		})
 	});
 });
 
