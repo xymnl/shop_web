@@ -93,6 +93,7 @@
                   </div> <!-- END : 로그인 모달 -->
                      </div>
                      <div class="list-inline-item" id="myInfo"></div> <!-- 내정보 버튼 -->
+                     <div class="list-inline-item" id="admin_addItem"></div> <!-- 상품관리 버튼 -->
                      <div class="list-inline-item" id="inquiry"></div> <!-- 문의 버튼 -->
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative" href="/cart" role="button">

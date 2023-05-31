@@ -14,7 +14,8 @@ $(document).ready(function(){
 	
 	document.getElementById("myInfo").style.display= "none";
 	document.getElementById("inquiry").style.display= "none";
-	
+	document.getElementById("admin_addItem").style.display= "none";
+
 	// 로그인 폼 submit 이벤트 처리
 	$("#login-btn").on("click", function (){
 		event.preventDefault();
@@ -68,6 +69,7 @@ $(document).ready(function(){
             
     		document.getElementById("myInfo").style.display= "";
     		document.getElementById("inquiry").style.display= "";
+			document.getElementById("admin_addItem").style.display= "";
 
             if(res != null){
            	 $('.mypageLink').remove();
@@ -77,6 +79,7 @@ $(document).ready(function(){
             }
             
             if(email.includes('admin')){
+				$('#admin_addItem').append('<a href="/admin_addItem" class="admin_Item">상품 관리</a>');
             	$('#inquiry').append('<a href="/admin_inquiry" class="inquryBtn">문의 관리</a>');
             	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
             }else {

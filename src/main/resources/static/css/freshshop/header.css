@@ -33,7 +33,7 @@ header {padding-top:25px;}
 img {-webkit-user-drag:none;}
 
 /* === 헤더 영역 === */
-.myinfoBtn, .logout, .inquryBtn, .bi-cart3 {color:#333;}
+.myinfoBtn, .logout, .inquryBtn, .admin_Item, .bi-cart3 {color:#333;}
 
 .loginTxt {color:#333;}
 .createBtn {color:#0aad0a;}
