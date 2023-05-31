@@ -198,7 +198,7 @@ $(document).ready(function(){
              alert("카트로");
               location.href = "/";
           }).fail(function (err) {
-             alert(JSON.stringify(err));
+             alert("로그인이 필요합니다.");
           })
       })
     });
@@ -236,7 +236,7 @@ $(document).ready(function(){
                  alert("주문완료");
                   location.href = "/";
               }).fail(function (err) {
-                 alert(JSON.stringify(err));
+                 alert("로그인이 필요합니다.");
               })
           })
         });
