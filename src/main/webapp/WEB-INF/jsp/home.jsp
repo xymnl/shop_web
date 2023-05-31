@@ -41,8 +41,8 @@ $(document).ready(function(){
 	   });
     $('#getValue').on("click",function(){
         $('.item-box').remove();
+        $('.pagination').remove();
     	let searchQuery = $('#rounded').val();
-    	console.log("searchQuery : "+searchQuery)
     	let api = '${api}';
         var token = localStorage.getItem("token");
     	 $.ajax({
@@ -52,12 +52,13 @@ $(document).ready(function(){
    	       cache: false,
    	       contentType: 'application/json; chartset=utf-8',
    	       success: function (data) {
-   	    	   console.log("검색 데이터 불러오기 : "+JSON.stringify(data));
    	    	   for(let j in data){
    	    	   const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
    	    		   $('.itme-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
    	    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
-   	    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>');
+   	    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>'
+  	    		   						);
+   	    		
    	    	   }
    	       },
    	       beforeSend: function (xhr) {
@@ -67,6 +68,8 @@ $(document).ready(function(){
    	           alert("이미지 불러오기 실패");
    	       }
    	   });
+    	 $('.pagenation_box').append('<ul class="pagination pagination-seperated "></ul>');
+    	 homePagination();
     })
     
     
