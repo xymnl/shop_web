@@ -42,7 +42,7 @@ $(document).ready(function(){
 			   alert("로그인이 완료되었습니다.");
 			   location.href = "/";
 	   		}).fail(function (err) {
-	   			alert(JSON.stringify(err));
+	   			alert("아이디 또는 비밀번호가 틀립니다.");
 	   		})
 	 });
 	var token = localStorage.getItem("token");
