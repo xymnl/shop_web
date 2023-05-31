@@ -104,7 +104,8 @@ $(document).ready(function(){
            xhr.setRequestHeader("Authorization", "Bearer " + token);
        },
        error: function (jqXHR, textStatus, errorThrown) {
-           alert("장바구니 리스트를 받아오지 못했습니다.");
+           alert("로그인이 필요합니다.");
+           location.href = "/";
        }
    })
    let fir = document.getElementById('small');
