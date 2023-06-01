@@ -121,7 +121,6 @@ $(document).ready(function(){
           	    var prices = $("#count"+num2).val() * price1;
 
                 if(($("#count"+num2).val()) > 1){
-                   	    console.log("1이상으로 옴")
                    	    	$("#minus"+num2).attr("disabled", false);
                    	    }
           	    $('#pricenum'+num2).text(prices+"원");
@@ -133,7 +132,6 @@ $(document).ready(function(){
    	$('.button-minus').click(function(e){
    	var num = e.target.dataset.id;
    	    if(($("#count"+num).val()) < 3){
-   	    console.log("1이하로 옴")
    	    	$("#minus"+num).attr("disabled", true);
    	    }
    	    let n2 = $('.button-minus').index(this);
