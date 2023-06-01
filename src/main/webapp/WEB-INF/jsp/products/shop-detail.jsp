@@ -30,7 +30,7 @@
 				<div>
 					<div class="input-group input-spinner">
 						<input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity"> 
-						<input type="number" step="1" max="10" value="1" name="quantity" id="count" class="quantity-field form-control-sm form-input">
+						<input type="number" step="1" max="10" value="1" name="quantity" id="count" class="quantity-field form-control-sm form-input" readonly>
 						<input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity">
 						
 						<button type="button" class="btn btn-primary" id="addToCart">
@@ -139,17 +139,20 @@ $(document).ready(function(){
 		$('.product-detail').removeClass('active');
 	});
 	
+	// 마이너스 버튼 디폴트 disabled
+	document.querySelector('.button-minus').setAttribute("disabled", "");
+	
 	$('.button-plus').click(function(){
 	    var n = $('.button-plus').index(this);
 	    var num = $(".form-input:eq("+n+")").val();
 	    num = $(".form-input:eq("+n+")").val(num*1+1); 
 	    if($(".form-input").val() > 0){
-	    	document.querySelector(".button-minus").removeAttribute("disabled");
+	    	document.querySelector('.button-minus').removeAttribute("disabled");
 	    }
 	 });
 	$('.button-minus').click(function(){
 	    if(($('.form-input').val()-1) < 2){
-	    	document.querySelector(".button-minus").setAttribute("disabled", "");
+	    	document.querySelector('.button-minus').setAttribute("disabled", "");
 	    }
 	    let n2 = $('.button-minus').index(this);
 	  	let num2 = $(".form-input:eq("+n2+")").val();

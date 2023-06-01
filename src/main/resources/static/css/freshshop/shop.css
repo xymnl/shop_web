@@ -35,6 +35,8 @@
 .wrap {display:flex; justify-content:center; align-items:center;}
 
 /*=== shop-deatil.jsp ===*/
+#addToCart {margin-left:20px; border-radius:10px 0 0 10px;}
+
 .pgName {width:400px; text-align:left;}
 .title-img {width:450px; height:450px; margin:10px auto;}
 .sub-img {width:450px; height:450px; margin:10px auto;}
@@ -62,5 +64,11 @@
 .sub-img {height:auto; padding:10px;}
 .sub-img > img {height:300px;}
 
-
+/* ===== cart.jsp ===== */
+.listBox {
+	width:800px; height:600px;
+	margin:0 auto; 
+	overflow-x:hidden; overflow-y:scroll;
+}
+.listBoxItem {width:500px; margin:0 auto; text-align:center;}
 
