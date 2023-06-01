@@ -2,17 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <%@include file="fragments/header.jsp"%>
-	<div class="m-container">	
+	<div class="m-container">
 		<section class="categories">
 			<div class="title"><h2>Fresh Shop's Items</h2></div>
 			<div class="itme-list" id="item">
 			</div>
 		</section>
-		<div class="pagenation_box">
-           	<ul class="pagination pagination-seperated "></ul>
-       	</div>
-	</div>
-	
+				<div class="pagenation_box">
+                   	<ul class="pagination pagination-seperated "></ul>
+               	</div>
+    </div>
 <script>
 
 $(document).ready(function(){
@@ -54,7 +53,7 @@ $(document).ready(function(){
    	       success: function (data) {
    	    	   for(let j in data){
    	    	   const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-   	    		   $('.itme-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
+   	    		   $('.item-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
    	    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
    	    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>'
   	    		   						);

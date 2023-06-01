@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -30,6 +29,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/resources/js/freshshop/header.js"></script>
 	<script src="/resources/js/freshshop/inquiry.js"></script>
+	<script src="/resources/js/freshshop/head.js"></script>
     <!-- <script src="/resources/js/freshshop/home.js"></script> -->
 	<script src="/resources/js/slick.js"></script>
 	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
@@ -94,6 +94,7 @@
                   </div> <!-- END : 로그인 모달 -->
                      </div>
                      <div class="list-inline-item" id="myInfo"></div> <!-- 내정보 버튼 -->
+                     <div class="list-inline-item" id="admin_addItem"></div> <!-- 상품관리 버튼 -->
                      <div class="list-inline-item" id="inquiry"></div> <!-- 문의 버튼 -->
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative" href="/cart" role="button">
