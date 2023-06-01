@@ -9,7 +9,7 @@
 	<nav class="navigation2" aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="test">Home</a></li>
-			<li class="breadcrumb-item active"><a href="shop">shop</a></li>
+			<li class="breadcrumb-item active"><a href="/shop_dairy?fashon">shop</a></li>
 			<li aria-current="page" class="breadcrumb-item active itemName pgName"></li>
 		</ol>
 	</nav>
@@ -74,7 +74,9 @@
 		    <li class="product-information">information</li>
 		  </ul>
 		  <div class="product-detail-txt">
-	  		<div class="sub-img"></div>	
+	  		<div class="sub-img">
+	  			<p class="noimgTxt">상세 이미지가 등록되어있지 않습니다.</p>
+	  		</div>	
 		  </div>
 		  <div class="information" style="display:none">
 		  	 	<p class="productDetail"></p>
@@ -95,26 +97,19 @@ $(document).ready(function(){
        cache: false,
        contentType: 'application/json; chartset=utf-8',
        success: function (data) {
-    	    console.log(data.itemImgDtoList);
-    	    
-    	    
     	    for(let i in data.itemImgDtoList){
     	    	let imtitle = data.itemImgDtoList[i].repImgYn;
-    	    	console.log("imgtitle : "+imtitle);
-    	    	console.log("data.itemImgDtoList[i] : "+JSON.stringify(data.itemImgDtoList[i]));
     	    	if(imtitle == 'Y'){
         	    	let titleImg = data.itemImgDtoList[i].imgName;
           	   		let rtitleImg = titleImg.replace('"', '');
-          	   		console.log("rtitleImg ::: " + rtitleImg);
-          	   		$('.title-img').append('<img src="/resources/images/item/'+rtitleImg+'" alt="" class="shop-img">')
+          	   		$('.title-img').append('<img src="/resources/images/item/'+rtitleImg+'" alt="" class="shop-img">');
         	    }else {
         	    	let detailImg = data.itemImgDtoList[i].imgName;
         	    	let rtitleImg = detailImg.replace('"', '');
+        	    	$('.noimgTxt').remove(); // 상세 이미지 있는 경우 안내 문구 삭제
         	    	$('.sub-img').append('<img src="/resources/images/item/'+detailImg+'" alt="" class="shop-img">')
         	    }
     	    }
-    	    
-    	    
   	   		
   	   		$('.itemName').append(data.itemName);
   	   		const itemPrice = data.price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
@@ -160,9 +155,6 @@ $(document).ready(function(){
 	  	let num2 = $(".form-input:eq("+n2+")").val();
 	    num2 = $(".form-input:eq("+n2+")").val(num2*1-1);
 	});
-	
-	
-	
 });
 </script>
 <!--addtocart -->
