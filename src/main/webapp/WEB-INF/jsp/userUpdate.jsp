@@ -14,24 +14,19 @@
 	</aside>
 	<h3 class="inquiryTitle">개인정보 수정</h3>
 	<div class="userBody">
-       <div class="col-md-12 mb-3">
+       <div class="col-md-8 mb-3">
          <label class="form-label" for="name">이름<span class="text-danger">*</span></label>
-         <input type="text" id="name" class="name" placeholder="Enter Your Name" required>
+         <input type="text" id="name" class="form-control" placeholder="Enter Your Name" required>
        </div>
 
-       <div class="col-md-12 mb-3">
-          <label class="form-label" for="email">이메일<span class="text-danger">*</span></label>
-          <input type="text" class="email" id="email" value="" class="form-control" readonly>
-       </div>
-
-       <div class="col-md-12 mb-3">
+       <div class="col-md-8 mb-3">
           <label class="form-label" for="address">주소<span class="text-danger">*</span></label>
-          <input type="text" class="address" id="address" value="" class="form-control"></input>
+          <input type="text" class="form-control" id="address" placeholder="Enter Your Address" required>
        </div>
 
-       <div class="col-md-12 mb-3">
+       <div class="col-md-8 mb-3">
 	   		<label class="form-label" for="address">비밀번호<span class="text-danger">*</span></label>
-	   		<input type="password" class="password" id="passwords" value="" class="form-control"></input>
+	   		<input type="password" class="form-control" id="passwords" placeholder="Enter Your Address" required>
 	   </div>
 
        <div class="col-md-12">
