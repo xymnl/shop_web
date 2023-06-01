@@ -4,32 +4,19 @@
 <spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <section class="mb-lg-14 mb-8 mt-8">
     <div class="m-container">
-
-      <!-- row -->
       <div class="row">
-        <div class="col-12">
-          <!-- card -->
-          <div class="card py-1 border-0 mb-8">
-            <div>
-              <h1 class="fw-bold">Shop Cart</h1>
-            </div>
-          </div>
-        </div>
+            <div><h1 class="fw-bold">Shop Cart</h1></div>
       </div>
-
-      <!-- row -->
       <div class="row">
         <div class="col-lg-8 col-md-7">
-          <div class="py-3">
-
+          <div class="py-3 listBox">
             <ul class="list-group list-group-flush">
               <li class="cartlist">
-
               </li>
             </ul>
           </div>
         </div>
-
+        
         <!-- sidebar -->
         <div class="col-12 col-lg-4 col-md-5">
           <!-- card -->
@@ -41,21 +28,14 @@
                 <br>
                 <!-- list group -->
                 <ul class="list-groups list-group-flush">
-
-
                 </ul>
-
               </div>
-
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
   </section>
-
 
 <script>
 $(document).ready(function(){
@@ -75,7 +55,7 @@ $(document).ready(function(){
 
        totalprice += allprice;
 
-       $('.cartlist').append('<div class="row align-items-center"><div class="col-3 col-md-2">'
+       $('.cartlist').append('<div class="row align-items-center listBoxItem"><div class="col-3 col-md-2">'
                              +'<img src="/resources/images/item/'+data[j].imgName+'" alt="" class="shop-img"/>'
                              +'</div>'
                              +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><h3>'+data[j].itemNm+'  </h3></a>'
