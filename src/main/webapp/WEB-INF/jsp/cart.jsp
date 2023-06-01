@@ -83,9 +83,9 @@ $(document).ready(function(){
                              +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
                              +'</div>'
                              +'<div class="input-group input-spinner  ">'
-                             +'<input type="button" value="-" data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-minus  btn  btn-sm " data-field="quantity"/>'
+                             +'<input type="button" value="-" id="minus'+data[j].cartItemId+'" data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-minus  btn  btn-sm " data-field="quantity"/>'
                              +'<input type="number" min="1" id="count'+data[j].cartItemId+'" data-id="count'+data[j].cartItemId+'" value="'+data[j].count+'"class="quantity-field form-control-sm form-input" readonly/>'
-                             +'<input type="button" value="+"  data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-plus btn btn-sm " data-field="quantity"/>'
+                             +'<input type="button" value="+" id="plus'+data[j].cartItemId+'" data-price="'+data[j].price+'" data-count="'+data[j].count+'" data-id="'+data[j].cartItemId+'" class="button-plus btn btn-sm " data-field="quantity"/>'
                              +'&nbsp&nbsp&nbsp<span id="pricenum'+data[j].cartItemId+'" class="fw-bold">'+allprice+'원</span></div></div></div><hr>'
        );
 
@@ -115,13 +115,15 @@ $(document).ready(function(){
    	    var n = $('.button-plus').index(this);
    	    var num = $(".form-input:eq("+n+")").val();
    	    num = $(".form-input:eq("+n+")").val(num*1+1);
-   	    if($(".form-input").val() > 0){
-   	    	document.querySelector(".button-minus").removeAttribute("disabled");
-   	    }
+
    	            var num2 = e.target.dataset.id;
           	    var price1 = e.target.dataset.price;
           	    var prices = $("#count"+num2).val() * price1;
 
+                if(($("#count"+num2).val()) > 1){
+                   	    console.log("1이상으로 옴")
+                   	    	$("#minus"+num2).attr("disabled", false);
+                   	    }
           	    $('#pricenum'+num2).text(prices+"원");
           	    $('#small'+num2).text(prices);
           	    tt+=Number(price1);
@@ -129,14 +131,16 @@ $(document).ready(function(){
    	 });
 
    	$('.button-minus').click(function(e){
-   	    if(($('.form-input').val()-1) < 2){
-   	    	document.querySelector(".button-minus").setAttribute("disabled", "");
+   	var num = e.target.dataset.id;
+   	    if(($("#count"+num).val()) < 3){
+   	    console.log("1이하로 옴")
+   	    	$("#minus"+num).attr("disabled", true);
    	    }
    	    let n2 = $('.button-minus').index(this);
    	  	let num2 = $(".form-input:eq("+n2+")").val();
    	    num2 = $(".form-input:eq("+n2+")").val(num2*1-1);
 
-        var num = e.target.dataset.id;
+
    	    var price1 = e.target.dataset.price;
    	    var prices = $("#count"+num).val() * price1;
    	      $('#pricenum'+num).text(prices+"원");
