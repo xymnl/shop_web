@@ -23,5 +23,5 @@ public class ItemController {
 
     @Value("${api.server.url}")
     private String apiServer;
-    
+
 }
