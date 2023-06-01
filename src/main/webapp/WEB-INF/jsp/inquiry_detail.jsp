@@ -13,10 +13,10 @@
       <table class="table table-bordered table-hover dt-responsive">
         <thead>
           <tr>
-            <th>title</th>
-            <th>content</th>
-            <th>questionStatus</th>
-            <th>name</th>
+            <th>문의제목</th>
+            <th>문의내용</th>
+            <th>문의상태</th>
+            <th>고객</th>
           </tr>
         </thead>
         <tbody>

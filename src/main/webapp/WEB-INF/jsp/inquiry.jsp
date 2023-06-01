@@ -3,7 +3,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="fragments/header.jsp" %>
 <spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
-
+<style>
+    .jb-bold {
+        font-weight: bold;
+        color: #000000;
+        font-size: 16px;
+    }
+    .jb-border {
+        border-bottom: 1px solid #000000;
+    }
+</style>
 <div class="m-container">
 	<div class="inquiry_box"></div>
 
@@ -11,24 +20,24 @@
 	    <div class="col-lg-12 col-md-12">
 	        <div class="box box-success">
 	            <div class="box-body">
-	                <table id="example2" class="table table-bordered table-hover">
+	                <table id="example2" class="table table-sm table-striped table-hover">
 	                    <colgroup>
 	                        <col width="30%">
 	                        <col width="60%">
 	                        <col width="10%">
 	                    </colgroup>
 	                    <thead>
-	                    <tr>
-	                        <th>title</th>
-	                        <th>content</th>
-	                        <th>questionStatus</th>
-	                        <th>name</th>
+	                    <tr class="jb-border">
+	                        <th class="jb-bold">※문의제목</th>
+	                        <th class="jb-bold">※문의내용</th>
+	                        <th class="jb-bold">※문의상태</th>
+	                        <th class="jb-bold">※고객</th>
 	                    </tr>
 	                    </thead>
 	                    <tbody>
 	                    </tbody>
 	                </table>
-	                <a href="/inquiry/create">문의작성</a>
+	                <a href="/inquiry/create"><button class="btn btn-primary px-1" type="button">문의하기</button></a>
 	
 	                <div class="pagination_box">
 		            	<ul class="paginationI pagination-seperated"></ul>
