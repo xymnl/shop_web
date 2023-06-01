@@ -15,17 +15,11 @@
 </style>
 <div class="m-container">
 	<div class="inquiry_box"></div>
-
 	<div class="row">
 	    <div class="col-lg-12 col-md-12">
 	        <div class="box box-success">
 	            <div class="box-body">
 	                <table id="example2" class="table table-sm table-striped table-hover">
-	                    <colgroup>
-	                        <col width="30%">
-	                        <col width="60%">
-	                        <col width="10%">
-	                    </colgroup>
 	                    <thead>
 	                    <tr class="jb-border">
 	                        <th class="jb-bold">※문의제목</th>
@@ -38,11 +32,9 @@
 	                    </tbody>
 	                </table>
 	                <a href="/inquiry/create"><button class="btn btn-primary px-1" type="button">문의하기</button></a>
-	
 	                <div class="pagination_box">
 		            	<ul class="paginationI pagination-seperated"></ul>
 		        	</div>
-	                
 	            </div>
 	        </div>
 	    </div> <!-- end : row -->

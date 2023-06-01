@@ -3,38 +3,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <%@ include file="fragments/header.jsp" %>
-
-
-<h2 class="inquiry_title">상세문의</h2>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <table class="table table-bordered table-hover dt-responsive">
-        <thead>
-          <tr>
-            <th>문의제목</th>
-            <th>문의내용</th>
-            <th>문의상태</th>
-            <th>고객</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class='span_dataset1'></span></td>
-            <td><span class='span_dataset2'></span></td>
-            <td><span class='span_dataset3'></span></td>
-            <td><span class='span_dataset4'></span></td>
-          </tr>
-        </tbody>
-      </table>
-      <table border="1">
-          <th>답변내용</th>
-          <tr><td><span class='span_dataset5'></span></td></tr>
-        </table>
-      <div class="delete_btn">등록한 문의 삭제</div>
+<style>
+    .jb-bold {
+        font-weight: bold;
+        color: #000000;
+        font-size: 16px;
+        vertical-align: middle;
+    }
+    .jb-border {
+        border: 1px solid #000000;
+    }
+</style>
+<div class="m-container">
+    <div class="row">
+        <div><h1 class="fw-bold">※나의문의</h1></div>
+        <div class="col-lg-12 col-md-12">
+            <div class="box box-success">
+                <div class="box-body">
+                    <table class="table table-sm table-bordered">
+                            <tr class="jb-border">
+                                <td class="jb-bold" align="center">문의제목</td>
+                                <td><span class="span_dataset1"></span></td>
+                                <td class="jb-bold" align="center">문의상태</td>
+                                <td><span class="span_dataset3"></span></td>
+                                <td class="jb-bold" align="center">고객</td>
+                                <td><span class="span_dataset4"></span></td>
+                            </tr>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tr class="jb-border">
+                            <td class="jb-bold" style="width:13.2%" align="center">문의내용</td>
+                            <td style="height: 130px"><span class="span_dataset2"></span></td>
+                        </tr>
+                        <tr class="jb-border">
+                            <td class="jb-bold" style="width:13.2%" align="center">답변내용</td>
+                            <td style="height: 300px"><span class="span_dataset5"></span></td>
+                    </table>
+                    <a href="/inquiry"><button class="btn btn-primary px-1" type="button">돌아가기</button></a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <script>
