@@ -51,12 +51,13 @@ $(document).ready(function(){
    	       cache: false,
    	       contentType: 'application/json; chartset=utf-8',
    	       success: function (data) {
+   	    	console.log("searchQuery : "+searchQuery)
    	    	   for(let j in data){
    	    	   const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-   	    		   $('.item-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
-   	    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
-   	    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>'
-  	    		   						);
+    		   $('.itme-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
+    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
+    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>'
+   		   						);
    	    		
    	    	   }
    	       },
@@ -78,7 +79,6 @@ $(document).ready(function(){
 		var req_num_row = 10 // 화면에 표시할 상품 개수
 		var $tr = jQuery('.item-box');	// paging 대상 class명
 		var total_num_row = $tr.length;
-		console.log("total_num_row 개수 : "+total_num_row);
 		var num_pages = 0;
 		if(total_num_row % req_num_row == 0){
 			num_pages = total_num_row / req_num_row;
@@ -88,7 +88,6 @@ $(document).ready(function(){
 			num_pages++;
 			num_pages = Math.floor(num_pages++);
 		}
-		console.log("num_pages 개수 : "+num_pages);
 		jQuery('.pagination').append('<li class="page-item">'
 				+ '<a class="page-link" href=# aria-label="Previous"'
 				+ '<span aria-hidden="true" class="mdi mdi-chevron-left"></span>'
