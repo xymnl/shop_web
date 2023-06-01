@@ -4,24 +4,30 @@
 <spring:eval expression="@environment.getProperty('api.server.url')" var="api" />
 <%@ include file="fragments/header.jsp" %>
 
-	<h2 class="inquiry_title">문의 작성 페이지</h2>
-
-<form method="post">
-    <table style="width:600px; margin:auto">
-        <tr>
-            <td width="70">제목</td>
-            <td><input type="text" id="title" placeholder="제목을 입력하세요. (20자 이하)"/></td>
-        </tr>
-        <tr>
-            <td>내용</td>
-            <td><textarea id="content" cols="70" rows="10"></textarea></td>
-        </tr>
-    </table>
-     <div style="width:835px; text-align:right; margin-top:10px">
-         <button type="submit" id="sub">등록</button>
-     </div>
-</form>
-
+<div class="m-container">
+	<div class="row">
+	    <div><h1 class="fw-bold">※문의하기</h1></div>
+	    <div class="col-lg-12 col-md-12">
+	        <div class="box box-success">
+	            <div class="box-body">
+                    <form method="post">
+                        <div class="col-md-5 mb-3">
+                            <label class="form-label">제목<span class="text-danger">*</span></label>
+                            <input type="text" id="title"class="form-control" placeholder="제목을 입력하세요. (20자 이하)" required>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                             <label class="form-label">내용<span class="text-danger">*</span></label>
+                             <textarea id="content" class="form-control"cols="70" rows="10" placeholder="내용을 입력하세요.. (500자 이하)"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary" id="sub">등록하기</button>
+                        </div>
+                    </form>
+                </div>
+             </div>
+         </div>
+    </div>
+</div>
 <script>
     $(function() {
     	let api = '${api}';
