@@ -23,7 +23,7 @@
 .shop-filter {margin:20px;}
 .shop-itmes {
 	display:flex; flex-flow:row wrap;
-	width:1300px; height:550px;
+	width:1300px; height:850px;
 	margin:10px; overflow:hidden;
 }
 

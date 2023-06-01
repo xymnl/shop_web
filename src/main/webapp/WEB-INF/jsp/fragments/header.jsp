@@ -99,7 +99,7 @@
                      <div class="list-inline-item"> <!-- 장바구니 버튼 -->
                        <a class="text-muted position-relative" href="/cart" role="button">
                          <i class="bi bi-cart3"></i>
-                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">1<span class="visually-hidden">unread messages</span></span>
+                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> <span class="visually-hidden">unread messages</span></span>
                        </a>
                      </div>
                    </div>
@@ -124,20 +124,3 @@
          </nav>
        </div>
    </header>
- <%--  <script>
-      function getvalue(){
-              var idx = document.getElementById('rounded').value;
-              var urll = 'http://localhost:8091/search/'+idx;
-              return urll;
-              }
-
-      function show_name(e){
-    var urll = null;
-                 var idx = document.getElementById('rounded').value;
-        urll = 'http://localhost:8091/search/'+idx;
-                 if(e.keyCode == 13){
-                   return window.location.href=urll;
-                 }
-              }
-      </script>--%>
-

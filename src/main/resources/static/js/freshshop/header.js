@@ -15,6 +15,7 @@ $(document).ready(function(){
 	document.getElementById("myInfo").style.display= "none";
 	document.getElementById("inquiry").style.display= "none";
 	document.getElementById("admin_addItem").style.display= "none";
+	$('.badge').append(0);
 
 	// 로그인 폼 submit 이벤트 처리
 	$("#login-btn").on("click", function (){
@@ -32,7 +33,6 @@ $(document).ready(function(){
 		   data: JSON.stringify(data),
 		   dataType: "json",
 		   success: function(data) {
-			   console.log('Success!')
 			   localStorage.setItem('token', data.token);
 		   },
 		   beforeSend: function (xhr) {
@@ -58,7 +58,30 @@ $(document).ready(function(){
             data: JSON.stringify(data),
             dataType: "json",
             success: function(data) {
-                console.log(data)
+                /* ===== 장바구니 담겨 있는 리스트 개수 ====== */
+            	$.ajax({
+                   url: api + "/cart/list",
+                   type: 'GET',
+                   async: false,
+                   cache: false,
+                   contentType: 'application/text; charset=utf-8',
+                   dataType: "json",
+                   success: function (data) {
+                	   let count = 0;
+                	   for(let i in data){
+                		   count++;
+                	   }
+                	   $('.badge').empty();
+                	   $('.badge').append(count);
+                   },
+                   beforeSend: function (xhr) {
+                       xhr.setRequestHeader("Authorization", "Bearer " + token);
+                   },
+                   error: function (jqXHR, textStatus, errorThrown) {
+                       alert("로그인이 필요합니다.");
+                       location.href = "/";
+                   }
+                });
             },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization","Bearer " + token);
@@ -115,4 +138,5 @@ $(document).ready(function(){
     $('#food').on("click",function(){
    	 	location.href="http://localhost:8091/shop_dairy?"+this.id;
      });
+    
 });

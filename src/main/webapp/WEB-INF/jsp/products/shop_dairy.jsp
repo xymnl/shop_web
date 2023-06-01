@@ -15,7 +15,7 @@
 		<div class="row shop-filter">
 			<div class="d-lg-flex justify-content-between align-items-center">
 				<div class="mb-3 mb-lg-0">
-					<p class="mb-0"> <span class="text-dark">24 </span> Products found </p>
+					<p class="mb-0"> <span class="text-dark itemCount"> </span> Products found </p>
 				</div>
 				<div class="d-md-flex justify-content-between align-items-center">
 					<div class="d-flex align-items-center justify-content-between">
@@ -74,14 +74,16 @@ $.ajax({
   		}else {
   			$('.currentPage').html('패션의류 / 잡화 ');
   		}
-  		
+  		let num = 0;
   		for(let j in data){
    	   		const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 	    		   $('.shop-itmes').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
 		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>'
   		   						);
+	    	num++;
    	   }
+		$('.itemCount').append(num+' ');
   	 }
  })
 </script>
