@@ -13,11 +13,11 @@
     <div class="col-xs-12">
       <table class="table table-bordered table-hover dt-responsive">
         <thead>
-          <tr>
-            <th>title</th>
-            <th>content</th>
-            <th>questionStatus</th>
-            <th>name</th>
+          <tr align="center">
+            <th width="20%">문의제목</th>
+            <th>문의내용</th>
+            <th>문의상태</th>
+            <th>고객</th>
           </tr>
         </thead>
         <tbody>
@@ -75,6 +75,7 @@ $(document).ready(function(){
        },
        error: function (jqXHR, textStatus, errorThrown) {
            alert("일반회원은 접근할 수 없습니다.");
+           location.href = "/";
        }
    })
 });
