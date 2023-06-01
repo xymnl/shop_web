@@ -38,6 +38,7 @@
                         <tr class="jb-border">
                             <td class="jb-bold" style="width:13.2%" align="center">답변내용</td>
                             <td style="height: 300px"><span class="span_dataset5"></span></td>
+                        </tr>
                     </table>
                     <a href="/inquiry"><button class="btn btn-primary px-1" type="button">돌아가기</button></a>
                 </div>
