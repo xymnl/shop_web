@@ -143,7 +143,7 @@ $(document).ready(function(){
 			}else {
 				if(page == 1){ // 1번 페이지 선택 시
 					jQuery('.pagination li:first-child').addClass("disabled"); // prev 비활성
-					if(num_pages > 2) jQuery('.pagination li:last-child').removeClass("disabled"); // 1,2,3 ... 버튼 존재 시
+					if(num_pages > 1) jQuery('.pagination li:last-child').removeClass("disabled"); // 1,2,3 ... 버튼 존재 시
 					else jQuery('.pagination li:last-child').addClass("disabled"); // 1번 버튼만 존재 시
 				}else if(page == num_pages){ // 마지막 페이지 선택 시
 					jQuery('.pagination li:first-child').removeClass("disabled"); // prev 활성
