@@ -57,7 +57,7 @@ $(document).ready(function(){
                                     +'<span>'+data[j].orderItemDtoList[0].count+'</span><span>&nbsp개</span>'
                                     +'&nbsp&nbsp<span class="fw-bold">'+allprice+'원</span></div></div>'
                                     +'<div class="col-3 col-md-3 col-lg-2"><div class="input-group input-spinner  ">'
-                                    +'<button id="rem" data-id="'+data[j].orderId+'">주문취소하기</button>'
+                                    +'<button id="rem" class="btn btn-primary px-3" data-id="'+data[j].orderId+'">주문취소</button>'
                                     +'</div></div>'
                                     +'<div class="col-2 text-lg-end text-start text-md-end col-md-2">'
                                     +'<span>'+data[j].orderStatus+'&nbsp&nbsp</span></div></div><hr>'

@@ -114,7 +114,7 @@
                </button>
                <div id="categoryBox" class="acB">
              	<ul id="categoryList">
-             		<li id="fashion">패션의류 / 잡화 </li>
+             		<li id="fashion">패션의류 / 잡화 </li>리
              		<li id="beauty">뷰티</li>
              		<li id="food">식품</li>
              	</ul>
