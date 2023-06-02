@@ -49,6 +49,7 @@ $(document).ready(function(){
        contentType: 'application/text; charset=utf-8',
        dataType: "json",
        success: function (data) {
+    	   console.log(JSON.stringify(data))
        var totalprice=0;
        for(var j=0; j<data.length; j++){
        var allprice = data[j].count * data[j].price;
@@ -58,7 +59,7 @@ $(document).ready(function(){
        $('.cartlist').append('<div class="row align-items-center listBoxItem"><div class="col-3 col-md-2">'
                              +'<img src="/resources/images/item/'+data[j].imgName+'" alt="" class="shop-img"/>'
                              +'</div>'
-                             +'<div class="col-4 col-md-5"><a href="shop-single.html" class="text-inherit"><h3>'+data[j].itemNm+'  </h3></a>'
+                             +'<div class="col-4 col-md-5"><a href="/detail/'+data[j].itemId+'" class="text-inherit"><h3>'+data[j].itemNm+'  </h3></a>'
                              +'<button id="order" class="btn btn-primary px-3" data-id="'+data[j].cartItemId+'">주문하기</button><span>  </span><button id="rem" class="btn btn-primary px-3" data-id="'+data[j].cartItemId+'">Remove</button>'
                              +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
                              +'</div>'
