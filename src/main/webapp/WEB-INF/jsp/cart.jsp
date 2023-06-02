@@ -73,6 +73,9 @@ $(document).ready(function(){
                                +'<div class="me-auto"><div>'+data[j].itemNm+'</div></div>'
                                +'<span id="small'+data[j].cartItemId+'" value="'+allprice+'">'+allprice+'</span><span> 원</span>&nbsp&nbsp</li><hr>'
        );
+        if(($("#count"+data[j].cartItemId).val()) < 2){
+                           	    	$("#minus"+data[j].cartItemId).attr("disabled", true);
+                           	    }
        }
 
        $('.list-groups').append('<li class="list-group-item d-flex justify-content-between align-items-start">'
@@ -92,41 +95,43 @@ $(document).ready(function(){
     var totalss=fir.dataset.total;
     var tt=Number(totalss);
    $('.button-plus').click(function(e){
-   	    var n = $('.button-plus').index(this);
-   	    var num = $(".form-input:eq("+n+")").val();
-   	    num = $(".form-input:eq("+n+")").val(num*1+1);
+       var num2 = e.target.dataset.id;
 
-   	            var num2 = e.target.dataset.id;
-          	    var price1 = e.target.dataset.price;
-          	    var prices = $("#count"+num2).val() * price1;
+      	    var n = $('.button-plus').index(this);
+      	    var num = $(".form-input:eq("+n+")").val();
+      	    num = $(".form-input:eq("+n+")").val(num*1+1);
+           if(($("#count"+num2).val()) > 1){
+                 $("#minus"+num2).attr("disabled", false);
+           }
 
-                if(($("#count"+num2).val()) > 1){
-                   	    	$("#minus"+num2).attr("disabled", false);
-                   	    }
-          	    $('#pricenum'+num2).text(prices+"원");
-          	    $('#small'+num2).text(prices);
-          	    tt+=Number(price1);
-          	    $('#small').text(tt);
-   	 });
+             	    var price1 = e.target.dataset.price;
+             	    var prices = $("#count"+num2).val() * price1;
 
-   	$('.button-minus').click(function(e){
+
+             	    $('#pricenum'+num2).text(prices+"원");
+             	    $('#small'+num2).text(prices);
+             	    tt+=Number(price1);
+             	    $('#small').text(tt);
+      	 });
+
+      	$('.button-minus').click(function(e){
+
+      	    let n2 = $('.button-minus').index(this);
+      	  	let num2 = $(".form-input:eq("+n2+")").val();
+      	    num2 = $(".form-input:eq("+n2+")").val(num2*1-1);
    	var num = e.target.dataset.id;
-   	    if(($("#count"+num).val()) < 3){
-   	    	$("#minus"+num).attr("disabled", true);
-   	    }
-   	    let n2 = $('.button-minus').index(this);
-   	  	let num2 = $(".form-input:eq("+n2+")").val();
-   	    num2 = $(".form-input:eq("+n2+")").val(num2*1-1);
+      	    if(($("#count"+num).val()) < 2){
+      	    	$("#minus"+num).attr("disabled", true);
+      	    }
 
+      	    var price1 = e.target.dataset.price;
+      	    var prices = $("#count"+num).val() * price1;
+      	      $('#pricenum'+num).text(prices+"원");
+      	      $('#small'+num).text(prices);
 
-   	    var price1 = e.target.dataset.price;
-   	    var prices = $("#count"+num).val() * price1;
-   	      $('#pricenum'+num).text(prices+"원");
-   	      $('#small'+num).text(prices);
-
-   	      tt-=Number(price1);
-          $('#small').text(tt);
-   	});
+      	      tt-=Number(price1);
+             $('#small').text(tt);
+      	});
 });
 
 
