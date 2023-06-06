@@ -100,6 +100,14 @@
 </head>
 <body>
 <div class="m-container">
+    <aside class="myPageLeftbar">
+		<ul>
+			<li><div><a href="/admin_addItem" id="admin_addItemBtn">상품 등록</a></div></li>
+			<li><div><a href="/admin_updateItem" id="admin_updateItemBtn">상품 수정</a></div></li>
+			<li><div><a href="/admin_deleteItem" id="admin_deleteItemBtn">상품 삭제</a></div></li>
+		</ul>
+	</aside>
+
     <div class="row my-10">
         <form id="uploadForm" name="uploadForm" method="post" enctype="multipart/form-data">
 
@@ -154,4 +162,10 @@
     </div>
 </div>
 </body>
+<script>
+          let nowUrl = window.location.href;
+          if(nowUrl.indexOf("admin_addItem")){
+       	   document.getElementById('admin_addItemBtn').classList.add("active");
+          }
+</script>
 <%@include file="fragments/footer.jsp" %>

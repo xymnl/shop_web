@@ -31,6 +31,14 @@ public class HomeController {
     public String addItem() {
         return "admin_addItem";
     }
+    @GetMapping("/admin_updateItem")
+    public String updateItem() {
+        return "admin_updateItem";
+    }
+    @GetMapping("/admin_deleteItem")
+    public String deleteItem() {
+        return "admin_deleteItem";
+    }
     
     @GetMapping("/createUser")
     public String createUser() {
