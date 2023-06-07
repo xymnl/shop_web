@@ -45,13 +45,16 @@
             // input class 값
             var fileInput = $('.files');
             // fileInput 개수를 구한다.
-            for (var i = 0; i < fileInput.length; i++) {
-                if (fileInput[i].files.length > 0) {
-                    for (var j = 0; j < fileInput[i].files.length; j++) {
-                        console.log(" fileInput[i].files[j] :::" + fileInput[i].files[j]);
 
-                        // formData에 'file'이라는 키값으로 fileInput 값을 append 시킨다.
-                        formData.append('itemImgFileList', $('.files')[i].files[j]);
+            if(fileInput != null) {
+                for (var i = 0; i < fileInput.length; i++) {
+                    if (fileInput[i].files.length > 0) {
+                        for (var j = 0; j < fileInput[i].files.length; j++) {
+                            console.log(" fileInput[i].files[j] :::" + fileInput[i].files[j]);
+
+                            // formData에 'file'이라는 키값으로 fileInput 값을 append 시킨다.
+                            formData.append('itemImgFileList', $('.files')[i].files[j]);
+                        }
                     }
                 }
             }
@@ -73,8 +76,8 @@
             formData.append("itemDto", new Blob([JSON.stringify(data)], {type: "application/json"}));
 
             $.ajax({
-                url: api + "/user/item/new",
-                method: "post",
+                url: api + "/user/item/update/${idx}",
+                method: "put",
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -83,10 +86,10 @@
                 dataType: "json",
 
             }).done(function (res) {
-                alert("상품등록이 완료되었습니다.");
+                alert("상품수정이 완료되었습니다.");
                 location.href="/admin_addItem"
             }).fail(function (err) {
-                alert("상품등록 실패.");
+                alert("상품수정 실패.");
             });
         });
     });
