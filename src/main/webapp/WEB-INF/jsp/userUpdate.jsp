@@ -26,7 +26,7 @@
 
        <div class="col-md-8 mb-3">
 	   		<label class="form-label" for="address">비밀번호<span class="text-danger">*</span></label>
-	   		<input type="password" class="form-control" id="passwords" placeholder="Enter Your Address" required>
+	   		<input type="password" class="form-control" id="passwords" placeholder="Enter Your password" required>
 	   </div>
 
        <div class="col-md-12">
@@ -51,10 +51,12 @@
                     data: JSON.stringify(data),
                     dataType: "json",
                     success: function(data) {
-                            $('.name').val(data.name);
-                            $('.email').val(data.email);
-                            $('.address').val(data.address);
-                            $('.password').val(data.password);
+                    	console.log("data값 : "+JSON.stringify(data))
+                            let name11 = $('#name').val(data.name);
+                            $('#email').val(data.email);
+                            $('#address').val(data.address);
+                            $('#passwords').val(data.password);
+                            console.log("name 값 : "+name11);
                     },
                     beforeSend: function (xhr) {
                         xhr.setRequestHeader("Authorization","Bearer " + token);
@@ -69,30 +71,41 @@ $(document).on('click', '#userinfoupdate', function(e){
     	let api = '${api}';
     	let data = { //JavaScript Object
             					name: $("#name").val(),
-            					password: $("#password").val(),
+            					password: $("#passwords").val(),
             					address: $("#address").val()
             			}
-        // 기본 이벤트 제거
-        event.preventDefault();
-         $.ajax({
-                  type: "PUT",
-                  url: api+"/user/modify",
-                  async: false,
-                  contentType: "application/json; charset=utf-8",
-                  data: JSON.stringify(data),
-                  dataType: "json",
-                  success: function(data) {
-                        alert("개인 정보 수정 완료.");
-                  },
-                  beforeSend: function (xhr) {
-                      xhr.setRequestHeader("Content-type","application/json");
-                      xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
-                  },
-                }).done(function (res) {
+        if(data.name == ""){
+        	let noname = document.getElementById('name').focus();
+        	return noname;
+        }else if(data.password == ""){
+        	let noemail = document.getElementById('passwords').focus();
+        	return noemail;
+        }else if (data.address == ""){
+        	let noadd = document.getElementById('address').focus();
+        	return noadd;
+        }else {
+        	event.preventDefault();
+            $.ajax({
+                     type: "PUT",
+                     url: api+"/user/modify",
+                     async: false,
+                     contentType: "application/json; charset=utf-8",
+                     data: JSON.stringify(data),
+                     dataType: "json",
+                     success: function(data) {
+                           alert("개인 정보 수정 완료.");
+                     },
+                     beforeSend: function (xhr) {
+                         xhr.setRequestHeader("Content-type","application/json");
+                         xhr.setRequestHeader("Authorization","Bearer " + localStorage.getItem('token'));
+                     },
+                   }).done(function (res) {
 
-                          location.href = "/";
-                }).
-                fail(function (err) { alert("개인정보수정 실패"); })
+                             location.href = "/";
+                   }).
+                   fail(function (err) { alert("개인정보수정 실패"); })
+        }
+        
 });
 
 $(document).on('click', '#userinfodelete', function(e){

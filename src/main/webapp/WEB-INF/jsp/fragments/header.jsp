@@ -4,8 +4,8 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>FreshCart - eCommerce HTML Template</title>
-   <link rel="icon" href="/resources/images/favicon-logo.svg" sizes="32x32" type="image/png">
+   <title>FreshShop - eCommerce HTML Template</title>
+   <link rel="icon" href="/resources/images/mlogo.png" sizes="52x52" type="image/png">
 
    <!-- BootStrap -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
@@ -15,6 +15,7 @@
    <!-- Freshshop CSS -->
    <link rel="stylesheet" href="/resources/css/freshshop/theme.min.css">
    <link rel="stylesheet" href="/resources/css/freshshop/header.css">
+   <link rel="stylesheet" href="/resources/css/freshshop/mypage.css">
    <link rel="stylesheet" href="/resources/css/freshshop/home.css">
    <link rel="stylesheet" href="/resources/css/freshshop/footer.css">
    <link rel="stylesheet" href="/resources/css/freshshop/modals.css">
@@ -29,10 +30,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/resources/js/freshshop/header.js"></script>
 	<script src="/resources/js/freshshop/inquiry.js"></script>
-	<script src="/resources/js/freshshop/head.js"></script>
-    <!-- <script src="/resources/js/freshshop/home.js"></script> -->
-	<script src="/resources/js/slick.js"></script>
-	<script src="/resources/js/jquery.elevatezoom.min.js"></script>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
 </head>
@@ -42,7 +39,7 @@
              <div class="container">
                <div class="row w-auto align-items-center gx-lg-2 gx-0">
                  <div class="col-xxl-2 col-lg-3"> <!-- 로고 이미지 / 선택 시 메인 페이지 이동 -->
-                   <a class="navbar-brand d-none d-lg-block logo" href="/"><img src="/resources/images/logo.png" alt="로고 이미지"><span class="logoTitle">Fresh Shop</span></a>
+                   <a class="navbar-brand d-none d-lg-block logo" href="/"><img src="/resources/images/mlogo.png" alt="로고 이미지"><span class="logoTitle">Fresh Shop</span></a>
                  </div>
                  <div class="col-xxl-6 col-lg-5 d-none d-lg-block">
 

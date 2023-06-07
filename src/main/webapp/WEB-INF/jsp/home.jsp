@@ -51,14 +51,17 @@ $(document).ready(function(){
    	       cache: false,
    	       contentType: 'application/json; chartset=utf-8',
    	       success: function (data) {
-   	    	console.log("searchQuery : "+searchQuery)
+   	    	   console.log("data 값 : "+data); 	
+   	    	   if(data == ""){
+   	    		   $('.itme-list').append('<p class="result">검색 결과가 없습니다.</p>');	
+   	    		   jQuery('.m-container').addClass("active");
+   	    	   }
    	    	   for(let j in data){
-   	    	   const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-    		   $('.itme-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
-    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
-    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>'
-   		   						);
-   	    		
+	   	    	   const itemPrice = data[j].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	    		   $('.itme-list').append('<div class="item-box"><a href="detail/'+data[j].item_id+'">'
+	    		   						+ '<img class="item-img" src="/resources'+data[j].imgUrl+'" onerror=this.src="/resources/images/item/noImage.svg">'
+	    		   						+ '<div class="itemName" id="itemName">'+data[j].itemName+'<span class="itemPrice">'+itemPrice+'원</span></div><a><div>'
+	   		   						);
    	    	   }
    	       },
    	       beforeSend: function (xhr) {

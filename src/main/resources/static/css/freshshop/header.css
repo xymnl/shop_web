@@ -35,6 +35,8 @@ img {-webkit-user-drag:none;}
 /* === 헤더 영역 === */
 .myinfoBtn, .logout, .inquryBtn, .admin_Item, .bi-cart3 {color:#333;}
 
+.logoTitle {position:absolute; top:30px; font-size:27px; }
+
 .loginTxt {color:#333;}
 .createBtn {color:#0aad0a;}
 
@@ -59,65 +61,3 @@ img {-webkit-user-drag:none;}
 	background:#CFCFCF;
 	transition:all 0.4s ease;
 }
-
-/* === myPage.jsp === */
-.h-container {
-	width:80%;
-    height:600px;  
-	margin:10px auto;
-	padding:10px;
-}
-.myPageLeftbar {
-	float:left;
-	width:200px;
-	height:100%;
-	margin:60px 30px 0 30px;
-	font-weight:bold;
-	font-size:24px;
-}
-.myPageLeftbar > ul > li {margin-bottom:50px; font-size:18px;}
-.myPageLeftbar > ul > li > div > a {color:#c0c0c0;}
-.myPageLeftbar > ul > li:hover {cursor:pointer; color:#0aad0a;}
-.updateBtnz {color:#333;}
-.myPageLeftbar > ul > li > div > a.active {color:#333;}
-.updateBtn:hover {color:#333;}
-
-.myPageBody{ margin-left:300px;	height:100%; }
-.titleText {text-align:left; padding:10px 0 30px;}
-.myInfoBox > ul {
-	display:flex;
-	height:200px;
-	border-top:1px solid #333;
-	border-bottom:1px solid #333;
-}
-.myInfoBox > ul > li {
-	flaot:left;
-	margin:10px;
-	font-weight:bold; font-size:25px;
-}
-.myInfoName {margin-top:50px;}
-.myInfoBox > ul > li:nth-child(2), .myInfoBox > ul > li:nth-child(3) {margin-top:70px;}
-.myInfoBox > ul > li {margin:0 auto;}
-.myInfoemail {height:50px; font-weight:normal; font-size:18px; color:#aaa;}
-.myInfoBtn, .myInfodelete {
-	width:160px; height:50px; text-align:center; 
-	margin-left:30px;
-	font-size:18px; line-height:50px;
-	border:1px solid #333; border-radius:30px;
-	}
-.myInfoBtn:hover, .myInfodelete:hover {cursor:pointer; color:#0aad0a;}
-
-.noOrder {text-align:center; font-size:20px;}
-.orderBox > ul {
-	height:100px;
-	border-bottom:1px solid #333;
-}
-.moreBtn {color:#333; font-weight:bold;}
-
-/* === oderList.jsp ===*/
-.orderTitleDetail {padding:20px 0;  border-bottom:1px solid #333;}
-.orderListBoxDetail {padding:30px 0 20px; margin:0 auto;}
-
-/* === userUpdate.jsp ===*/
-.userBody{margin:50px 0 0 300px;}
-.userBody > div {margin:20px;}
