@@ -43,8 +43,7 @@ $(document).ready(function(){
                                            +'<div class="mt-2 small lh-1"><a href="#!" class="text-decoration-none text-inherit"><span class="me-1 align-text-bottom"></span></a>'
                                            +'<span class="fw-bold">'+itemPrice+'원</span></div></div>'
                                            +'<div class="col-3 col-md-3 col-lg-2"><div class="input-group input-spinner  ">'
-                                           +'<button id="update" class="btn btn-primary px-2" data-id="'+data[j].item_id+'">상품 수정</button>'
-                                           +'</div></div>'
+                                           +'<button id="update" class="btn btn-primary px-2" data-id="'+data[j].item_id+'">상품 수정</button>'+'</div></div>'
                                            +'<div class="col-2 text-lg-end text-start text-md-end col-md-2">'
                                            +'</div></div><hr>'
 	    		   						);
@@ -58,6 +57,12 @@ $(document).ready(function(){
 	       }
 	   })
 	   });
+
+$(document).on('click', '#update', function(e){
+ let token = localStorage.getItem("token");
+       var num = e.target.dataset.id;
+       location.href = "/admin_updateItem/"+num;
+});
 </script>
 <script>
           let nowUrl = window.location.href;

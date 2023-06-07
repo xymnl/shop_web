@@ -35,6 +35,11 @@ public class HomeController {
     public String updateItem() {
         return "admin_updateItem";
     }
+    @GetMapping("/admin_updateItem/{id}")
+    public String updateItemGet(@PathVariable Long id,Model model) {
+        model.addAttribute("idx",id);
+        return "admin_updateItem_get";
+    }
     @GetMapping("/admin_deleteItem")
     public String deleteItem() {
         return "admin_deleteItem";
