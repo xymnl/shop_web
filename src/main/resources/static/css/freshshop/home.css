@@ -1,50 +1,116 @@
 @charset "UTF-8";
 
 body {overflow-x:hidden; width:100%; height:100vh;}
+
 .m-container {
-	width:80%;
-    height:800px;  
-	margin:10px auto;
-	padding:10px;
-}
+		width:80%;
+	    height:800px;  
+		margin:10px auto;
+		padding:10px;
+	}
+
+@media (min-width:1024px) { 
+  .m-container {
+		width:80%;
+	    height:800px;  
+		margin:10px auto;
+		padding:10px;
+	}
+	.title {text-align:center; padding:20px 0 20px;}
+
+	.itme-list {
+		display:flex; position:absolute; flex-flow:row wrap; 
+		left:50%; top:250px;
+		width:1000px; height:500px; float:left;
+		transform:translate(-50%);
+		overflow:hidden;
+	}
+	.item-box {
+		user-select:none;
+		width:150px; height:200px;
+		margin:10px 10px 10px 75px; border-radius:10px; color:#333;
+		text-align:center;
+	}
+	.item-box:hover {cursor:pointer;}
+	.item-box:hover .itemName {color:#0aad0a; font-weight:bold;}
+	.item-box:hover .itemPrice {font-weight:normal;}
+	.item-img {
+		width:100%; height:70%;
+		border-radius:10px; 
+		background-size:cover;
+	}
+	.itemName{width:100%; height:20%; text-align:center; line-height:25px; font-size:18px;}
+	.itemPrice {display:block; color:#333; font-size:16px;}
+	
+	.pagenation_box {
+		display:inline-flex; justify-content:center;
+		width:100%;
+		margin:500px auto;
+		align-items:center;
+	}
+} 
+
+/* 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+@media (min-width:768px) and (max-width:1023px) { 
+	.m-container {
+		width:70%;
+	    height:800px;  
+		margin:10px auto;
+		padding:10px;
+	}
+	.title {text-align:center; padding:20px 0 20px;}
+
+	.itme-list {
+		display:flex; position:absolute; flex-flow:row wrap; 
+		left:50%; top:250px;
+		width:800px; height:500px; float:left;
+		transform:translate(-50%);
+		overflow:hidden;
+		background:pink;
+	}
+	.item-box {
+		user-select:none;
+		width:150px; height:200px;
+		margin:10px 10px 10px 75px; border-radius:10px; color:#333;
+		text-align:center;
+	}
+	.item-box:hover {cursor:pointer;}
+	.item-box:hover .itemName {color:#0aad0a; font-weight:bold;}
+	.item-box:hover .itemPrice {font-weight:normal;}
+	.item-img {
+		width:100%; height:70%;
+		border-radius:10px; 
+		background-size:cover;
+	}
+	.itemName{width:100%; height:20%; text-align:center; line-height:25px; font-size:18px;}
+	.itemPrice {display:block; color:#333; font-size:16px;}
+	
+	.pagenation_box {
+		display:inline-flex; justify-content:center;
+		width:100%;
+		margin:500px auto;
+		align-items:center;
+	}	
+} 
+
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/ 
+@media (max-width:767px) {
+	.m-container {
+		width:60%;
+	    height:800px;  
+		margin:10px auto;
+		padding:10px;
+		background:green;
+	}
+} 
+
+
+
 .m-container.active {
 	width:80%;
     height:400px;  
 	margin:10px auto;
 	padding:10px;
-}
-
-.title { text-align:center; padding:80px 0 20px; }
-
-.itme-list {
-	display:flex; position:absolute; flex-flow:row wrap; 
-	left:50%; top:300px;
-	width:1400px; height:600px; float:left;
-	transform:translate(-50%);
-	overflow:hidden;
-}
-.item-box {
-	user-select:none;
-	width:170px; height:250px;
-	margin:10px 10px 10px 80px; border-radius:10px; color:#333;
-}
-.item-box:hover {
-	border:0.5px solid #0aad0a; border-radius:10px;
-	cursor:pointer;
-	overflow:hidden;
-}
-.item-img {
-	width:100%; height:80%; border-radius:10px;
-	background-size:cover;
-}
-.itemName{width:100%; height:20%; text-align:center; line-height:25px;}
-.itemPrice {display:block;}
-
-.pagenation_box {
-	display:inline-flex; justify-content:center;
-	width:100%;
-	margin:600px auto;
-	align-items:center;
 }
 
 .result {width:100%; height:200px; text-align:center; line-height:200px;}

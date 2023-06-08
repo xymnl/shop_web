@@ -13,7 +13,6 @@
                	</div>
     </div>
 <script>
-
 $(document).ready(function(){
     let api = '${api}';
     var token = localStorage.getItem("token");
@@ -74,12 +73,21 @@ $(document).ready(function(){
     	 $('.pagenation_box').append('<ul class="pagination pagination-seperated "></ul>');
     	 homePagination();
     })
+    window.addEventListener("resize", Page);
     
-    
-    
+    function Page() {
+    	var num = 0;
+    	if (matchMedia("screen and (min-width: 1024px)").matches) var num = 8; // 화면에 표시할 상품 개수
+		else if (matchMedia("screen and (min-width:768px) and (max-width:1023px)").matches) var num = 6;
+		else var num = 6;
+    	
+    	return num;
+    }
+    var newNum = Page();
+    console.log("newNum 값 : "+newNum);
    	/* === home.jsp 상품 페이지네이션 === */
 	function homePagination() {
-		var req_num_row = 10 // 화면에 표시할 상품 개수
+   		var req_num_row = newNum;
 		var $tr = jQuery('.item-box');	// paging 대상 class명
 		var total_num_row = $tr.length;
 		var num_pages = 0;
