@@ -3,14 +3,10 @@ package com.example.shop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -76,9 +72,21 @@ public class HomeController {
     @GetMapping("/sample")
     public String sample() { return "sample"; }
 
+    //일반 로그인
     @GetMapping("/loginUser")
     public String loginUser() {
         return "loginUser";
+    }
+
+    //소셜 로그인
+    @GetMapping("/loginUser/oauth")
+    public String loginOAuthUser(@RequestParam String token, Model model) {
+
+        model.addAttribute("token", token);
+
+        System.out.println("token = " + token);
+
+        return "loginOAuthUser";
     }
 
     @GetMapping("/updateUser")
