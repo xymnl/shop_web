@@ -180,6 +180,7 @@ $(document).ready(function(){
           url: api+"/cart/new",
           async: false,
           contentType: "application/json; charset=utf-8",
+		  dataType: "json",
           data: JSON.stringify(data),
             success: function(data) {
                 console.log('Success!')
