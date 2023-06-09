@@ -37,12 +37,11 @@
    <header>
       <div class="headerBottom">
              <div class="container">
-               <div class="row w-auto align-items-center gx-lg-2 gx-0">
-                 <div class="col-xxl-2 col-lg-3"> <!-- 로고 이미지 / 선택 시 메인 페이지 이동 -->
-                   <a class="navbar-brand d-none d-lg-block logo" href="/"><img src="/resources/images/mlogo.png" alt="로고 이미지"><span class="logoTitle">Fresh Shop</span></a>
+               <div class="row w-auto align-items-center">
+                 <div class="col-xxl-2 col-3"> <!-- 로고 이미지 / 선택 시 메인 페이지 이동 -->
+                   <a class="logo" href="/"><img src="/resources/images/mlogo.png" alt="로고 이미지"><span class="logoTitle">Fresh Shop</span></a>
                  </div>
-                 <div class="col-xxl-6 col-lg-5 d-none d-lg-block">
-
+                 <div class="col-xxl-6 col-5 d-block searchBox">
                  <!-- 제품 검색 영역 -->
                    <form method="get" name="search" id="search" onSubmit="return false;">
                        <div class="input-group">
@@ -53,7 +52,7 @@
                        </div>
                    </form>
                  </div>
-                 <div class="col-md-4 col-xxl-4 text-end d-none d-lg-block">
+                 <div class="col-4 col-xxl-4 text-end d-block infoBox">
                    <div class="list-inline">
                      <div class="list-inline-item mypageButton"> <!-- 로그인 버튼 -->
                        <a href="#!" class="text-muted mypageLink" data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-person"></i></a>
@@ -103,9 +102,9 @@
                  </div>
                </div>
              </div>
-         <nav class="navbar navbar-expand-lg navbar-light navbar-default py-0 py-lg-4">
-           <div class="container px-0 px-md-3">
-             <div class="dropdown me-3 d-none d-lg-block"> <!-- 모든 카테고리 버튼 -->
+         <nav class="navbar navbar-expand navbar-light navbar-default py-0 py-lg-4">
+           <div class="container px-0">
+             <div class="dropdown d-block"> <!-- 모든 카테고리 버튼 -->
                <button class="btn btn-primary px-6" type="button" id="allCategories">
                  <span class="me-1"><i class="bi bi-grid"></i></span> 모든 카테고리
                </button>

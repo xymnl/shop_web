@@ -97,13 +97,17 @@ $(document).ready(function(){
             if(res != null){
            	 $('.mypageLink').remove();
            	 $('.mypageButton').append('<a href="/" class="logout">로그아웃</a>');
+           	 $('.mypageButton').append('<a href="/" class="logoutM"><i class="bi bi-box-arrow-right"></i></a>');
     	     $('#myInfo').append('<a href="/mypage" class="myinfoBtn">내 정보 </a>');
+    	     $('#myInfo').append('<a href="/mypage" class="myinfoBtnM"><i class="bi bi-person-exclamation"></i></a>');
     	     $('.myInfoName').append(name+'<p class="myInfoemail">'+email+'</p>');
             }
             
             if(email.includes('admin')){
 				$('#admin_addItem').append('<a href="/admin_addItem" class="admin_Item">상품 관리</a>');
+				$('#admin_addItem').append('<a href="/admin_addItem" class="admin_ItemM"><img src="/resources/images/product.png" alt="상품관리"></a>');
             	$('#inquiry').append('<a href="/admin_inquiry" class="inquryBtn">문의 관리</a>');
+            	$('#inquiry').append('<a href="/admin_inquiry" class="inquryBtnM"><img src="/resources/images/inquiry.png" alt="문의관리"></a>');
             	$('.inquiry_box').append('<h2 class="inquiry_title">문의 내역입니다.</h2>');
             }else {
             	$('#inquiry').append('<a href="/inquiry" class="inquryBtn">문의</a>');

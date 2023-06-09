@@ -79,7 +79,7 @@ $(document).ready(function(){
     	var num = 0;
     	if (matchMedia("screen and (min-width: 1024px)").matches) var num = 8; // 화면에 표시할 상품 개수
 		else if (matchMedia("screen and (min-width:768px) and (max-width:1023px)").matches) var num = 6;
-		else var num = 6;
+		else var num = 2;
     	
     	return num;
     }
