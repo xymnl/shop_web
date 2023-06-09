@@ -83,9 +83,10 @@
                 processData: false,
                 cache: false,
                 enctype: 'multipart/form-data',
-                dataType: "json",
-
-            }).done(function (res) {
+                success: function(data) {
+                console.log('Success!')
+                }
+                }).done(function (res) {
                 alert("상품수정이 완료되었습니다.");
                 location.href="/admin_addItem"
             }).fail(function (err) {
