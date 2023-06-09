@@ -124,6 +124,31 @@ $(document).on('click', '.myInfodelete', function(e){
 			alert("회원 탈퇴를 취소합니다.");
 		}
 });
+
+$(document).on('click', '#rem', function(e){
+	let api = '${api}';
+	let token = localStorage.getItem("token");
+	var num = e.target.dataset.id;
+	$.ajax({
+		url : api + "/order/cancel/"+num,
+		type:'POST',
+		async: false,
+		cache: false,
+		contentType: 'application/text; chartset=utf-8',
+		dataType: "text",
+		success: function (data) {
+			alert("주문이 취소되었습니다.");
+		},
+		beforeSend: function (xhr) {
+			xhr.setRequestHeader("Authorization", "Bearer " + token);
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			alert("주문 취소를 실패하였습니다.");
+		}
+	}).done(function (res) {
+		location.reload();
+	})
+});
 </script>
 <script>
    let nowUrl = window.location.href;
